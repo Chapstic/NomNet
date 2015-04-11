@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class register extends ActionBarActivity {
@@ -15,16 +16,24 @@ public class register extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
-        Button button = (Button)findViewById(R.id.btnSignup);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button button1 = (Button)findViewById(R.id.btnSignup);
+        button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(register.this, FoodFeedActivity.class);
                 startActivity(i);
             }
         });
+
+       TextView signin = (TextView)this.findViewById(R.id.link_to_signin);
+        signin.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(register.this, SignIn.class);
+                startActivity(i);
+            }
+        });
+
     }
 
 

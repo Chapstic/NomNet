@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.content.Intent;
+import android.widget.TextView;
 
 
 public class SignIn extends ActionBarActivity {
@@ -20,6 +21,16 @@ public class SignIn extends ActionBarActivity {
         button.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(SignIn.this, FoodFeedActivity.class);
+                startActivity(i);
+            }
+        });
+
+        TextView register = (TextView)this.findViewById(R.id.link_to_register);
+        register.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SignIn.this, register.class);
                 startActivity(i);
             }
         });
