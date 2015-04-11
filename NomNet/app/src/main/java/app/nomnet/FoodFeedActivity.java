@@ -5,6 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,10 @@ public class FoodFeedActivity extends ActionBarActivity {
         listView = (ListView)findViewById(R.id.listView);
         adapter = new FoodFeedListAdapter(this, nomList);
         listView.setAdapter(adapter);
+
+        // For testing the global variables
+        // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
+        //             Toast.LENGTH_LONG).show();
     }
 
     private void getNoms(){

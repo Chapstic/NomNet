@@ -37,6 +37,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
         return pos;
     }
 
+    // Set the contents for each food feed item
     @Override
     public View getView(int pos, View view, ViewGroup parent){
         if(inflater == null){
