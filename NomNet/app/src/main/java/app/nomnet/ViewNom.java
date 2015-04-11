@@ -63,18 +63,24 @@ public class ViewNom extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent mainIntent = new Intent(ViewNom.this,Settings.class);
+                ViewNom.this.startActivity(mainIntent);
+                return true;
+            case R.id.action_logout:
+                Intent mainIntents = new Intent(ViewNom.this, SignIn.class);
+                ViewNom.this.startActivity(mainIntents);
+                ((MyApplication) this.getApplication()).setIsLoggedIn(false);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+
     }
+
 
     public String getCreator(){
         return currentNom.getCreator();
