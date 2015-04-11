@@ -20,6 +20,11 @@ public class ViewNom extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_nom);
+
+        // Sets the top toolbar to be the one we specifically created
+        topbar = (Toolbar) findViewById(R.id.topbar);
+        setSupportActionBar(topbar);
+
         Intent intent = getIntent();
         currentNom = (Nom)intent.getSerializableExtra("Nom");
 
