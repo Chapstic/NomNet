@@ -22,7 +22,15 @@ public class FoodFeedActivity extends ActionBarActivity {
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
 
-        testNom = new Nom("Albert", 128); //Testing functionality of Nom constructor and ViewNom compatibility
+
+        //***********HARD-CODED data for testing purposes only. REMOVE WHEN DONE.****************
+        //Probably want to create functions to parse ingredients and directions based on user input
+        String ingredients = "Water - 4 cups" + '\n' +
+                            "Salt - 3 tablespoons";
+        String directions = "1. Mix mix, swirl mix" + '\n' +
+                            "2. Drink" + '\n';
+        Recipe recipe = new Recipe("Pad Thai", ingredients, directions);
+        testNom = new Nom("Albert", 128, recipe); //Testing functionality of Nom constructor and ViewNom compatibility
     }
 
 

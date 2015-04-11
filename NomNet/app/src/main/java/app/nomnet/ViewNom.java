@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class ViewNom extends ActionBarActivity {
     Nom currentNom;
     private Toolbar topbar;
-    private TextView creatorText, upvotesText;
+    private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, directionsLabel, ingredientsText, directionsText;
     private ImageView appImageView;
 
     @Override
@@ -31,6 +31,22 @@ public class ViewNom extends ActionBarActivity {
 
         //appImageView = (ImageView) findViewById(R.id.imageView);
         //appImageView.setImageDrawable(getResources().getDrawable(R.drawable.image01) );
+
+        dishNameText = (TextView) findViewById(R.id.dishNameText);
+        dishNameText.setText(currentNom.getName() );
+
+        ingredientsLabel = (TextView) findViewById(R.id.ingredientsLabel);
+        ingredientsLabel.setText("Ingredients" );
+
+        ingredientsText = (TextView) findViewById(R.id.ingredientsText);
+        ingredientsText.setText(currentNom.getIngredients() );
+
+        directionsLabel = (TextView) findViewById(R.id.directionsLabel);
+        directionsLabel.setText("Directions" );
+
+        directionsText = (TextView) findViewById(R.id.directionsText);
+        directionsText.setText(currentNom.getDirections() );
+
     }
 
 

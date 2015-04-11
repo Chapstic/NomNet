@@ -25,14 +25,52 @@
         android:layout_below="@+id/topbar"
         android:layout_alignParentRight = "true"/>
 
+    //INSERT IMAGE HERE
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/foodImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/creatorText"/>
 
+    //Dish Name
+    <TextView
+        android:id="@+id/dishNameText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foodImage"
+        android:gravity = "center_horizontal"/>
 
+    //Ingredients Label
+    <TextView
+        android:id="@+id/ingredientsLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dishNameText"
+        android:textStyle = "bold"
+        android:gravity = "center_horizontal"/>
 
+    //Ingredients content
+    <TextView
+        android:id="@+id/ingredientsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ingredientsLabel"/>
+
+    //Directions label
+    <TextView
+        android:id="@+id/directionsLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ingredientsText"
+        android:textStyle = "bold"
+        android:gravity = "center_horizontal"/>
+
+    //Directions content
+    <TextView
+        android:id="@+id/directionsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/directionsLabel"/>
 
 
 </RelativeLayout>
