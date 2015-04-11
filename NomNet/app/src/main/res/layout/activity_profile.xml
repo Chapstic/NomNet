@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="15dip"
+    android:padding="14dip"
     android:layout_gravity="center"
     android:background="@drawable/background"
     >
