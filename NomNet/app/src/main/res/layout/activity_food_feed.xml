@@ -7,7 +7,8 @@
 
     <include
         android:id="@+id/topbar"
-        layout="@layout/topbar" />
+        layout="@layout/topbar"
+        android:textColor="#FFF"/>
 
     <TextView
         android:layout_width="wrap_content"
