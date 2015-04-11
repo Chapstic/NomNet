@@ -6,30 +6,33 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.TextView;
 
 
-public class FoodFeedActivity extends ActionBarActivity {
-
+public class ViewNom extends ActionBarActivity {
+    Nom currentNom;
     private Toolbar topbar;
-    private Nom testNom; //Probably replace w/ set or linked list of Noms?
+    private TextView creatorText, upvotesText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_feed);
+        setContentView(R.layout.activity_view_nom);
+        Intent intent = getIntent();
+        currentNom = (Nom)intent.getSerializableExtra("Nom");
 
-        topbar = (Toolbar) findViewById(R.id.topbar);
-        setSupportActionBar(topbar);
+        creatorText = (TextView) findViewById(R.id.creatorText);
+        creatorText.setText(currentNom.getCreator());
 
-        testNom = new Nom("Albert", 128); //Testing functionality of Nom constructor and ViewNom compatibility
+        upvotesText = (TextView) findViewById(R.id.upvotesText);
+        upvotesText.setText(Integer.toString(currentNom.getUpvotes()) );
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_food_feed, menu);
+        getMenuInflater().inflate(R.menu.menu_view_nom, menu);
         return true;
     }
 
@@ -48,10 +51,11 @@ public class FoodFeedActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void clickedNom(View view) {
-        Intent intent = new Intent(this, ViewNom.class);
-        //**************Probably want to insert some findViewById() to figure out which Nom in list was selected***************
-        intent.putExtra("Nom", testNom); //Passes Nom object in Map<Key,Value> format to next activity (view_nom)
-        startActivity(intent); //Starts next activity (view_nom)
+    public String getCreator(){
+        return currentNom.getCreator();
+    }
+
+    public int getUpvotes(){
+        return currentNom.getUpvotes();
     }
 }

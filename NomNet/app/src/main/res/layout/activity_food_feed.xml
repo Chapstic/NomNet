@@ -10,5 +10,13 @@
         layout="@layout/topbar"
         android:textColor="#FFF"/>
 
+        <Button
+            android:layout_below="@+id/topbar"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Placeholder for clicking a Nom"
+            android:onClick="clickedNom" />
+
+
 
 </RelativeLayout>
