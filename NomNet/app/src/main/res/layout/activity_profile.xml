@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:padding="15dip"
     android:layout_gravity="center"
-    android:background="#D32F2F"
+    android:background="@drawable/background1"
     >
 
 
