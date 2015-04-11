@@ -1,0 +1,65 @@
+
+    <!-- Login Form -->
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:padding="15dip"
+android:layout_gravity="center"
+android:background="#D32F2F">
+
+
+<ImageView android:id="@+id/splashscreen" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"/>
+<!--  Email Label -->
+<TextView android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#ffffff"
+    android:layout_marginLeft="20dip"
+    android:text="Username"/>
+<EditText android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dip"
+    android:layout_marginBottom="20dip"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:singleLine="true"/>
+<!--  Password Label -->
+<TextView android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#ffffff"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:text="Password"/>
+<EditText android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dip"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:singleLine="true"
+    android:password="true"/>
+<!-- Login button -->
+<Button android:id="@+id/btnLogin"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dip"
+    android:layout_marginLeft="50dip"
+    android:layout_marginRight="50dip"
+    android:textColor="#D32F2F"
+    android:text="Login"/>
+<!-- Link to Registration Screen -->
+<TextView android:id="@+id/link_to_register"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="40dip"
+    android:layout_marginBottom="40dip"
+    android:text="New to NomNet? Register here"
+    android:gravity="center"
+    android:textSize="20dip"
+    android:textColor="#0b84aa"/>
+
+</LinearLayout>
+    <!-- Login Form Ends -->

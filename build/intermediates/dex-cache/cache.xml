@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/acer/NomNet/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/acer/NomNet/app/build/intermediates/pre-dexed/debug/classes-145c2ec0f6f6bc7600f6d88c4447964d2605ef0b.jar" />
+    </item>
+    <item
+        jar="/Users/acer/NomNet/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="/Users/acer/NomNet/app/build/intermediates/pre-dexed/debug/classes-5de3e60887ca9cd166665b968cbec776bcbd1872.jar" />
+    </item>
+    <item
+        jar="/Users/acer/NomNet/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/acer/NomNet/app/build/intermediates/pre-dexed/debug/classes-a35a3dc75219adabbc0e1fffbd5ea25edc42a60b.jar" />
+    </item>
+    <item
+        jar="/Users/acer/NomNet/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/acer/NomNet/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-76c8e3a5074c5b4ee60ea251143deda1b23a170c.jar" />
+    </item>
+    <item
+        jar="/Applications/Android Development/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/Users/acer/NomNet/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-862a8aa4f4af44c67afeef0e17139c4271abf8da.jar" />
+    </item>
+
+</items>
