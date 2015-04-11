@@ -7,4 +7,5 @@
     <string name="title_activity_sign_in">SignIn</string>
     <string name="title_activity_register">register</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_settings">settings</string>
 </resources>
