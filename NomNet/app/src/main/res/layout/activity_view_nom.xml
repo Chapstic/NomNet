@@ -25,7 +25,13 @@
         android:layout_below="@+id/topbar"
         android:layout_alignParentRight = "true"/>
 
-    
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/creatorText"/>
+
+
 
 
 

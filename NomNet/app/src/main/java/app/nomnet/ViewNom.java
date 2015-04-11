@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -13,6 +14,7 @@ public class ViewNom extends ActionBarActivity {
     Nom currentNom;
     private Toolbar topbar;
     private TextView creatorText, upvotesText;
+    private ImageView appImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,9 @@ public class ViewNom extends ActionBarActivity {
 
         upvotesText = (TextView) findViewById(R.id.upvotesText);
         upvotesText.setText(Integer.toString(currentNom.getUpvotes()) );
+
+        //appImageView = (ImageView) findViewById(R.id.imageView);
+        //appImageView.setImageDrawable(getResources().getDrawable(R.drawable.image01) );
     }
 
 
