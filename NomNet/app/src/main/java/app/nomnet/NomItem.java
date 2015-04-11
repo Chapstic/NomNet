@@ -1,7 +1,5 @@
 package app.nomnet;
 
-import android.graphics.drawable.Drawable;
-
 public class NomItem {
     private String name;
     private int image;

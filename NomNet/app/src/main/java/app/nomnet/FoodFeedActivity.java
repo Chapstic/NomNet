@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FoodFeedActivity extends Activity {
+public class FoodFeedActivity extends ActionBarActivity {
 
     private Toolbar topbar;                 // This is the topbar that says NomNet
     private ListView listView;              // The feed
@@ -27,7 +27,7 @@ public class FoodFeedActivity extends Activity {
 
         // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
-        //setSupportActionBar(topbar);
+        setSupportActionBar(topbar);
 
         //
         nomList = new ArrayList<>();
@@ -38,8 +38,8 @@ public class FoodFeedActivity extends Activity {
     }
 
     private void getNoms(){
-        String[] names = {"food1", "food2", "food3"};
-        int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3};
+        String[] names = {"food1", "food2", "food3", "food4", "food5"};
+        int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5};
 
         for(int i = 0; i < names.length; i++){
             NomItem newNom = new NomItem(names[i], images[i]);
