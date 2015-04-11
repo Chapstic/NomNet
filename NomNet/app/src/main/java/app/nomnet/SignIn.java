@@ -4,6 +4,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.content.Intent;
 
 
 public class SignIn extends ActionBarActivity {
@@ -12,6 +16,13 @@ public class SignIn extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        Button button = (Button)findViewById(R.id.btnLogin);
+        button.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(SignIn.this, FoodFeedActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
 
