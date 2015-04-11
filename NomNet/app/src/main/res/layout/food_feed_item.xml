@@ -14,6 +14,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:id="@+id/nom_pic"
             android:contentDescription="Picture of Nom"
             android:clickable="true"
