@@ -10,7 +10,7 @@
     <string name="title_activity_bottom_bar">BottomBarActivity</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_sign_in">SignIn</string>
-    <string name="title_activity_register">register</string>
+    <string name="title_activity_register">Register</string>
     <string name="title_activity_profile">Profile</string>
     <string name="title_activity_settings">settings</string>
 
