@@ -2,16 +2,22 @@ package app.nomnet;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class FoodFeedActivity extends ActionBarActivity {
 
+    private Toolbar topbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_feed);
+
+        topbar = (Toolbar) findViewById(R.id.topbar);
+        setSupportActionBar(topbar);
     }
 
 
