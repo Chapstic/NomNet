@@ -8,9 +8,8 @@
         android:label="NomNet"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".FoodFeedActivity"
-            android:label="NomNet"
-            android:uiOptions="splitActionBarWhenNarrow" >
+            android:name=".SplashActivity"
+            android:label="@string/title_activity_splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,6 +19,32 @@
         <activity
             android:name=".SearchActivity"
             android:label="NomNet" >
+     </activity>
+        <activity
+            android:name=".SignIn"
+            android:label="@string/title_activity_sign_in" >
+        </activity>
+        <activity
+            android:name=".register"
+            android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name=".FoodFeedActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.STARTINGPOINT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Profile"
+            android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name=".settings"
+            android:label="@string/title_activity_settings" >
+
         </activity>
     </application>
 
