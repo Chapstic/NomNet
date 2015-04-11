@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,9 +95,15 @@ public class FoodFeedActivity extends ActionBarActivity {
                 Intent mainIntent = new Intent(FoodFeedActivity.this,Settings.class);
                 FoodFeedActivity.this.startActivity(mainIntent);
                 return true;
+            case R.id.action_logout:
+                Intent mainIntents = new Intent(FoodFeedActivity.this, SignIn.class);
+                FoodFeedActivity.this.startActivity(mainIntents);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+
     }
 
 }
