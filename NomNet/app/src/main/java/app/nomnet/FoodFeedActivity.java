@@ -87,6 +87,8 @@ public class FoodFeedActivity extends ActionBarActivity {
         return true;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -98,6 +100,7 @@ public class FoodFeedActivity extends ActionBarActivity {
             case R.id.action_logout:
                 Intent mainIntents = new Intent(FoodFeedActivity.this, SignIn.class);
                 FoodFeedActivity.this.startActivity(mainIntents);
+                ((MyApplication) this.getApplication()).setIsLoggedIn(false);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

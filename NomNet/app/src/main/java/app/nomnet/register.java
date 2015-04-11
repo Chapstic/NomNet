@@ -19,6 +19,7 @@ public class Register extends ActionBarActivity {
         Button button1 = (Button)findViewById(R.id.btnSignup);
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                loginSuccess();
                 Intent i = new Intent(Register.this, FoodFeedActivity.class);
                 startActivity(i);
             }
@@ -34,6 +35,10 @@ public class Register extends ActionBarActivity {
             }
         });
 
+    }
+
+    public void loginSuccess() {
+        ((MyApplication) this.getApplication()).setIsLoggedIn(true);
     }
 
 

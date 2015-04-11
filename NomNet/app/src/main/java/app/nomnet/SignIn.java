@@ -20,6 +20,7 @@ public class SignIn extends ActionBarActivity {
         Button button = (Button)findViewById(R.id.btnLogin);
         button.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+                loginSuccess();
                 Intent i = new Intent(SignIn.this, FoodFeedActivity.class);
                 startActivity(i);
             }
@@ -36,7 +37,9 @@ public class SignIn extends ActionBarActivity {
         });
     }
 
-
+   public void loginSuccess() {
+       ((MyApplication) this.getApplication()).setIsLoggedIn(true);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
