@@ -4,7 +4,7 @@
     <string name="title_activity_view_nom">ViewNom</string>
 
     <string name="title_activity_search">SearchActivity</string>
-
+    <string name="create_account">Create an Account</string>
     <string name="action_search">Search</string>
     <string name="title_activity_bottom_bar">BottomBarActivity</string>
     <string name="title_activity_splash">NomNet</string>

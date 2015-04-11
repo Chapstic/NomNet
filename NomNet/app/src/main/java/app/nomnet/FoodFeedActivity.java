@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 public class FoodFeedActivity extends ActionBarActivity {
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
@@ -21,6 +21,7 @@ public class FoodFeedActivity extends ActionBarActivity {
     private FoodFeedListAdapter adapter;    // Adapter populates the feed with noms
     private List<Nom> nomList;              // The list of noms to add to te feed
     private Intent intent;                  // Intent that allows us to go to other pages
+    private TextView textViewCreateAcct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +42,24 @@ public class FoodFeedActivity extends ActionBarActivity {
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
 
+        textViewCreateAcct = (TextView)findViewById(R.id.create_account);
+
         // Planning
         // If logged in, show bottom toolbar
         if(((MyApplication)this.getApplication()).getIsLoggedIn()){
-
+            textViewCreateAcct.setVisibility(View.GONE); // hide the text view
         }
-        // If not logged in, prompt hide bottom toolbar, prompt to make an account
+        // If not logged in, hide bottom toolbar
+        // Prompt to make an account, link to registration activity
         else{
+            textViewCreateAcct.setOnClickListener(new View.OnClickListener() {
 
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(FoodFeedActivity.this, Register.class);
+                    startActivity(i);
+                }
+            });
         }
 
 
