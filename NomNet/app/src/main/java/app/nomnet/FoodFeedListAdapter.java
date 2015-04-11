@@ -2,6 +2,7 @@ package app.nomnet;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +16,13 @@ import java.util.List;
 public class FoodFeedListAdapter extends BaseAdapter{
     private Activity activity;
     private LayoutInflater inflater;
-    private List<NomItem> nomItems;
+    private List<Nom> nomItems;
+    private Intent intent;
 
-    public FoodFeedListAdapter(Activity activity, List<NomItem> nomItems){
+    public FoodFeedListAdapter(Activity activity, List<Nom> nomItems, Intent intent){
         this.activity = activity;
         this.nomItems = nomItems;
+        this.intent = intent;
     }
 
     @Override
@@ -50,11 +53,22 @@ public class FoodFeedListAdapter extends BaseAdapter{
         TextView name = (TextView)view.findViewById(R.id.nom_name);
         ImageView image = (ImageView)view.findViewById(R.id.nom_pic);
         final ImageView imgBtnLike = (ImageView)view.findViewById(R.id.likeBtn);
+        final ImageView nomImgBtn = (ImageView)view.findViewById(R.id.nom_pic);
 
-        NomItem item = nomItems.get(pos);
+        final Nom currentNom = nomItems.get(pos);
 
-        name.setText(item.getName());
-        image.setImageResource(item.getImage());
+        name.setText(currentNom.getName());
+        image.setImageResource(currentNom.getImage());
+
+        nomImgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                intent.putExtra("Nom", currentNom); //Passes Nom object in Map<Key,Value> format to next activity (view_nom)
+                v.getContext().startActivity(intent);
+            }
+        });
+
         imgBtnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

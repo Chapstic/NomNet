@@ -7,12 +7,13 @@ import java.io.Serializable;
  */
 public class Nom implements Serializable {
     private String creator; //Replace w/ user class later
-    private int upvotes;
+    private int upvotes, image;
     private Recipe recipe; //Might be better to change recipe information to String[] so we can use scroll text fields later
 
-    Nom(String creator, int upvotes, Recipe recipe){
+    Nom(String creator, int upvotes, int image, Recipe recipe){
         this.creator = creator;
         this.upvotes = upvotes;
+        this.image = image;
         this.recipe = recipe;
     }
 
@@ -23,6 +24,8 @@ public class Nom implements Serializable {
     public int getUpvotes(){
         return upvotes;
     }
+
+    public int getImage() { return image; }
 
     public String getName() { return recipe.getName(); }
 
