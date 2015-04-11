@@ -30,7 +30,7 @@ public class SignIn extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SignIn.this, register.class);
+                Intent i = new Intent(SignIn.this, Register.class);
                 startActivity(i);
             }
         });
