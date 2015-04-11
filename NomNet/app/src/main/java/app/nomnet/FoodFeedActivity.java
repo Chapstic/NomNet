@@ -1,12 +1,9 @@
 package app.nomnet;
-
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -29,9 +26,11 @@ public class FoodFeedActivity extends ActionBarActivity {
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
 
-        //
+        // Create and populate list of noms
         nomList = new ArrayList<>();
         getNoms();
+
+        // Initialize list view, feed nomList into adapter, set adapter for list view
         listView = (ListView)findViewById(R.id.listView);
         adapter = new FoodFeedListAdapter(this, nomList);
         listView.setAdapter(adapter);
@@ -45,14 +44,6 @@ public class FoodFeedActivity extends ActionBarActivity {
             NomItem newNom = new NomItem(names[i], images[i]);
             nomList.add(newNom);
         }
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_food_feed, menu);
-        return true;
     }
 
     @Override
