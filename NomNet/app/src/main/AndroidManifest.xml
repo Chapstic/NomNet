@@ -32,7 +32,7 @@
             android:label="@string/title_activity_sign_in" >
         </activity>
         <activity
-            android:name=".register"
+            android:name=".Register"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
@@ -49,7 +49,7 @@
             android:label="@string/title_activity_profile" >
         </activity>
         <activity
-            android:name=".settings"
+            android:name=".Settings"
             android:label="@string/title_activity_settings" >
 
         </activity>

@@ -1,28 +1,26 @@
 package app.nomnet;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 public class FoodFeedActivity extends ActionBarActivity {
-    private Nom testNom; //Probably replace w/ set or linked list of Noms?
+    private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
 
     private Toolbar topbar;                 // This is the topbar that says NomNet
     private ListView listView;              // The feed
     private FoodFeedListAdapter adapter;    // Adapter populates the feed with noms
-    private List<Nom> nomList;          // The list of noms to add to te feed
-    private Intent intent;              // Intent that allows us to go to other pages
+    private List<Nom> nomList;              // The list of noms to add to te feed
+    private Intent intent;                  // Intent that allows us to go to other pages
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +40,18 @@ public class FoodFeedActivity extends ActionBarActivity {
         intent = new Intent(this, ViewNom.class);
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
+
+        // Planning
+        // If logged in, show bottom toolbar
+        if(((MyApplication)this.getApplication()).getIsLoggedIn()){
+
+        }
+        // If not logged in, prompt hide bottom toolbar, prompt to make an account
+        else{
+
+        }
+
+
 
         // For testing the global variables
         // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
@@ -69,11 +79,18 @@ public class FoodFeedActivity extends ActionBarActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_food_feed, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent mainIntent = new Intent(FoodFeedActivity.this,settings.class);
+                Intent mainIntent = new Intent(FoodFeedActivity.this,Settings.class);
                 FoodFeedActivity.this.startActivity(mainIntent);
                 return true;
             default:

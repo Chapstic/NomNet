@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class register extends ActionBarActivity {
+public class Register extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class register extends ActionBarActivity {
         Button button1 = (Button)findViewById(R.id.btnSignup);
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(register.this, FoodFeedActivity.class);
+                Intent i = new Intent(Register.this, FoodFeedActivity.class);
                 startActivity(i);
             }
         });
@@ -29,7 +29,7 @@ public class register extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(register.this, SignIn.class);
+                Intent i = new Intent(Register.this, SignIn.class);
                 startActivity(i);
             }
         });
