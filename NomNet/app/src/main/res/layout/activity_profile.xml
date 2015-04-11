@@ -10,17 +10,21 @@
     android:background="#D32F2F">
 
 
-    <ImageView android:id="@+id/splashscreen" android:layout_width="wrap_content"
+    <ImageView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/albert"
-        android:layout_gravity="center"/>
-    <!--  Email Label -->
+        android:padding="100dip"/>
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dip"
         android:text="AYue63"/>
 
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="20dip"
+        android:text="AYue63@gmail.com"/>
+
 
 </LinearLayout>
-    <!-- Login Form Ends -->
