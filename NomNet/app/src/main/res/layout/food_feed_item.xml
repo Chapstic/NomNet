@@ -47,7 +47,7 @@
                     android:gravity="center"
                     android:layout_toRightOf="@id/likeBtn"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/nom_creator"
@@ -91,11 +91,13 @@
                     android:id="@+id/nom_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:gravity="right"
                     android:clickable="true"
                     android:src="@drawable/comments" />
+
             </RelativeLayout>
         </LinearLayout>
     </FrameLayout>
