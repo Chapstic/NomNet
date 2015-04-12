@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.nomnet" >
-
+    <!-- Need name="MyApplication" for global variables -->
     <application
+        android:name="MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="NomNet"
@@ -18,6 +19,13 @@
         <activity
             android:uiOptions="splitActionBarWhenNarrow"
             android:theme="@style/Theme.AppCompat"
+
+
+            android:name=".ViewNom"
+            android:label="@string/title_activity_view_nom" >
+        </activity>
+
+        <activity
             android:name=".SearchActivity"
             android:label="NomNet" >
             <meta-data android:name="android.support.UI_OPTIONS"
@@ -28,7 +36,7 @@
             android:label="@string/title_activity_sign_in" >
         </activity>
         <activity
-            android:name=".register"
+            android:name=".Register"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
@@ -52,7 +60,7 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
-            android:name=".settings"
+            android:name=".Settings"
             android:label="@string/title_activity_settings" >
 
         </activity>

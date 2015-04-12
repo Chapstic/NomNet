@@ -8,13 +8,25 @@
    <!--  <include
         android:id="@+id/topbar"
         layout="@layout/topbar"
-        android:textColor="#FFF"/>-->
 
+        android:textColor="#FFF"/> -->
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+        <!--android:divider="@null" make the divider line invisible-->
+
+<!--
     <include
         android:id="@+id/bottombar"
         layout="@layout/bottombar"
         android:textColor="#FFF"/>
-   <!-- <LinearLayout
+    <LinearLayout
         android:layout_height="@dimen/abc_action_bar_default_height_material"
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -24,8 +36,6 @@
 
     </LinearLayout>
     -->
-
-
 
 
 </RelativeLayout>
