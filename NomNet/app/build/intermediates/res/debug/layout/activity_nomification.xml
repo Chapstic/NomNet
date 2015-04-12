@@ -13,15 +13,25 @@
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        android:textSize="70px"
         android:layout_marginLeft="20dip"
         android:layout_marginBottom="40dip"
-        android:text="Nomif_test"
-        android:id="@+id/title" />
+        android:text="Nomification"
+        android:id="@+id/title"
+        style="@style/AppTheme"
+        android:textSize="40dp" />
 
     <ListView
         android:id="@+id/list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
     </ListView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        android:id="@+id/ReturnButton"
+        android:layout_gravity="right"
+        android:textColor="#000000" />
+
 </LinearLayout><!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/src/main/res/layout/activity_nomification.xml -->

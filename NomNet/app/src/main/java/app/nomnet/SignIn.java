@@ -20,7 +20,7 @@ public class SignIn extends ActionBarActivity {
         Button button = (Button)findViewById(R.id.btnLogin);
         button.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(SignIn.this, Nomification.class);
+                Intent i = new Intent(SignIn.this, FoodFeedActivity.class);
                 startActivity(i);
             }
         });

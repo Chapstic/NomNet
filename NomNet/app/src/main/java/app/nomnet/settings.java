@@ -6,6 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.view.View;
+import android.content.Intent;
 
 
 public class Settings extends ActionBarActivity {
@@ -29,6 +32,17 @@ public class Settings extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_settings, menu);
+
+        TextView nomif_text = (TextView)findViewById(R.id.nomif_text);
+        nomif_text.setOnClickListener(new View.OnClickListener() {
+
+
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Settings.this, Nomification.class);
+                    startActivity(i);
+                }
+        });
         return true;
     }
 
