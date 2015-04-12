@@ -1,54 +1,76 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context="app.nomnet.CreateNom">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    //Adds toolbar to top
-    <include
-        android:id="@+id/topbar"
-        layout="@layout/topbar"
-        android:textColor="#FFF"/>
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin" tools:context="app.nomnet.CreateNom">
 
-    //Create a Nom Message
-    <TextView
-        android:id="@+id/createLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/topbar"
-        android:layout_alignParentLeft = "true"/>
+        //Adds toolbar to top
+        <include
+            android:id="@+id/topbar"
+            layout="@layout/topbar"
+            android:textColor="#FFF"/>
 
-    //INSERT IMAGE HERE
-    <ImageView
-        android:id="@+id/foodImage"
-        android:adjustViewBounds="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/topbar"/>
+        //Create a Nom Message
+        <TextView
+            android:id="@+id/createLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topbar"
+            android:layout_alignParentLeft = "true"/>
 
-    //DishName input field
-    <EditText
-        android:id="@+id/dishEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:hint="Food name"
-        android:layout_below="@+id/foodImage"/>
+        //INSERT IMAGE HERE
+        <ImageView
+            android:id="@+id/foodImage"
+            android:adjustViewBounds="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topbar"/>
 
-    //Ingredients label
+        //DishName input field
+        <EditText
+            android:id="@+id/dishEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Food name"
+            android:layout_below="@+id/foodImage"/>
 
-    //Ingredients form
+        //Ingredients label
+        <EditText
+            android:id="@+id/ingredientsEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:hint="Ingredients Used"
+            android:layout_below="@+id/dishEdit"/>
 
-    //Create post Button locks in info
-    <Button
-        android:id="@+id/postButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:text="Post Nom"
-        android:layout_below="@+id/dishEdit"/>
+        //Directions label
+        <EditText
+            android:id="@+id/directionsEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:hint="Directions"
+            android:layout_below="@+id/ingredientsEdit"/>
 
-</RelativeLayout>
+        //Create post Button locks in info
+        <Button
+            android:id="@+id/postButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Post Nom"
+            android:layout_below="@+id/directionsEdit"/>
+
+    </RelativeLayout>
+</ScrollView>

@@ -57,6 +57,7 @@ public class FoodFeedActivity extends ActionBarActivity {
     }
 
     private void getNoms(){
+        String[] userNames = {"Sydney", "Izzy", "Rebecca", "Elliscope", "Albert"};
         String[] names = {"food1", "food2", "food3", "food4", "food5"};
         int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5};
         int[] upvotes = {20, 24, 36, 70, 14};
@@ -67,11 +68,10 @@ public class FoodFeedActivity extends ActionBarActivity {
                 "Salt - 3 tablespoons";
         String directions = "1. Mix mix, swirl mix" + '\n' +
                 "2. Drink" + '\n';
-        Recipe recipe = new Recipe("Pad Thai", ingredients, directions);
-        //testNom = new Nom("Albert", 128, recipe); //Testing functionality of Nom constructor and ViewNom compatibility
 
         for(int i = 0; i < names.length; i++){
-            Nom newNom = new Nom(names[i], upvotes[i], images[i], recipe);
+            Recipe recipe = new Recipe(names[i], ingredients, directions);
+            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe);
             nomList.add(newNom);
         }
     }

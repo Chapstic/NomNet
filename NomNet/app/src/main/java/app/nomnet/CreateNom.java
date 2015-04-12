@@ -1,5 +1,6 @@
 package app.nomnet;
 
+import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,19 +17,24 @@ import android.widget.TextView;
 public class CreateNom extends ActionBarActivity implements View.OnClickListener {
 
     private Toolbar topbar;
+    private int nomImage;
     private Nom newNom;
     private Recipe newRecipe;
 
     private ImageView nomPhoto;
     private TextView createLabel;
-    private EditText dishEdit;
+    private EditText dishEdit, ingredientsEdit, directionsEdit;
     private String ingredients; //change to String[] later
     private String dishname, directions;
     private Button postButton;
 
+    private Intent intent;
+
+    //Possibly add additional method to parse text
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        intent = new Intent(this, ViewNom.class); //Users view the Nom immediately after posting. Check line 40 activity_view_nom
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_nom);
 
@@ -40,12 +46,18 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         createLabel.setText("Create a Nom!");
 
         //Initialize and access the Image based on camera
-        int nomImage = R.drawable.food1; //***********HARDCODED image should eventually be swapped out w/ Camera photo******************
+        nomImage = R.drawable.food1; //***********HARDCODED image should eventually be swapped out w/ Camera photo******************
         nomPhoto = (ImageView) findViewById(R.id.foodImage);
         nomPhoto.setImageDrawable(getResources().getDrawable(nomImage) );
 
-        //Access the EditText field in create_nom.xml
+        //Access the dishEdit field in create_nom.xml
         dishEdit = (EditText) findViewById(R.id.dishEdit);
+
+        //Access the dishEdit field in create_nom.xml
+        ingredientsEdit = (EditText) findViewById(R.id.ingredientsEdit);
+
+        //Access the ingredientsEdit field in create_nom.xml
+        directionsEdit = (EditText) findViewById(R.id.directionsEdit);
 
         //Access the PostButton in create_nom.xml
         postButton = (Button) findViewById(R.id.postButton);
@@ -80,9 +92,15 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
     public void onClick(View v) {
         // Also add that value to the list shown in the ListView
         dishname = String.valueOf(dishEdit.getText() );
+        ingredients = String.valueOf(dishEdit.getText() );
+        directions = String.valueOf(dishEdit.getText() );
 
+        newRecipe = new Recipe(dishname, ingredients, directions);
+        newNom = new Nom("Placeholder Username", 0, nomImage, newRecipe);
 
-        //newRecipe == new Recipe(dishname, ingredients, directions);
-        //newNom = new Nom("Placeholder Username", 0, nomImage, Recipe recipe);
+        intent.putExtra("Nom", newNom); //Passes Nom object in Map<Key,Value> format to next activity (view_nom)
+        v.getContext().startActivity(intent); //Creates Nom and immediately goes to ViewNom
+
     }
+
 }
