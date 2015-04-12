@@ -16,13 +16,15 @@
             layout="@layout/topbar"
             android:textColor="#FFF"/>
 
-        //Create a Nom Message
+        //Header for "Create a Nom"
         <TextView
             android:id="@+id/createLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/topbar"
-            android:layout_alignParentLeft = "true"/>
+            android:textStyle = "bold"
+            android:textSize="26sp"
+            android:gravity = "center_horizontal"/>
 
         //INSERT IMAGE HERE
         <ImageView
@@ -30,7 +32,7 @@
             android:adjustViewBounds="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/topbar"/>
+            android:layout_below="@+id/createLabel"/>
 
         //DishName input field
         <EditText
@@ -48,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:hint="Ingredients Used"
             android:layout_below="@+id/dishEdit"/>
 

@@ -1,6 +1,7 @@
 package app.nomnet;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -52,12 +53,15 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
 
         //Access the dishEdit field in create_nom.xml
         dishEdit = (EditText) findViewById(R.id.dishEdit);
+        dishEdit.setTextColor(Color.parseColor("#D32F2F")); //Sets input text color to red
 
         //Access the dishEdit field in create_nom.xml
         ingredientsEdit = (EditText) findViewById(R.id.ingredientsEdit);
+        ingredientsEdit.setTextColor(Color.parseColor("#D32F2F")); //Sets input text color to red
 
         //Access the ingredientsEdit field in create_nom.xml
         directionsEdit = (EditText) findViewById(R.id.directionsEdit);
+        directionsEdit.setTextColor(Color.parseColor("#D32F2F")); //Sets input text color to red
 
         //Access the PostButton in create_nom.xml
         postButton = (Button) findViewById(R.id.postButton);
@@ -92,8 +96,8 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
     public void onClick(View v) {
         // Also add that value to the list shown in the ListView
         dishname = String.valueOf(dishEdit.getText() );
-        ingredients = String.valueOf(dishEdit.getText() );
-        directions = String.valueOf(dishEdit.getText() );
+        ingredients = String.valueOf(ingredientsEdit.getText() );
+        directions = String.valueOf(directionsEdit.getText() );
 
         newRecipe = new Recipe(dishname, ingredients, directions);
         newNom = new Nom("Placeholder Username", 0, nomImage, newRecipe);
