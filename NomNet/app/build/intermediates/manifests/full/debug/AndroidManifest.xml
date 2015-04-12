@@ -8,7 +8,9 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="21" />
 
+    <!-- Need name="MyApplication" for global variables -->
     <application
+        android:name="app.nomnet.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="NomNet"
@@ -23,6 +25,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="app.nomnet.ViewNom"
+            android:label="@string/title_activity_view_nom" >
+        </activity>
+        <activity
             android:name="app.nomnet.SearchActivity"
             android:label="NomNet" >
         </activity>
@@ -31,7 +37,7 @@
             android:label="@string/title_activity_sign_in" >
         </activity>
         <activity
-            android:name="app.nomnet.register"
+            android:name="app.nomnet.Register"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
@@ -48,12 +54,20 @@
             android:label="@string/title_activity_profile" >
         </activity>
         <activity
-            android:name="app.nomnet.settings"
+            android:name="app.nomnet.Settings"
             android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="app.nomnet.CreateNom"
+            android:label="@string/title_activity_create_nom" >
         </activity>
         <activity
             android:name="app.nomnet.Nomification"
             android:label="@string/title_activity_nomification" >
+        </activity>
+        <activity
+            android:name="app.nomnet.CustomList"
+            android:label="@string/title_activity_custom_list" >
         </activity>
         <activity
             android:name="android.support.v7.widget.TestActivity"

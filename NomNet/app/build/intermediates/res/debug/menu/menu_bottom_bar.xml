@@ -34,4 +34,4 @@
         android:icon="@drawable/ic_action_person"
         app:showAsAction="ifRoom"/>
 </menu>
-<!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/src/main/res/menu/menu_bottom_bar.xml -->
+<!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/src/main/res/menu/menu_bottom_bar.xml -->

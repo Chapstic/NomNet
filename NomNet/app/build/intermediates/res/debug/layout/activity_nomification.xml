@@ -7,33 +7,21 @@
     android:layout_height="fill_parent"
     android:padding="15dip"
     android:layout_gravity="center"
-    android:background="@drawable/background"
-    android:id="@+id/Nomif_background">
+    android:background="@drawable/background">
 
-    <!--  Email Label -->
+    <!-- Email Label -->
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        android:textSize="50px"
+        android:textSize="70px"
         android:layout_marginLeft="20dip"
         android:layout_marginBottom="40dip"
-        android:text="NOMification"
-        android:id="@+id/NOMfication_Title" />
+        android:text="Nomif_test"
+        android:id="@+id/title" />
 
-    <Button
+    <ListView
+        android:id="@+id/list"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/nomif_button"
-        android:id="@+id/user_input_button" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/Nomif_message_unit"
-        android:id="@+id/nomification_unit" />
-
-    <!-- Login button -->
-
-
-</LinearLayout><!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/src/main/res/layout/activity_nomification.xml -->
+        android:layout_height="wrap_content" >
+    </ListView>
+</LinearLayout><!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/src/main/res/layout/activity_nomification.xml -->

@@ -7,8 +7,7 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:padding="15dip"
 android:layout_gravity="center"
-android:background="#D32F2F"
-    android:id="@+id/background">
+android:background="#D32F2F">
 
 
 <ImageView android:id="@+id/splashscreen" android:layout_width="wrap_content"
@@ -63,4 +62,4 @@ android:background="#D32F2F"
     android:textColor="#0b84aa"/>
 
 </LinearLayout>
-    <!-- Login Form Ends --><!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/src/main/res/layout/activity_sign_in.xml -->
+    <!-- Login Form Ends --><!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/src/main/res/layout/activity_sign_in.xml -->
