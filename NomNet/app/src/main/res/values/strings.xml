@@ -17,4 +17,7 @@
         <item>Everybody</item>
     </string-array>
     <string name="privacy_prompt">Posts Viewable By</string>
+    <string name="title_activity_create_nom">CreateNom</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 
 public class ViewNom extends ActionBarActivity {
-    Nom currentNom;
+    private Nom currentNom;
     private Toolbar topbar;
     private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, directionsLabel, ingredientsText, directionsText;
     private ImageView appImageView;
