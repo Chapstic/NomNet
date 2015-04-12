@@ -55,6 +55,10 @@
             android:name=".CreateNom"
             android:label="@string/title_activity_create_nom" >
         </activity>
+        <activity
+            android:name=".Nomification"
+            android:label="@string/title_activity_nomification" >
+        </activity>
     </application>
 
 </manifest>
