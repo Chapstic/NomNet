@@ -33,7 +33,7 @@ public class FoodFeedActivity extends ActionBarActivity {
         bottombar = (Toolbar) findViewById(R.id.bottomBar);
       //  bottombar.inflateMenu(R.menu.menu_bottom_bar, );
 
-      startActivity(new Intent(FoodFeedActivity.this, SearchActivity.class));
+     // startActivity(new Intent(FoodFeedActivity.this, SearchActivity.class));
     }
 
     @Override
