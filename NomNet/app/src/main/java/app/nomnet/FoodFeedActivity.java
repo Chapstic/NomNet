@@ -21,6 +21,7 @@ public class FoodFeedActivity extends ActionBarActivity {
     private FoodFeedListAdapter adapter;    // Adapter populates the feed with noms
     private List<Nom> nomList;              // The list of noms to add to te feed
     private Intent intent;                  // Intent that allows us to go to other pages
+
     private TextView textViewCreateAcct;
 
     @Override
@@ -53,7 +54,6 @@ public class FoodFeedActivity extends ActionBarActivity {
         // Prompt to make an account, link to registration activity
         else{
             textViewCreateAcct.setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(FoodFeedActivity.this, Register.class);
@@ -62,15 +62,13 @@ public class FoodFeedActivity extends ActionBarActivity {
             });
         }
 
-
-
         // For testing the global variables
         // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
         //             Toast.LENGTH_LONG).show();
     }
 
     private void getNoms(){
-        String[] names = {"food1", "food2", "food3", "food4", "food5"};
+        String[] names = {"Albert", "Elliscope", "Izzy", "Rebecca", "Sydney"};
         int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5};
         int[] upvotes = {20, 24, 36, 70, 14};
 
