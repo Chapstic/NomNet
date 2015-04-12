@@ -1,0 +1,87 @@
+
+<!-- Login Form -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="15dip"
+    android:layout_gravity="center"
+    android:background="@drawable/background">
+
+    <!--  Email Label -->
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="70px"
+        android:layout_marginLeft="20dip"
+        android:layout_marginBottom="40dip"
+        android:text="SETTINGS"/>
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="20dip"
+        android:layout_marginBottom="20dip"
+        android:textSize="45px"
+        android:text="Notifications"/>
+    <ToggleButton
+        android:id="@+id/togglebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="On"
+        android:textOff="Off"
+        android:onClick="onToggleClicked"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"/>
+
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:textSize="45px"
+        android:text="Change Password"/>
+    <EditText android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginBottom="20dip"
+        android:singleLine="true"
+        android:password="true"/>
+
+    <Button android:id="@+id/btnPW"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="50dip"
+        android:layout_marginRight="50dip"
+        android:layout_marginBottom="50dip"
+        android:textColor="#D32F2F"
+        android:text="Update Password"/>
+
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:textSize="45px"
+        android:text="Who can see my posts:"/>
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_marginLeft="20dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/privacy_arrays"
+        android:prompt="@string/privacy_prompt" />
+        />
+    <Button android:id="@+id/btnPrivacy"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="50dip"
+        android:layout_marginRight="50dip"
+        android:layout_marginBottom="50dip"
+        android:textColor="#D32F2F"
+        android:text="Update Privacy"/>
+</LinearLayout>
