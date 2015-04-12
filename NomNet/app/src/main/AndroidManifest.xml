@@ -57,6 +57,12 @@
             android:label="@string/title_activity_settings" >
 
         </activity>
+        <activity android:name="app.nomnet.Camera"
+            android:label="@string/title_activity_camera"
+            >
+        </activity>
     </application>
 
 </manifest>
+
+
