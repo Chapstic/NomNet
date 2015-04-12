@@ -5,5 +5,5 @@
     <dimen name="feed_item_margin">0dp</dimen>
     <dimen name="feed_item_padding_top_bottom">0dp</dimen>
     <dimen name="feed_item_padding_left_right">0dp</dimen>
-    <dimen name="feed_item_name">25sp</dimen>
+    <dimen name="feed_item_name">24sp</dimen>
 </resources>
