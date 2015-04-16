@@ -1,5 +1,6 @@
 package app.nomnet;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,6 +15,7 @@ import android.widget.Button;
 public class Nomification extends Activity {
     ListView list;
 
+private static final String TAG= "buckysMessage";
 
 
 //hard coded part
@@ -30,7 +32,7 @@ public class Nomification extends Activity {
 
 
     Integer[] imageId= {
-            
+
             R.drawable.sydney,
             R.drawable.rebecca,
             R.drawable.isabella,
@@ -62,6 +64,8 @@ public class Nomification extends Activity {
                 startActivity(i);
             }
         });
+
+        Log.i(TAG,"OnCreate");
     }
 }
 
