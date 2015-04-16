@@ -10,24 +10,24 @@
     <item
         android:id="@+id/BottomBarSearch"
         android:title="Search"
-        android:icon="@drawable/ic_action_search"
+        android:icon="@drawable/search"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/BottomBarCamera"
         android:title="Camera"
-        android:icon="@drawable/ic_action_camera"
+        android:icon="@drawable/camera"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/BottomBarNotification"
         android:title="Notification"
-        android:icon="@drawable/notification"
+        android:icon="@drawable/notifications"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/BottomBarProfile"
         android:title="Profile"
-        android:icon="@drawable/ic_action_person"
+        android:icon="@drawable/profile"
         app:showAsAction="always"/>
 </menu>

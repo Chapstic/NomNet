@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.nomnet" >
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- Need name="MyApplication" for global variables -->
     <application
         android:name="MyApplication"
@@ -52,6 +56,12 @@
             android:label="@string/title_activity_settings" >
 
         </activity>
+        <activity android:name=".Camera"
+            android:label="@string/title_activity_camera"
+            >
+        </activity>
     </application>
 
 </manifest>
+
+

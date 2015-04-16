@@ -6,7 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +93,8 @@ public class FoodFeedActivity extends ActionBarActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -110,11 +114,16 @@ public class FoodFeedActivity extends ActionBarActivity {
                 item.setEnabled(true);
                 startActivity(new Intent(FoodFeedActivity.this, Profile.class));
                 return true;
+            case R.id.action_logout:
+                Intent mainIntents = new Intent(FoodFeedActivity.this, SignIn.class);
+                FoodFeedActivity.this.startActivity(mainIntents);
+                ((MyApplication) this.getApplication()).setIsLoggedIn(false);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }*/
     return super.onOptionsItemSelected(item);
-    }
 
+        }
 }
 
