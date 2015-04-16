@@ -55,6 +55,14 @@
             android:name=".CreateNom"
             android:label="@string/title_activity_create_nom" >
         </activity>
+        <activity
+            android:name=".Nomification"
+            android:label="@string/title_activity_nomification" >
+        </activity>
+        <activity
+            android:name=".CustomList"
+            android:label="@string/title_activity_custom_list" >
+        </activity>
     </application>
 
 </manifest>

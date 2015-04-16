@@ -23,6 +23,11 @@
             </intent-filter>
         </activity>
         <activity
+
+            android:name=".NOMification"
+            android:label="@string/title_activity_nomification" >
+        </activity>
+	<activity>
             android:name="app.nomnet.SplashActivity"
             android:label="@string/title_activity_splash" >
         </activity>

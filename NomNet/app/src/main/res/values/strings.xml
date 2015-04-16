@@ -20,4 +20,6 @@
     <string name="title_activity_create_nom">CreateNom</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_nomification">Nomification</string>
+    <string name="title_activity_custom_list">CustomList</string>
 </resources>

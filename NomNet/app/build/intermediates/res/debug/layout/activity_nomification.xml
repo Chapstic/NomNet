@@ -1,0 +1,37 @@
+
+<!-- Login Form -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="15dip"
+    android:layout_gravity="center"
+    android:background="@drawable/background">
+
+    <!-- Email Label -->
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="20dip"
+        android:layout_marginBottom="40dip"
+        android:text="Nomification"
+        android:id="@+id/title"
+        style="@style/AppTheme"
+        android:textSize="40dp" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        android:id="@+id/ReturnButton"
+        android:layout_gravity="right"
+        android:textColor="#000000" />
+
+</LinearLayout><!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/layout/activity_nomification.xml -->
