@@ -1,20 +1,15 @@
 package app.nomnet;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TabHost;
 
 import java.util.ArrayList;
 
@@ -25,18 +20,37 @@ public class SearchActivity extends ActionBarActivity {
     private ListView categoriesListView;
     private ArrayList<String> categories;
     private ArrayAdapter<String> categoriesArrayAdapter;
-  //  private ImageButton home, search, camera, notifications, profile;
+    private TabHost bottomTabHost;
+    private TabHost.TabSpec home, search, camera, notifications, profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        Toast.makeText(getApplicationContext(), "Search",
-                Toast.LENGTH_LONG).show();
+        topbar = (Toolbar) findViewById(R.id.topbar);
+        setSupportActionBar(topbar);
+/*
+        //Build Bottom Bar
+        bottomTabHost = (TabHost) findViewById(android.R.id.tabhost);
+        home = bottomTabHost.newTabSpec("Home");
+        search= bottomTabHost.newTabSpec("Search");
+        camera= bottomTabHost.newTabSpec("Camera");
+        notifications= bottomTabHost.newTabSpec("Notifications");
+        profile= bottomTabHost.newTabSpec("Profile");
+        home.setIndicator(null, getResources().getDrawable(R.drawable.hometab));
+        search.setIndicator(null, getResources().getDrawable(R.drawable.search));
+        camera.setIndicator(null, getResources().getDrawable(R.drawable.cameratab));
+        notifications.setIndicator(null, getResources().getDrawable(R.drawable.notificationtab));
+        profile.setIndicator(null, getResources().getDrawable(R.drawable.profiletab));
+        linkBar();
+        bottomTabHost.addTab(home);
+        bottomTabHost.addTab(search);
+        bottomTabHost.addTab(camera);
+        bottomTabHost.addTab(notifications);
+        bottomTabHost.addTab(profile);
+*/
 
-       // topbar = (Toolbar) findViewById(R.id.topbar);
-       // setSupportActionBar(topbar);
 
         //categories list
         categoriesListView = (ListView) findViewById(R.id.searchListView);
@@ -51,42 +65,24 @@ public class SearchActivity extends ActionBarActivity {
         categoriesListView.setAdapter(categoriesArrayAdapter);
 
 
-      //  bottomBarActions();
 
     }
 
-    //category actions
-
-    //link bottom bar to other activities
-   /* public void bottomBarActions(){
-        home = (ImageButton) findViewById(R.id.ActionBarHome);
-        search = (ImageButton) findViewById(R.id.ActionBarSearch);
-        camera = (ImageButton) findViewById(R.id.ActionBarCamera);
-        notifications = (ImageButton) findViewById(R.id.ActionBarNotification);
-        profile = (ImageButton) findViewById(R.id.ActionBarProfile);
-
-        home.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                Intent homeIntent;
-                homeIntent = new Intent(SearchActivity.this, FoodFeedActivity.class);
-            }
-        });
-
-        search.setClickable(false);
-        search.setEnabled(false);
+    private void linkBar(){//link the bottom bar to respective activities
+        search.setContent(new Intent(this, SearchActivity.class));
+        profile.setContent(new Intent(this, Profile.class));
 
     }
-*/
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu
         MenuInflater inflater = getMenuInflater();
         // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.menu_bottom_bar, menu);
+        inflater.inflate(R.menu.menu_food_feed, menu);
+
+        //disable search button on create
+        menu.getItem(1).setEnabled(false);
 
         return super.onCreateOptionsMenu(menu);
 
@@ -104,6 +100,27 @@ public class SearchActivity extends ActionBarActivity {
             return true;
         }
 
+        // Handle item selection
+/*
+        switch (item.getItemId()) {
+            case R.id.ActionBarHome:
+                item.setEnabled(true);
+                startActivity(new Intent(SearchActivity.this, Profile.class));
+                return true;
+            case R.id.ActionBarSearch:
+                item.setEnabled(false);
+                return true;
+            case R.id.ActionBarCamera:
+                return true;
+            case R.id.ActionBarNotification:
+                return true;
+            case R.id.ActionBarProfile:
+                item.setEnabled(true);
+                startActivity(new Intent(SearchActivity.this, Profile.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }*/
         return super.onOptionsItemSelected(item);
     }
 }

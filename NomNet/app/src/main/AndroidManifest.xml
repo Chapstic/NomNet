@@ -17,9 +17,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:theme="@style/Theme.AppCompat"
-
 
             android:name=".ViewNom"
             android:label="@string/title_activity_view_nom" >
@@ -28,8 +25,7 @@
         <activity
             android:name=".SearchActivity"
             android:label="NomNet" >
-            <meta-data android:name="android.support.UI_OPTIONS"
-                android:value="splitActionBarWhenNarrow" />
+
      </activity>
         <activity
             android:name=".SignIn"
@@ -40,24 +36,16 @@
             android:label="@string/title_activity_register" >
         </activity>
         <activity
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:theme="@style/Theme.AppCompat"
             android:name=".FoodFeedActivity"
             android:label="@string/app_name" >
-            <meta-data android:name="android.support.UI_OPTIONS"
-                android:value="splitActionBarWhenNarrow" />
             <intent-filter>
                 <action android:name="android.intent.action.STARTINGPOINT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:theme="@style/Theme.AppCompat"
             android:name=".Profile"
             android:label="@string/title_activity_profile" >
-            <meta-data android:name="android.support.UI_OPTIONS"
-                android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
             android:name=".Settings"

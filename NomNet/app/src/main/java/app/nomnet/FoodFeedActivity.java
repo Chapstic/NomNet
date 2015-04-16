@@ -1,21 +1,11 @@
 package app.nomnet;
 
-import android.support.v7.app.ActionBarActivity;
-
-
-
-import android.app.ActionBar;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-
-import android.view.View;
-import android.widget.RelativeLayout;
-
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -25,9 +15,8 @@ import java.util.List;
 public class FoodFeedActivity extends ActionBarActivity {
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
 
-    private Toolbar bottombar;
-
     private Toolbar topbar;                 // This is the topbar that says NomNet
+    private Toolbar bottombar;              // Navigation toolbar at the bottom of the screen
     private ListView listView;              // The feed
     private FoodFeedListAdapter adapter;    // Adapter populates the feed with noms
     private List<Nom> nomList;              // The list of noms to add to te feed
@@ -38,41 +27,35 @@ public class FoodFeedActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_feed);
 
-        //topbar = (Toolbar) findViewById(R.id.topbar);
-       // setSupportActionBar(topbar);
-
-        bottombar = (Toolbar) findViewById(R.id.bottomBar);
-      //  bottombar.inflateMenu(R.menu.menu_bottom_bar, );
-
-     // startActivity(new Intent(FoodFeedActivity.this, SearchActivity.class));
-
-        // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
-       // setSupportActionBar(topbar);
+        setSupportActionBar(topbar);
 
-        // Create and populate list of noms
-        nomList = new ArrayList<>();
-        getNoms();
+        bottombar = (Toolbar) findViewById(R.id.bottombar);
+        bottombar.inflateMenu(R.menu.menu_bottom_bar);
 
-        // Initialize list view, feed nomList into adapter, set adapter for list view
-        listView = (ListView)findViewById(R.id.listView);
-        intent = new Intent(this, ViewNom.class);
-        adapter = new FoodFeedListAdapter(this, nomList, intent);
-        listView.setAdapter(adapter);
+    // Create and populate list of noms
+    nomList = new ArrayList<>();
+    getNoms();
 
-        // Planning
-        // If logged in, show bottom toolbar
-        if(((MyApplication)this.getApplication()).getIsLoggedIn()){
+    // Initialize list view, feed nomList into adapter, set adapter for list view
+    listView = (ListView)findViewById(R.id.listView);
+    intent = new Intent(this, ViewNom.class);
+    adapter = new FoodFeedListAdapter(this, nomList, intent);
+    listView.setAdapter(adapter);
 
-        }
-        // If not logged in, prompt hide bottom toolbar, prompt to make an account
-        else{
+    // Planning
+    // If logged in, show bottom toolbar
+    if(((MyApplication)this.getApplication()).getIsLoggedIn()){
 
-        }
+    }
+    // If not logged in, prompt hide bottom toolbar, prompt to make an account
+    else{
+
+    }
 
 
 
-        // For testing the global variables
+    // For testing the global variables
         // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
         //             Toast.LENGTH_LONG).show();
     }
@@ -100,14 +83,10 @@ public class FoodFeedActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_food_feed, menu);
 
-     /*   new MenuInflater(this).inflate(R.menu.menu_bottom_bar, menu);
-       RelativeLayout  relativeLayout = (RelativeLayout) menu.findItem(R.id.ActionBarHome);
-
-        View view = getLayoutInflater().inflate(R.layout.activity_food_feed, null);
-
-        relativeLayout.addView(view);*/
-       getMenuInflater().inflate(R.menu.menu_bottom_bar, menu);
+        //Disable Home button on Create because currently on home
+        menu.getItem(0).setEnabled(false);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -115,39 +94,26 @@ public class FoodFeedActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent mainIntent = new Intent(FoodFeedActivity.this,Settings.class);
-                FoodFeedActivity.this.startActivity(mainIntent);
+      /* switch (item.getItemId()) {
+            case R.id.ActionBarHome://home button
+                item.setEnabled(false);
                 return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    /*    switch (item.getItemId()) {
-            case R.id.ActionBarHome:
-                findViewById(R.id.ActionBarHome).setEnabled(false);
-                findViewById(R.id.ActionBarHome).setClickable(false);
+            case R.id.ActionBarSearch://search button
+                item.setEnabled(true);
+                startActivity(new Intent(FoodFeedActivity.this, SearchActivity.class));
                 return true;
-            case R.id.ActionBarSearch:
-                findViewById(R.id.ActionBarSearch).setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(FoodFeedActivity.this, SearchActivity.class));
-                    }
-                });
+            case R.id.ActionBarCamera://camera button
                 return true;
-            case R.id.ActionBarCamera:
+            case R.id.ActionBarNotification://notification button
                 return true;
-            case R.id.ActionBarNotification:
-                return true;
-            case R.id.ActionBarProfile:
+            case R.id.ActionBarProfile://profile button
+                item.setEnabled(true);
+                startActivity(new Intent(FoodFeedActivity.this, Profile.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }*/
-
+    return super.onOptionsItemSelected(item);
     }
 
 }
