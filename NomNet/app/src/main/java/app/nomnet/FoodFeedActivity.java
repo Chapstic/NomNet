@@ -111,9 +111,6 @@ public class FoodFeedActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_food_feed, menu);
 
-        //Disable Home button on Create because currently on home
-        menu.getItem(0).setEnabled(false);
-
         return super.onCreateOptionsMenu(menu);
     }
 
