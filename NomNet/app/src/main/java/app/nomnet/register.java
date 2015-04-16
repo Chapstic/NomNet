@@ -25,7 +25,7 @@ public class Register extends ActionBarActivity {
             }
         });
 
-       TextView signin = (TextView)this.findViewById(R.id.link_to_signin);
+        TextView signin = (TextView)this.findViewById(R.id.link_to_signin);
         signin.setOnClickListener(new View.OnClickListener() {
 
             @Override

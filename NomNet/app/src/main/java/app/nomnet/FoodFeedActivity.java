@@ -35,6 +35,7 @@ public class FoodFeedActivity extends ActionBarActivity {
         bottombar = (Toolbar) findViewById(R.id.bottombar);
         bottombar.inflateMenu(R.menu.menu_bottom_bar);
 
+
     // Create and populate list of noms
     nomList = new ArrayList<>();
     getNoms();
