@@ -30,6 +30,7 @@ public class Nomification extends Activity {
 
 
     Integer[] imageId= {
+            
             R.drawable.sydney,
             R.drawable.rebecca,
             R.drawable.isabella,
