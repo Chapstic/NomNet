@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class SearchActivity extends ActionBarActivity {
 
     private Toolbar topbar;
+    private Toolbar bottombar;              // Navigation toolbar at the bottom of the screen
     private ListView categoriesListView;
     private ArrayList<String> categories;
     private ArrayAdapter<String> categoriesArrayAdapter;
@@ -30,27 +31,9 @@ public class SearchActivity extends ActionBarActivity {
 
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
-/*
-        //Build Bottom Bar
-        bottomTabHost = (TabHost) findViewById(android.R.id.tabhost);
-        home = bottomTabHost.newTabSpec("Home");
-        search= bottomTabHost.newTabSpec("Search");
-        camera= bottomTabHost.newTabSpec("Camera");
-        notifications= bottomTabHost.newTabSpec("Notifications");
-        profile= bottomTabHost.newTabSpec("Profile");
-        home.setIndicator(null, getResources().getDrawable(R.drawable.hometab));
-        search.setIndicator(null, getResources().getDrawable(R.drawable.search));
-        camera.setIndicator(null, getResources().getDrawable(R.drawable.cameratab));
-        notifications.setIndicator(null, getResources().getDrawable(R.drawable.notificationtab));
-        profile.setIndicator(null, getResources().getDrawable(R.drawable.profiletab));
-        linkBar();
-        bottomTabHost.addTab(home);
-        bottomTabHost.addTab(search);
-        bottomTabHost.addTab(camera);
-        bottomTabHost.addTab(notifications);
-        bottomTabHost.addTab(profile);
-*/
 
+        bottombar = (Toolbar) findViewById(R.id.bottombar);
+        bottombar.inflateMenu(R.menu.menu_bottom_bar);
 
         //categories list
         categoriesListView = (ListView) findViewById(R.id.searchListView);
