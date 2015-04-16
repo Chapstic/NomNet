@@ -1,40 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar
-    android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="@dimen/abc_action_bar_default_height_material"
-    android:layout_alignParentBottom="true"
-    android:id="@+id/bottomBar"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <ImageButton
-        android:id="@+id/BottomBarHome"
-        android:layout_height="fill_parent"
-        android:layout_width="wrap_content"
-        android:src="@drawable/home"/>
-
-    <ImageButton
-        android:id="@+id/BottomBarSearch"
-        android:layout_height="fill_parent"
-        android:layout_width="wrap_content"
-        android:src="@drawable/ic_action_search"/>
-
-    <ImageButton
-        android:id="@+id/BottomBarCamera"
-        android:layout_height="fill_parent"
-        android:layout_width="wrap_content"
-        android:src="@drawable/ic_action_camera"/>
-
-    <ImageButton
-        android:id="@+id/BottomBarNotification"
-        android:layout_height="fill_parent"
-        android:layout_width="wrap_content"
-        android:src="@drawable/notification"/>
-
-    <ImageButton
-        android:id="@+id/BottomBarProfile"
-        android:layout_height="fill_parent"
-        android:layout_width="wrap_content"
-        android:src="@drawable/ic_action_person"/>
-
-</android.support.v7.widget.Toolbar><!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/layout/bottombar.xml -->
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primaryColorDark"
+    app:theme="@style/AppTheme"
+    app:popupTheme="@style/Theme.AppCompat.NoActionBar"
+    >
+</android.support.v7.widget.Toolbar>
+<!-- From: file:/C:/Users/Rebecca/Documents/NomNet/NomNet/app/src/main/res/layout/bottombar.xml -->

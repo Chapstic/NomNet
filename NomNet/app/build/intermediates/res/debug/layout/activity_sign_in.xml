@@ -59,7 +59,7 @@ android:background="#D32F2F">
     android:text="New to NomNet? Register here"
     android:gravity="center"
     android:textSize="20dip"
-    android:textColor="#0b84aa"/>
+    android:textColor="#B0D6FD"/>
 
 </LinearLayout>
-    <!-- Login Form Ends --><!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/layout/activity_sign_in.xml -->
+    <!-- Login Form Ends --><!-- From: file:/C:/Users/Rebecca/Documents/NomNet/NomNet/app/src/main/res/layout/activity_sign_in.xml -->

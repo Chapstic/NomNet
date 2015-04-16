@@ -8,6 +8,12 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="21" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <!-- Need name="MyApplication" for global variables -->
     <application
         android:name="app.nomnet.MyApplication"
@@ -68,6 +74,10 @@
         <activity
             android:name="app.nomnet.CustomList"
             android:label="@string/title_activity_custom_list" >
+        </activity>
+        <activity
+            android:name="app.nomnet.Camera"
+            android:label="@string/title_activity_camera" >
         </activity>
         <activity
             android:name="android.support.v7.widget.TestActivity"

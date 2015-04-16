@@ -3,5 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".FoodFeedActivity">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_logout" android:title="@string/action_logout"
+        android:orderInCategory="100" app:showAsAction="never" />
 </menu>
-<!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/menu/menu_food_feed.xml -->
+<!-- From: file:/C:/Users/Rebecca/Documents/NomNet/NomNet/app/src/main/res/menu/menu_food_feed.xml -->

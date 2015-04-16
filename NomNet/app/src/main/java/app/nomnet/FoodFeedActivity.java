@@ -1,8 +1,8 @@
 package app.nomnet;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +17,7 @@ public class FoodFeedActivity extends ActionBarActivity {
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
 
     private Toolbar topbar;                 // This is the topbar that says NomNet
+    private Toolbar bottombar;              // Navigation toolbar at the bottom of the screen
     private ListView listView;              // The feed
     private FoodFeedListAdapter adapter;    // Adapter populates the feed with noms
     private List<Nom> nomList;              // The list of noms to add to te feed
@@ -29,9 +30,11 @@ public class FoodFeedActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_feed);
 
-        // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
+
+        bottombar = (Toolbar) findViewById(R.id.bottombar);
+        bottombar.inflateMenu(R.menu.menu_bottom_bar);
 
         // Create and populate list of noms
         nomList = new ArrayList<>();
@@ -40,6 +43,7 @@ public class FoodFeedActivity extends ActionBarActivity {
         // Initialize list view, feed nomList into adapter, set adapter for list view
         listView = (ListView)findViewById(R.id.listView);
 
+            //if click nom on food feed, go to xViewx CreateNom
         intent = new Intent(this, CreateNom.class); //Replaced ViewNom.class with CreateNom.class FOR TESTING PURPOSES ONLY. CHANGE BACK AFTER*************
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
@@ -63,7 +67,20 @@ public class FoodFeedActivity extends ActionBarActivity {
             });
         }
 
-        // For testing the global variables
+    // Planning
+    // If logged in, show bottom toolbar
+    if(((MyApplication)this.getApplication()).getIsLoggedIn()){
+
+    }
+    // If not logged in, prompt hide bottom toolbar, prompt to make an account
+    else{
+
+    }
+
+
+
+    // For testing the global variables
+
         // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
         //             Toast.LENGTH_LONG).show();
     }
@@ -93,20 +110,44 @@ public class FoodFeedActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_food_feed, menu);
-        return true;
+
+        //Disable Home button on Create because currently on home
+        menu.getItem(0).setEnabled(false);
+
+        return super.onCreateOptionsMenu(menu);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent mainIntent = new Intent(FoodFeedActivity.this,Settings.class);
-                FoodFeedActivity.this.startActivity(mainIntent);
+      /* switch (item.getItemId()) {
+            case R.id.ActionBarHome://home button
+                item.setEnabled(false);
+                return true;
+            case R.id.ActionBarSearch://search button
+                item.setEnabled(true);
+                startActivity(new Intent(FoodFeedActivity.this, SearchActivity.class));
+                return true;
+            case R.id.ActionBarCamera://camera button
+                return true;
+            case R.id.ActionBarNotification://notification button
+                return true;
+            case R.id.ActionBarProfile://profile button
+                item.setEnabled(true);
+                startActivity(new Intent(FoodFeedActivity.this, Profile.class));
+                return true;
+            case R.id.action_logout:
+                Intent mainIntents = new Intent(FoodFeedActivity.this, SignIn.class);
+                FoodFeedActivity.this.startActivity(mainIntents);
+                ((MyApplication) this.getApplication()).setIsLoggedIn(false);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
+        }*/
+    return super.onOptionsItemSelected(item);
 
+        }
 }
+

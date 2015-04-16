@@ -74,7 +74,7 @@
         android:text="Have an account? Sign in"
         android:gravity="center"
         android:textSize="20dip"
-        android:textColor="#0b84aa"/>
+        android:textColor="#B0D6FD"/>
 
 </LinearLayout>
-    <!-- Login Form Ends --><!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/layout/activity_register.xml -->
+    <!-- Login Form Ends --><!-- From: file:/C:/Users/Rebecca/Documents/NomNet/NomNet/app/src/main/res/layout/activity_register.xml -->
