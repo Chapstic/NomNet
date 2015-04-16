@@ -53,7 +53,7 @@ public class Camera extends ActionBarActivity {
         picturebutton = (Button) findViewById(R.id.buttonPic);
 
         /**
-         * Capture image button click event
+        Image click
          */
         picturebutton.setOnClickListener(new View.OnClickListener() {
 
@@ -70,7 +70,7 @@ public class Camera extends ActionBarActivity {
             Toast.makeText(getApplicationContext(),
                     "Device doesn't support camera",
                     Toast.LENGTH_LONG).show();
-            // will close the app if the device does't have camera
+            // close the app if the device does't have camera
             finish();
         }
     }
@@ -78,10 +78,10 @@ public class Camera extends ActionBarActivity {
     private boolean isDeviceSupportCamera() {
         if (getApplicationContext().getPackageManager().hasSystemFeature(
                 PackageManager.FEATURE_CAMERA)) {
-            // this device has a camera
+            // has a camera
             return true;
         } else {
-            // no camera on this device
+            // no camera
             return false;
         }
     }
@@ -91,10 +91,6 @@ public class Camera extends ActionBarActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
     }
-
-
-   //store the file url
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -110,39 +106,36 @@ public class Camera extends ActionBarActivity {
         fileUri = savedInstanceState.getParcelable("file_uri");
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // if the result is capturing Image
         if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                // successfully captured the image
-                // display it in image view
+                // display image view
                 previewCapturedImage();
             } else if (resultCode == RESULT_CANCELED) {
                 // user cancelled Image capture
                 Toast.makeText(getApplicationContext(),
-                        "User cancelled image capture", Toast.LENGTH_SHORT)
+                        "User cancelled image", Toast.LENGTH_SHORT)
                         .show();
             } else {
-                // failed to capture image
+                // failed to capture
                 Toast.makeText(getApplicationContext(),
-                        "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
+                        "Failed to capture image", Toast.LENGTH_SHORT)
                         .show();
             }
         }
     }
 
-    /**
-     * Display image from a path to ImageView
+    /*
+Display image
      */
     private void previewCapturedImage() {
         try {
             images.setVisibility(View.VISIBLE);
             BitmapFactory.Options options = new BitmapFactory.Options();
 
-            // downsizing image as it throws OutOfMemory Exception for larger
-            // images
+            // downsizing image
             options.inSampleSize = 8;
 
             final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),

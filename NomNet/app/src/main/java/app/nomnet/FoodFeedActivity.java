@@ -48,6 +48,7 @@ public class FoodFeedActivity extends ActionBarActivity {
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
 
+
         textViewCreateAcct = (TextView)findViewById(R.id.create_account);
 
         // Planning
@@ -161,6 +162,20 @@ public class FoodFeedActivity extends ActionBarActivity {
         }
 
 
+    }
+
+    //Handle click actions from bottom toolbar
+    public void createBottomBarActions(){
+        bottombar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener(){
+            @Override
+            public boolean onMenuItemClick(MenuItem mi){
+                if(mi.getItemId()==R.id.BottomBarCamera){
+                    //action
+                    
+                }
+                return true;
+            }
+        });
     }
 }
 
