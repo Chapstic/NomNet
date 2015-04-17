@@ -7,7 +7,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TabHost;
 
@@ -17,12 +19,11 @@ import java.util.ArrayList;
 public class SearchActivity extends ActionBarActivity {
 
     private Toolbar topbar;
-    private Toolbar bottombar;              // Navigation toolbar at the bottom of the screen
     private ListView categoriesListView;
     private ArrayList<String> categories;
     private ArrayAdapter<String> categoriesArrayAdapter;
-    private TabHost bottomTabHost;
-    private TabHost.TabSpec home, search, camera, notifications, profile;
+
+    private ImageButton home, search, camera, notifications, profile; //bottombar buttons
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,14 @@ public class SearchActivity extends ActionBarActivity {
         setContentView(R.layout.activity_search);
 
         topbar = (Toolbar) findViewById(R.id.topbar);
+        topbar.setLogo(R.drawable.logosmall);
+        topbar.setTitle("");
         setSupportActionBar(topbar);
 
-        bottombar = (Toolbar) findViewById(R.id.bottombar);
-        bottombar.inflateMenu(R.menu.menu_bottom_bar);
+        createBottomBarActions();
+        //set bottombar search button to already selected
+        search.setSelected(true);
+        search.setClickable(false);
 
         //categories list
         categoriesListView = (ListView) findViewById(R.id.searchListView);
@@ -51,12 +56,6 @@ public class SearchActivity extends ActionBarActivity {
 
     }
 
-    private void linkBar(){//link the bottom bar to respective activities
-        search.setContent(new Intent(this, SearchActivity.class));
-        profile.setContent(new Intent(this, Profile.class));
-
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu
@@ -64,8 +63,6 @@ public class SearchActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         inflater.inflate(R.menu.menu_food_feed, menu);
 
-        //disable search button on create
-        menu.getItem(1).setEnabled(false);
 
         return super.onCreateOptionsMenu(menu);
 
@@ -83,27 +80,69 @@ public class SearchActivity extends ActionBarActivity {
             return true;
         }
 
-        // Handle item selection
-/*
-        switch (item.getItemId()) {
-            case R.id.ActionBarHome:
-                item.setEnabled(true);
-                startActivity(new Intent(SearchActivity.this, Profile.class));
-                return true;
-            case R.id.ActionBarSearch:
-                item.setEnabled(false);
-                return true;
-            case R.id.ActionBarCamera:
-                return true;
-            case R.id.ActionBarNotification:
-                return true;
-            case R.id.ActionBarProfile:
-                item.setEnabled(true);
-                startActivity(new Intent(SearchActivity.this, Profile.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }*/
         return super.onOptionsItemSelected(item);
+    }
+
+    //Handle click actions from bottom toolbar
+    public void createBottomBarActions(){
+        //initialize bottombar buttons
+        home = (ImageButton) findViewById(R.id.BottomBarHome);
+        search = (ImageButton) findViewById(R.id.BottomBarSearch);
+        camera = (ImageButton) findViewById(R.id.BottomBarCamera);
+        notifications = (ImageButton) findViewById(R.id.BottomBarNotification);
+        profile = (ImageButton) findViewById(R.id.BottomBarProfile);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home.setSelected(true);
+                search.setSelected(false);
+                camera.setSelected(false);
+                notifications.setSelected(false);
+                profile.setSelected(false);
+
+                startActivity(new Intent(SearchActivity.this, FoodFeedActivity.class));
+            }
+        });
+
+        camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home.setSelected(false);
+                search.setSelected(false);
+                camera.setSelected(true);
+                notifications.setSelected(false);
+                profile.setSelected(false);
+
+                startActivity(new Intent(SearchActivity.this, Camera.class));
+            }
+        });
+
+        notifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home.setSelected(false);
+                search.setSelected(false);
+                camera.setSelected(false);
+                notifications.setSelected(true);
+                profile.setSelected(false);
+
+                // startActivity(new Intent(SearchActivity.this, NomificationActivity.class));
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home.setSelected(false);
+                search.setSelected(false);
+                camera.setSelected(false);
+                notifications.setSelected(false);
+                profile.setSelected(true);
+
+                startActivity(new Intent(SearchActivity.this, Profile.class));
+            }
+        });
     }
 }

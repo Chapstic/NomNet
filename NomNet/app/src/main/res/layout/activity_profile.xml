@@ -1,27 +1,32 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="14dip"
-    android:layout_gravity="center"
-    android:background="@drawable/background"
-    >
+    android:background="@drawable/background">
 
+    <include
+        android:id="@+id/topbar"
+        layout= "@layout/topbar"
+        android:textColor="#FFF"/>
 
     <ImageView
+        android:id="@+id/profilepic"
         android:src="@drawable/albert"
         android:layout_width = "150dp"
         android:layout_height= "150dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
         android:layout_marginBottom="20dp"
-        android:layout_gravity="center"/>
+        android:layout_centerHorizontal="true"/>
     <TextView
+        android:id="@+id/profilename"
         android:textColor="#ffffff"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/profilepic"
         android:gravity="center"
         android:text="AYue63"/>
     <TextView
@@ -29,9 +34,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/profilename"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="AYue63@Gmail.com"/>
 
+    <include
+        android:id="@+id/bottombar"
+        layout= "@layout/bottombar"
+        android:textColor="#FFF"/>
 
-</LinearLayout>
+
+</RelativeLayout>

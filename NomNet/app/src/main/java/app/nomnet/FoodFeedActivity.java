@@ -7,8 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,12 @@ public class FoodFeedActivity extends ActionBarActivity {
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
 
     private Toolbar topbar;                 // This is the topbar that says NomNet
-    private Toolbar bottombar;              // Navigation toolbar at the bottom of the screen
     private ListView listView;              // The feed
     private FoodFeedListAdapter adapter;    // Adapter populates the feed with noms
     private List<Nom> nomList;              // The list of noms to add to te feed
     private Intent intent;                  // Intent that allows us to go to other pages
+
+    private ImageButton home, search, camera, notifications, profile; //bottombar buttons
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,14 @@ public class FoodFeedActivity extends ActionBarActivity {
         setContentView(R.layout.activity_food_feed);
 
         topbar = (Toolbar) findViewById(R.id.topbar);
+        topbar.setLogo(R.drawable.logosmall);
+        topbar.setTitle("");
         setSupportActionBar(topbar);
 
-        bottombar = (Toolbar) findViewById(R.id.bottombar);
-        bottombar.inflateMenu(R.menu.menu_bottom_bar);
+        createBottomBarActions();
+        //set bottombar home button to already selected
+        home.setSelected(true);
+        home.setClickable(false);
 
 
     // Create and populate list of noms
@@ -88,9 +93,6 @@ public class FoodFeedActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_food_feed, menu);
 
-        //Disable Home button on Create because currently on home
-        menu.getItem(0).setEnabled(false);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -98,33 +100,70 @@ public class FoodFeedActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-      /* switch (item.getItemId()) {
-            case R.id.ActionBarHome://home button
-                item.setEnabled(false);
-                return true;
-            case R.id.ActionBarSearch://search button
-                item.setEnabled(true);
-                startActivity(new Intent(FoodFeedActivity.this, SearchActivity.class));
-                return true;
-            case R.id.ActionBarCamera://camera button
-                return true;
-            case R.id.ActionBarNotification://notification button
-                return true;
-            case R.id.ActionBarProfile://profile button
-                item.setEnabled(true);
-                startActivity(new Intent(FoodFeedActivity.this, Profile.class));
-                return true;
-            case R.id.action_logout:
-                Intent mainIntents = new Intent(FoodFeedActivity.this, SignIn.class);
-                FoodFeedActivity.this.startActivity(mainIntents);
-                ((MyApplication) this.getApplication()).setIsLoggedIn(false);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }*/
-    return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
+    }
 
-        }
+    //Handle click actions from bottom toolbar
+    public void createBottomBarActions(){
+        //initialize bottombar buttons
+        home = (ImageButton) findViewById(R.id.BottomBarHome);
+        search = (ImageButton) findViewById(R.id.BottomBarSearch);
+        camera = (ImageButton) findViewById(R.id.BottomBarCamera);
+        notifications = (ImageButton) findViewById(R.id.BottomBarNotification);
+        profile = (ImageButton) findViewById(R.id.BottomBarProfile);
+
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home.setSelected(false);
+                search.setSelected(true);
+                camera.setSelected(false);
+                notifications.setSelected(false);
+                profile.setSelected(false);
+
+                startActivity(new Intent(FoodFeedActivity.this, SearchActivity.class));
+            }
+        });
+
+        camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home.setSelected(false);
+                search.setSelected(false);
+                camera.setSelected(true);
+                notifications.setSelected(false);
+                profile.setSelected(false);
+
+                startActivity(new Intent(FoodFeedActivity.this, Camera.class));
+            }
+        });
+
+        notifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home.setSelected(false);
+                search.setSelected(false);
+                camera.setSelected(false);
+                notifications.setSelected(true);
+                profile.setSelected(false);
+
+               // startActivity(new Intent(FoodFeedActivity.this, NomificationActivity.class));
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home.setSelected(false);
+                search.setSelected(false);
+                camera.setSelected(false);
+                notifications.setSelected(false);
+                profile.setSelected(true);
+
+                startActivity(new Intent(FoodFeedActivity.this, Profile.class));
+            }
+        });
+    }
 }
 

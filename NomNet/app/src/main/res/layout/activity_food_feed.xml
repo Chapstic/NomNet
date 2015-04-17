@@ -17,17 +17,27 @@
         android:layout_below="@+id/topbar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+
+        android:divider="@null"
         />
 
-    <LinearLayout
+    <!-- Link to Registration Screen -->
+    <TextView android:id="@+id/create_account"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-        <include
-            android:id="@+id/bottombar"
-            layout= "@layout/bottombar"
-            android:textColor="#FFF"/>
-    </LinearLayout>
+        android:layout_marginTop="40dip"
+        android:layout_marginBottom="40dip"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@color/primaryColorDark"
+        android:layout_alignParentBottom="true"/>
+
+
+    <include
+        android:id="@+id/bottombar"
+        layout= "@layout/bottombar"
+        android:textColor="#FFF"/>
            <!--android:divider="@null" make the divider line invisible-->
 
 </RelativeLayout>
