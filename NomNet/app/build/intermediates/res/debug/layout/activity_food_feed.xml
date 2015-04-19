@@ -37,13 +37,20 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-        <include
-            android:id="@+id/bottombar"
-            layout= "@layout/bottombar"
-            android:textColor="#FFF"/>
-    </LinearLayout>
+        android:layout_marginTop="40dip"
+        android:layout_marginBottom="40dip"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@color/primaryColorDark"
+        android:layout_alignParentBottom="true"/>
+
+
+    <include
+        android:id="@+id/bottombar"
+        layout= "@layout/bottombar"
+        android:textColor="#FFF"/>
            <!--android:divider="@null" make the divider line invisible-->
 
 </RelativeLayout>
-<!-- From: file:/Users/acer/NomNet/NomNet/app/src/main/res/layout/activity_food_feed.xml -->
+<!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/layout/activity_food_feed.xml -->
