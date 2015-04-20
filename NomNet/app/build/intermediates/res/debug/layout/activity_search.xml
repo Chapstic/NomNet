@@ -16,7 +16,9 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/searchListView"
-        android:layout_below="@+id/topbar">
+        android:layout_below="@+id/topbar"
+        android:dividerHeight="1.5dp"
+        android:divider="@color/white">
     </ListView>
 
 
@@ -29,4 +31,4 @@
 
 
 </RelativeLayout>
-<!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/layout/activity_search.xml -->
+<!-- From: file:/C:/Users/Rebecca/Documents/NomNet/NomNet/app/src/main/res/layout/activity_search.xml -->

@@ -1,61 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@color/primaryColorDark"
-        app:theme="@style/AppTheme"
-        app:popupTheme="@style/Theme.AppCompat.NoActionBar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primaryColorDark"
+    app:theme="@style/AppTheme"
+    app:popupTheme="@style/Theme.AppCompat.NoActionBar"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/abc_action_bar_default_height_material"
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true">
 
-        <ImageButton
-            android:layout_height="@dimen/abc_action_button_min_height_material"
-            android:layout_width="@dimen/abc_action_button_min_width_material"
-            android:layout_weight="1"
-            android:id="@+id/BottomBarHome"
-            android:src="@drawable/home"
-            android:scaleType="fitCenter"
-            android:background="@drawable/underlineselector"/>
+    <ImageButton
+        android:layout_height="@dimen/abc_action_button_min_height_material"
+        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_weight="1"
+        android:id="@+id/BottomBarHome"
+        android:src="@drawable/home"
+        android:scaleType="fitCenter"
+        android:background="@drawable/underlineselector"
+        android:layout_gravity="bottom"/>
 
-        <ImageButton
-            android:layout_height="@dimen/abc_action_button_min_height_material"
-            android:layout_width="@dimen/abc_action_button_min_width_material"
-            android:layout_weight="1"
-            android:id="@+id/BottomBarSearch"
-            android:src="@drawable/search"
-            android:scaleType="fitCenter"
-            android:background="@drawable/underlineselector"/>
+    <ImageButton
+        android:layout_height="@dimen/abc_action_button_min_height_material"
+        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_weight="1"
+        android:id="@+id/BottomBarSearch"
+        android:src="@drawable/search"
+        android:scaleType="fitCenter"
+        android:background="@drawable/underlineselector"
+        android:layout_gravity="bottom"/>
 
-        <ImageButton
-            android:layout_height="@dimen/abc_action_button_min_height_material"
-            android:layout_width="@dimen/abc_action_button_min_width_material"
-            android:layout_weight="1"
-            android:id="@+id/BottomBarCamera"
-            android:src="@drawable/camera"
-            android:scaleType="fitCenter"
-            android:background="@drawable/underlineselector"/>
+    <ImageButton
+        android:layout_height="@dimen/abc_action_button_min_height_material"
+        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_weight="1"
+        android:id="@+id/BottomBarCamera"
+        android:src="@drawable/camera"
+        android:scaleType="fitCenter"
+        android:background="@drawable/underlineselector"
+        android:layout_gravity="bottom"/>
 
-        <ImageButton
-            android:layout_height="@dimen/abc_action_button_min_height_material"
-            android:layout_width="@dimen/abc_action_button_min_width_material"
-            android:layout_weight="1"
-            android:id="@+id/BottomBarNotification"
-            android:src="@drawable/notifications"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:background="@drawable/underlineselector"/>
+    <ImageButton
+        android:layout_height="@dimen/abc_action_button_min_height_material"
+        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_weight="1"
+        android:id="@+id/BottomBarNotification"
+        android:src="@drawable/notifications"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:background="@drawable/underlineselector"
+        android:layout_gravity="bottom"/>
 
-        <ImageButton
-            android:layout_height="@dimen/abc_action_button_min_height_material"
-            android:layout_width="@dimen/abc_action_button_min_width_material"
-            android:layout_weight="1"
-            android:id="@+id/BottomBarProfile"
-            android:src="@drawable/profile"
-            android:scaleType="fitCenter"
-            android:background="@drawable/underlineselector"/>
+    <ImageButton
+        android:layout_height="@dimen/abc_action_button_min_height_material"
+        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_weight="1"
+        android:id="@+id/BottomBarProfile"
+        android:src="@drawable/profile"
+        android:scaleType="fitCenter"
+        android:background="@drawable/underlineselector"
+        android:layout_gravity="bottom"/>
 
-    </LinearLayout>
-<!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/layout/bottombar.xml -->
+</LinearLayout>
+<!-- From: file:/C:/Users/Rebecca/Documents/NomNet/NomNet/app/src/main/res/layout/bottombar.xml -->

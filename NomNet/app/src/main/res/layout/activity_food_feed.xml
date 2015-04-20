@@ -21,7 +21,7 @@
         android:divider="@null"
         />
 
-    <!-- Link to Registration Screen
+    <!-- Link to Registration Screen-->
     <TextView android:id="@+id/create_account"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:textColor="@color/white"
         android:background="@color/primaryColorDark"
         android:layout_alignParentBottom="true"/>
-    -->
+
 
 
     <include
