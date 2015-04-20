@@ -41,5 +41,12 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal" />
 
+    <Button
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        android:id="@+id/return_button"
+        android:layout_gravity="center_horizontal" />
+
 
 </LinearLayout><!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/src/main/res/layout/activity_profile.xml -->

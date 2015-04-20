@@ -16,13 +16,23 @@ public class Profile extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        Button button = (Button)findViewById(R.id.nomif_button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button nomi_button = (Button)findViewById(R.id.nomif_button);
+        nomi_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(Profile.this, Nomification.class);
                 startActivity(i);
             }
         });
+
+        Button return_button = (Button)findViewById(R.id.return_button);
+        return_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(Profile.this, FoodFeedActivity.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
 
