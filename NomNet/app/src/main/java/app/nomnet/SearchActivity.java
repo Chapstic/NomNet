@@ -1,5 +1,6 @@
 package app.nomnet;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -7,9 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TabHost;
 
 import java.util.ArrayList;
 
@@ -17,12 +19,13 @@ import java.util.ArrayList;
 public class SearchActivity extends ActionBarActivity {
 
     private Toolbar topbar;
-    private Toolbar bottombar;              // Navigation toolbar at the bottom of the screen
     private ListView categoriesListView;
     private ArrayList<String> categories;
     private ArrayAdapter<String> categoriesArrayAdapter;
-    private TabHost bottomTabHost;
-    private TabHost.TabSpec home, search, camera, notifications, profile;
+
+    private String query; //holds user's search query or category name
+
+    private ImageButton[] bottombarButtons; //bottombar buttons
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,30 +33,46 @@ public class SearchActivity extends ActionBarActivity {
         setContentView(R.layout.activity_search);
 
         topbar = (Toolbar) findViewById(R.id.topbar);
+        topbar.setTitle("");
         setSupportActionBar(topbar);
 
-        bottombar = (Toolbar) findViewById(R.id.bottombar);
-        bottombar.inflateMenu(R.menu.menu_bottom_bar);
+        bottombarButtons = new ImageButton[5];
+        //initialize bottombar buttons
+        bottombarButtons[0] = (ImageButton) findViewById(R.id.BottomBarHome);
+        bottombarButtons[1] = (ImageButton) findViewById(R.id.BottomBarSearch);
+        bottombarButtons[2] = (ImageButton) findViewById(R.id.BottomBarCamera);
+        bottombarButtons[3] = (ImageButton) findViewById(R.id.BottomBarNotification);
+        bottombarButtons[4] = (ImageButton) findViewById(R.id.BottomBarProfile);
+
+        //Create click actions from bottom toolbar
+        //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
+        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, SearchActivity.this, 1);
+
 
         //categories list
         categoriesListView = (ListView) findViewById(R.id.searchListView);
-        categories = new ArrayList<String>();
+        categories = new ArrayList<>();
         categories.add("VEGAN");
         categories.add("VEGETARIAN");
         categories.add("BREAKFAST");
         categories.add("LUNCH");
         categories.add("DINNER");
-        categoriesArrayAdapter = new ArrayAdapter<String>(this,
-                R.layout.centerlistitems,categories);
+        categoriesArrayAdapter = new ArrayAdapter<>(this,
+                R.layout.stylelistitems,categories);
         categoriesListView.setAdapter(categoriesArrayAdapter);
 
+        //Receive search query
+        Intent i = getIntent();
+        if(Intent.ACTION_SEARCH.equals(i.getAction())){
+            query = i.getStringExtra(SearchManager.QUERY);
+            search(query);
+        }
+        //clicked category
 
 
     }
 
-    private void linkBar(){//link the bottom bar to respective activities
-        search.setContent(new Intent(this, SearchActivity.class));
-        profile.setContent(new Intent(this, Profile.class));
+    private void search(String query) {
 
     }
 
@@ -62,10 +81,8 @@ public class SearchActivity extends ActionBarActivity {
         // Inflate the menu
         MenuInflater inflater = getMenuInflater();
         // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.menu_food_feed, menu);
+        inflater.inflate(R.menu.menu_search, menu);
 
-        //disable search button on create
-        menu.getItem(1).setEnabled(false);
 
         return super.onCreateOptionsMenu(menu);
 
@@ -83,27 +100,6 @@ public class SearchActivity extends ActionBarActivity {
             return true;
         }
 
-        // Handle item selection
-/*
-        switch (item.getItemId()) {
-            case R.id.ActionBarHome:
-                item.setEnabled(true);
-                startActivity(new Intent(SearchActivity.this, Profile.class));
-                return true;
-            case R.id.ActionBarSearch:
-                item.setEnabled(false);
-                return true;
-            case R.id.ActionBarCamera:
-                return true;
-            case R.id.ActionBarNotification:
-                return true;
-            case R.id.ActionBarProfile:
-                item.setEnabled(true);
-                startActivity(new Intent(SearchActivity.this, Profile.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }*/
         return super.onOptionsItemSelected(item);
     }
 }

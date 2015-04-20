@@ -1,8 +1,11 @@
 package app.nomnet;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.app.Activity;
@@ -12,10 +15,13 @@ import app.nomnet.R;
 import android.widget.Button;
 
 
-public class Nomification extends Activity {
+public class Nomification extends ActionBarActivity {
     ListView list;
 
 private static final String TAG= "buckysMessage";
+
+    private ImageButton[] bottombarButtons; //bottombar buttons
+    private Toolbar topbar;                 // This is the topbar that says NomNet
 
 
 //hard coded part
@@ -44,6 +50,26 @@ private static final String TAG= "buckysMessage";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nomification);
+
+        topbar = (Toolbar) findViewById(R.id.topbar);
+        topbar.setLogo(R.drawable.logosmall);
+        topbar.setTitle("");
+        setSupportActionBar(topbar);
+
+        bottombarButtons = new ImageButton[5];
+        //initialize bottombar buttons
+        bottombarButtons[0] = (ImageButton) findViewById(R.id.BottomBarHome);
+        bottombarButtons[1] = (ImageButton) findViewById(R.id.BottomBarSearch);
+        bottombarButtons[2] = (ImageButton) findViewById(R.id.BottomBarCamera);
+        bottombarButtons[3] = (ImageButton) findViewById(R.id.BottomBarNotification);
+        bottombarButtons[4] = (ImageButton) findViewById(R.id.BottomBarProfile);
+
+        //Create click actions from bottom toolbar
+        //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
+        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, Nomification.this, 3);
+
+
+
         CustomList adapter = new
                 CustomList(Nomification.this, web, imageId);
         list=(ListView)findViewById(R.id.list);
@@ -60,7 +86,7 @@ private static final String TAG= "buckysMessage";
         Button return_button = (Button)findViewById(R.id.ReturnButton);
         return_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(Nomification.this, Settings.class);
+                Intent i = new Intent(Nomification.this, Profile.class);
                 startActivity(i);
             }
         });

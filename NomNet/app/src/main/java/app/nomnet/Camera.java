@@ -9,11 +9,13 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -43,17 +45,40 @@ public class Camera extends ActionBarActivity {
     private ImageView images;
     private Button picturebutton;
 
+    private Toolbar topbar;
+
+    private ImageButton[] bottombarButtons; //bottombar buttons
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        topbar = (Toolbar) findViewById(R.id.topbar);
+        topbar.setLogo(R.drawable.logosmall);
+        topbar.setTitle("");
+        setSupportActionBar(topbar);
+
+        bottombarButtons = new ImageButton[5];
+        //initialize bottombar buttons
+        bottombarButtons[0] = (ImageButton) findViewById(R.id.BottomBarHome);
+        bottombarButtons[1] = (ImageButton) findViewById(R.id.BottomBarSearch);
+        bottombarButtons[2] = (ImageButton) findViewById(R.id.BottomBarCamera);
+        bottombarButtons[3] = (ImageButton) findViewById(R.id.BottomBarNotification);
+        bottombarButtons[4] = (ImageButton) findViewById(R.id.BottomBarProfile);
+
+        //Create click actions from bottom toolbar
+        //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
+        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, Camera.this, 2);
+
+
+
         images = (ImageView) findViewById(R.id.imgPreview);
         picturebutton = (Button) findViewById(R.id.buttonPic);
 
         /**
-         * Capture image button click event
+        Image click
          */
         picturebutton.setOnClickListener(new View.OnClickListener() {
 
@@ -70,31 +95,29 @@ public class Camera extends ActionBarActivity {
             Toast.makeText(getApplicationContext(),
                     "Device doesn't support camera",
                     Toast.LENGTH_LONG).show();
-            // will close the app if the device does't have camera
+            // close the app if the device does't have camera
             finish();
         }
+
+        captureImage();
     }
 
     private boolean isDeviceSupportCamera() {
         if (getApplicationContext().getPackageManager().hasSystemFeature(
                 PackageManager.FEATURE_CAMERA)) {
-            // this device has a camera
+            // has a camera
             return true;
         } else {
-            // no camera on this device
+            // no camera
             return false;
         }
     }
-    private void captureImage() {
+    public void captureImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
     }
-
-
-   //store the file url
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -110,39 +133,36 @@ public class Camera extends ActionBarActivity {
         fileUri = savedInstanceState.getParcelable("file_uri");
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // if the result is capturing Image
         if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                // successfully captured the image
-                // display it in image view
+                // display image view
                 previewCapturedImage();
             } else if (resultCode == RESULT_CANCELED) {
                 // user cancelled Image capture
                 Toast.makeText(getApplicationContext(),
-                        "User cancelled image capture", Toast.LENGTH_SHORT)
+                        "User cancelled image", Toast.LENGTH_SHORT)
                         .show();
             } else {
-                // failed to capture image
+                // failed to capture
                 Toast.makeText(getApplicationContext(),
-                        "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
+                        "Failed to capture image", Toast.LENGTH_SHORT)
                         .show();
             }
         }
     }
 
-    /**
-     * Display image from a path to ImageView
+    /*
+Display image
      */
     private void previewCapturedImage() {
         try {
             images.setVisibility(View.VISIBLE);
             BitmapFactory.Options options = new BitmapFactory.Options();
 
-            // downsizing image as it throws OutOfMemory Exception for larger
-            // images
+            // downsizing image
             options.inSampleSize = 8;
 
             final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
@@ -187,4 +207,19 @@ public class Camera extends ActionBarActivity {
 
         return mediaFile;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_camera, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
 }
