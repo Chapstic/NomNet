@@ -2,7 +2,6 @@ package app.nomnet;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,9 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CreateNom extends ActionBarActivity implements View.OnClickListener {
@@ -31,6 +34,10 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
 
     private Intent intent;
 
+    List<Boolean> newTags;
+    Boolean veganChecked, vegetarianChecked, bfastChecked, lunchChecked, dinnerChecked;
+
+
     //Possibly add additional method to parse text
 
     @Override
@@ -38,6 +45,10 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         intent = new Intent(this, ViewNom.class); //Users view the Nom immediately after posting. Check line 40 activity_view_nom
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_nom);
+
+        // Initialize tags list and booleans
+        newTags = new ArrayList<Boolean>();
+        veganChecked = vegetarianChecked = bfastChecked = lunchChecked = dinnerChecked = false;
 
         // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
@@ -66,7 +77,6 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         //Access the PostButton in create_nom.xml
         postButton = (Button) findViewById(R.id.postButton);
         postButton.setOnClickListener(this);
-
     }
 
 
@@ -99,12 +109,70 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         ingredients = String.valueOf(ingredientsEdit.getText() );
         directions = String.valueOf(directionsEdit.getText() );
 
+        finalizeTags();
+
         newRecipe = new Recipe(dishname, ingredients, directions);
-        newNom = new Nom("Placeholder Username", 0, nomImage, newRecipe);
+        newNom = new Nom("Placeholder Username", 0, nomImage, newRecipe, newTags);
 
         intent.putExtra("Nom", newNom); //Passes Nom object in Map<Key,Value> format to next activity (view_nom)
         v.getContext().startActivity(intent); //Creates Nom and immediately goes to ViewNom
 
+    }
+
+    public void finalizeTags(){
+        newTags.add(veganChecked);
+        newTags.add(vegetarianChecked);
+        newTags.add(bfastChecked);
+        newTags.add(lunchChecked);
+        newTags.add(dinnerChecked);
+    }
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked and update booleans accordingly
+        switch(view.getId()) {
+            case R.id.checkbox_vegan:
+                if (checked){
+                    veganChecked = true;
+                } else{
+                    veganChecked = false;
+                }
+                break;
+
+            case R.id.checkbox_vegetarian:
+                if (checked){
+                    vegetarianChecked = true;
+                } else{
+                    vegetarianChecked = false;
+                }
+                break;
+
+            case R.id.checkbox_bfast:
+                if (checked){
+                    bfastChecked = true;
+                } else{
+                    bfastChecked = false;
+                }
+                break;
+
+            case R.id.checkbox_lunch:
+                if (checked){
+                    lunchChecked = true;
+                } else{
+                    lunchChecked = false;
+                }
+                break;
+
+            case R.id.checkbox_dinner:
+                if (checked){
+                    dinnerChecked = true;
+                } else{
+                    dinnerChecked = false;
+                }
+                break;
+        }
     }
 
 }

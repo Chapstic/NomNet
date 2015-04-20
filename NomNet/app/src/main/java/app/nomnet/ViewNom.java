@@ -9,17 +9,26 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ViewNom extends ActionBarActivity {
     private Nom currentNom;
     private Toolbar topbar;
-    private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, directionsLabel, ingredientsText, directionsText;
+    private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, ingredientsText, directionsText;
     private ImageView appImageView;
+
+    private List<Boolean> tags;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_nom);
+
+        // Initialize tags with tags from Nom
+        tags = new ArrayList<Boolean>(); //Shallow copy? Not sure need to double check
+        //tags = currentNom.getTags();
 
         // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
@@ -46,11 +55,9 @@ public class ViewNom extends ActionBarActivity {
         ingredientsText = (TextView) findViewById(R.id.ingredientsText);
         ingredientsText.setText(currentNom.getIngredients() );
 
-        directionsLabel = (TextView) findViewById(R.id.directionsLabel);
-        directionsLabel.setText("Directions" );
-
         directionsText = (TextView) findViewById(R.id.directionsText);
         directionsText.setText(currentNom.getDirections() );
+
 
     }
 
@@ -89,4 +96,5 @@ public class ViewNom extends ActionBarActivity {
     public int getUpvotes(){
         return currentNom.getUpvotes();
     }
+
 }

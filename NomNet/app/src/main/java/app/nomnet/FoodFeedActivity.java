@@ -38,8 +38,8 @@ public class FoodFeedActivity extends ActionBarActivity {
         topbar.setTitle("");
         setSupportActionBar(topbar);
 
+        //BottomBar initialization code
         createBottomBarActions();
-        //set bottombar home button to already selected
         home.setSelected(true);
         home.setClickable(false);
 
@@ -51,7 +51,7 @@ public class FoodFeedActivity extends ActionBarActivity {
         listView = (ListView) findViewById(R.id.listView);
 
         //if click nom on food feed, go to xViewx CreateNom
-        intent = new Intent(this, ViewNom.class);
+        intent = new Intent(this, CreateNom.class); //CHANGE BACK TO VIEW NOM AFTER**********************************************
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
 
@@ -106,9 +106,17 @@ public class FoodFeedActivity extends ActionBarActivity {
         String directions = "1. Mix mix, swirl mix" + '\n' +
                 "2. Drink" + '\n';
 
+        Boolean breakfast, lunch, dinner;
+        breakfast = lunch = dinner = true;
+
+        List<Boolean> tags = new ArrayList<Boolean>();
+        tags.add(breakfast);
+        tags.add(lunch);
+        tags.add(dinner);
+
         for (int i = 0; i < names.length; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
-            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe);
+            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe, tags);
             nomList.add(newNom);
         }
     }
