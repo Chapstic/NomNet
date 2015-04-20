@@ -3,6 +3,7 @@ package app.nomnet;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,9 +13,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.View;
 import android.content.Intent;
+import android.widget.ToggleButton;
 
 
 public class Settings extends ActionBarActivity {
+    private static final String TAG= "the button is on";
+    TextView nomif_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,19 @@ public class Settings extends ActionBarActivity {
 
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+
+        nomif_text = (TextView)findViewById(R.id.nomif_text);
+        nomif_text.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Settings.this, Nomification.class);
+                startActivity(i);
+            }
+        });
+
 
         //Links Nomification label to Nomification activity
         TextView nomif_text = (TextView)findViewById(R.id.nomif_text);
@@ -63,5 +80,19 @@ public class Settings extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    //functionize the toggle button(on->Nomification clickable/off->Nomification onclickable)
+    public void onToggleClicked(View view) {
+        // Is the toggle on?
+        boolean on = ((ToggleButton) view).isChecked();
+
+        if (on) {
+            Log.i(TAG, "On Condition");
+            nomif_text.setEnabled(true);
+        } else {
+            nomif_text.setEnabled(false);
+        }
     }
 }

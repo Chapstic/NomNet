@@ -56,10 +56,10 @@ public class FoodFeedActivity extends ActionBarActivity {
         getNoms();
 
         // Initialize list view, feed nomList into adapter, set adapter for list view
-        listView = (ListView) findViewById(R.id.listView);
 
-        //if click nom on food feed, go to xViewx CreateNom
-        intent = new Intent(this, CreateNom.class); //Replaced ViewNom.class with CreateNom.class FOR TESTING PURPOSES ONLY. CHANGE BACK AFTER*************
+        listView = (ListView)findViewById(R.id.listView);
+        intent = new Intent(this, ViewNom.class); //Replaced ViewNom.class with CreateNom.class FOR TESTING PURPOSES ONLY. CHANGE BACK AFTER*************
+
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
 
