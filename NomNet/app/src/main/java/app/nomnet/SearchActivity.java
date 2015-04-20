@@ -1,5 +1,6 @@
 package app.nomnet;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TabHost;
 
 import java.util.ArrayList;
 
@@ -23,6 +23,8 @@ public class SearchActivity extends ActionBarActivity {
     private ArrayList<String> categories;
     private ArrayAdapter<String> categoriesArrayAdapter;
 
+    private String query; //holds user's search query or category name
+
     private ImageButton home, search, camera, notifications, profile; //bottombar buttons
 
     @Override
@@ -31,7 +33,6 @@ public class SearchActivity extends ActionBarActivity {
         setContentView(R.layout.activity_search);
 
         topbar = (Toolbar) findViewById(R.id.topbar);
-        topbar.setLogo(R.drawable.logosmall);
         topbar.setTitle("");
         setSupportActionBar(topbar);
 
@@ -42,17 +43,28 @@ public class SearchActivity extends ActionBarActivity {
 
         //categories list
         categoriesListView = (ListView) findViewById(R.id.searchListView);
-        categories = new ArrayList<String>();
+        categories = new ArrayList<>();
         categories.add("VEGAN");
         categories.add("VEGETARIAN");
         categories.add("BREAKFAST");
         categories.add("LUNCH");
         categories.add("DINNER");
-        categoriesArrayAdapter = new ArrayAdapter<String>(this,
-                R.layout.centerlistitems,categories);
+        categoriesArrayAdapter = new ArrayAdapter<>(this,
+                R.layout.stylelistitems,categories);
         categoriesListView.setAdapter(categoriesArrayAdapter);
 
+        //Receive search query
+        Intent i = getIntent();
+        if(Intent.ACTION_SEARCH.equals(i.getAction())){
+            query = i.getStringExtra(SearchManager.QUERY);
+            search(query);
+        }
+        //clicked category
 
+
+    }
+
+    private void search(String query) {
 
     }
 
@@ -61,7 +73,7 @@ public class SearchActivity extends ActionBarActivity {
         // Inflate the menu
         MenuInflater inflater = getMenuInflater();
         // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.menu_food_feed, menu);
+        inflater.inflate(R.menu.menu_search, menu);
 
 
         return super.onCreateOptionsMenu(menu);
