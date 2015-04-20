@@ -89,6 +89,8 @@ public class Camera extends ActionBarActivity {
             // close the app if the device does't have camera
             finish();
         }
+
+        captureImage();
     }
 
     private boolean isDeviceSupportCamera() {
@@ -101,7 +103,7 @@ public class Camera extends ActionBarActivity {
             return false;
         }
     }
-    private void captureImage() {
+    public void captureImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);

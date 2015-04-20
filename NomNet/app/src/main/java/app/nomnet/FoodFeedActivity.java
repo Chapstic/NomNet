@@ -186,6 +186,7 @@ public class FoodFeedActivity extends ActionBarActivity {
                 profile.setSelected(true);
 
                 startActivity(new Intent(FoodFeedActivity.this, Profile.class));
+
             }
         });
     }

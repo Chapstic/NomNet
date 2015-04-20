@@ -44,7 +44,7 @@
         android:textColor="@color/white"
         android:background="@color/primaryColorDark"
         android:layout_alignParentBottom="true"/>
-   
+
 
 
     <include
