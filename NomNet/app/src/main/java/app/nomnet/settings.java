@@ -2,16 +2,21 @@ package app.nomnet;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.View;
 import android.content.Intent;
+import android.widget.ToggleButton;
 
 
 public class Settings extends ActionBarActivity {
+    private static final String TAG= "the button is on";
+    TextView nomif_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,19 @@ public class Settings extends ActionBarActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        nomif_text = (TextView)findViewById(R.id.nomif_text);
+        nomif_text.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Settings.this, Nomification.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
 
@@ -33,16 +51,6 @@ public class Settings extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_settings, menu);
 
-        TextView nomif_text = (TextView)findViewById(R.id.nomif_text);
-        nomif_text.setOnClickListener(new View.OnClickListener() {
-
-
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(Settings.this, Nomification.class);
-                    startActivity(i);
-                }
-        });
         return true;
     }
 
@@ -59,5 +67,19 @@ public class Settings extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    //functionize the toggle button(on->Nomification clickable/off->Nomification onclickable)
+    public void onToggleClicked(View view) {
+        // Is the toggle on?
+        boolean on = ((ToggleButton) view).isChecked();
+
+        if (on) {
+            Log.i(TAG, "On Condition");
+            nomif_text.setEnabled(true);
+        } else {
+            nomif_text.setEnabled(false);
+        }
     }
 }

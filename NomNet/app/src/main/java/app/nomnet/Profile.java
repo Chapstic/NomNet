@@ -1,9 +1,12 @@
 package app.nomnet;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class Profile extends ActionBarActivity {
@@ -12,6 +15,14 @@ public class Profile extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Button button = (Button)findViewById(R.id.nomif_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(Profile.this, Nomification.class);
+                startActivity(i);
+            }
+        });
     }
 
 

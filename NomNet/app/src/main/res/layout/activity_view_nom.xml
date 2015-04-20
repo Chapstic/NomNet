@@ -85,6 +85,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/directionsLabel"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification Click"
+            android:id="@+id/noti_button"
+            android:onClick="notiButtonOnClicked"
+            android:layout_alignBaseline="@+id/directionsLabel"
+            android:layout_alignBottom="@+id/directionsLabel"
+            android:layout_centerHorizontal="true" />
+
 
     </RelativeLayout>
 </ScrollView>

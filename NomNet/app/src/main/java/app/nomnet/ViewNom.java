@@ -1,6 +1,9 @@
 package app.nomnet;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.View;
 
 
 public class ViewNom extends ActionBarActivity {
@@ -15,6 +19,13 @@ public class ViewNom extends ActionBarActivity {
     private Toolbar topbar;
     private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, directionsLabel, ingredientsText, directionsText;
     private ImageView appImageView;
+
+
+
+    //Nomification Part
+    NotificationCompat.Builder notification;
+    private static final int uniqueID = 45612;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +63,11 @@ public class ViewNom extends ActionBarActivity {
         directionsText = (TextView) findViewById(R.id.directionsText);
         directionsText.setText(currentNom.getDirections() );
 
+
+        //Nomification Implementaion
+        notification = new NotificationCompat.Builder(this);
+        notification.setAutoCancel(true);
+
     }
 
     @Override
@@ -82,5 +98,27 @@ public class ViewNom extends ActionBarActivity {
 
     public int getUpvotes(){
         return currentNom.getUpvotes();
+    }
+
+    //Nomification Event Handler
+    public void notiButtonOnClicked(View view) {
+        //suposed to be dynamically passed in as user profile image
+
+        notification.setSmallIcon(R.drawable.isabella);
+
+        notification.setTicker("New Nomification");
+        notification.setWhen(System.currentTimeMillis());
+
+        notification.setContentTitle("Izzy");
+        notification.setContentText("liked your post");
+
+        //The class that should be sent to once clicked
+        Intent intent = new Intent(this,Nomification.class);
+        PendingIntent pendingIntent =  PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        notification.setContentIntent(pendingIntent);
+
+        //Build notification and issue it
+        NotificationManager nm =  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(uniqueID,notification.build());
     }
 }

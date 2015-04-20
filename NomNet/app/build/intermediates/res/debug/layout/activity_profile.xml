@@ -33,5 +33,13 @@
         android:gravity="center"
         android:text="AYue63@Gmail.com"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nomification"
+        android:id="@+id/nomif_button"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal" />
+
 
 </LinearLayout><!-- From: file:/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/src/main/res/layout/activity_profile.xml -->
