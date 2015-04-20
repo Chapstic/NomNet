@@ -1,37 +1,58 @@
 
 <!-- Login Form -->
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="15dip"
-    android:layout_gravity="center"
+    android:paddingBottom="0dp"
     android:background="@drawable/background">
+
+    <include
+        android:id="@+id/topbar"
+        layout= "@layout/topbar"
+        android:textColor="#FFF"/>
 
     <!-- Email Label -->
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        android:layout_marginLeft="20dip"
-        android:layout_marginBottom="40dip"
-        android:text="Nomification"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Nomifications"
         android:id="@+id/title"
         style="@style/AppTheme"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:layout_below="@id/topbar"/>
 
-    <ListView
-        android:id="@+id/list"
+    <LinearLayout
+        android:id="@+id/listLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </ListView>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ListView>
+
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Return"
         android:id="@+id/ReturnButton"
-        android:layout_gravity="right"
-        android:textColor="#000000" />
+        android:textColor="#FFF"
+        android:layout_below="@id/listLayout"/>
 
-</LinearLayout>
+    <include
+        android:id="@+id/bottombar"
+        layout= "@layout/bottombar"
+        android:textColor="#FFF"/>
+
+</RelativeLayout>

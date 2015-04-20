@@ -25,7 +25,7 @@ public class SearchActivity extends ActionBarActivity {
 
     private String query; //holds user's search query or category name
 
-    private ImageButton home, search, camera, notifications, profile; //bottombar buttons
+    private ImageButton[] bottombarButtons; //bottombar buttons
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,18 @@ public class SearchActivity extends ActionBarActivity {
         topbar.setTitle("");
         setSupportActionBar(topbar);
 
-        createBottomBarActions();
-        //set bottombar search button to already selected
-        search.setSelected(true);
-        search.setClickable(false);
+        bottombarButtons = new ImageButton[5];
+        //initialize bottombar buttons
+        bottombarButtons[0] = (ImageButton) findViewById(R.id.BottomBarHome);
+        bottombarButtons[1] = (ImageButton) findViewById(R.id.BottomBarSearch);
+        bottombarButtons[2] = (ImageButton) findViewById(R.id.BottomBarCamera);
+        bottombarButtons[3] = (ImageButton) findViewById(R.id.BottomBarNotification);
+        bottombarButtons[4] = (ImageButton) findViewById(R.id.BottomBarProfile);
+
+        //Create click actions from bottom toolbar
+        //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
+        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, SearchActivity.this, 1);
+
 
         //categories list
         categoriesListView = (ListView) findViewById(R.id.searchListView);
@@ -93,68 +101,5 @@ public class SearchActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    //Handle click actions from bottom toolbar
-    public void createBottomBarActions(){
-        //initialize bottombar buttons
-        home = (ImageButton) findViewById(R.id.BottomBarHome);
-        search = (ImageButton) findViewById(R.id.BottomBarSearch);
-        camera = (ImageButton) findViewById(R.id.BottomBarCamera);
-        notifications = (ImageButton) findViewById(R.id.BottomBarNotification);
-        profile = (ImageButton) findViewById(R.id.BottomBarProfile);
-
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                home.setSelected(true);
-                search.setSelected(false);
-                camera.setSelected(false);
-                notifications.setSelected(false);
-                profile.setSelected(false);
-
-                startActivity(new Intent(SearchActivity.this, FoodFeedActivity.class));
-            }
-        });
-
-        camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                home.setSelected(false);
-                search.setSelected(false);
-                camera.setSelected(true);
-                notifications.setSelected(false);
-                profile.setSelected(false);
-
-                startActivity(new Intent(SearchActivity.this, Camera.class));
-            }
-        });
-
-        notifications.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                home.setSelected(false);
-                search.setSelected(false);
-                camera.setSelected(false);
-                notifications.setSelected(true);
-                profile.setSelected(false);
-
-                // startActivity(new Intent(SearchActivity.this, NomificationActivity.class));
-            }
-        });
-
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                home.setSelected(false);
-                search.setSelected(false);
-                camera.setSelected(false);
-                notifications.setSelected(false);
-                profile.setSelected(true);
-
-                startActivity(new Intent(SearchActivity.this, Profile.class));
-            }
-        });
     }
 }
