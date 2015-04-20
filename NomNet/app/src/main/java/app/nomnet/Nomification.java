@@ -60,7 +60,7 @@ private static final String TAG= "buckysMessage";
         Button return_button = (Button)findViewById(R.id.ReturnButton);
         return_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(Nomification.this, Settings.class);
+                Intent i = new Intent(Nomification.this, Profile.class);
                 startActivity(i);
             }
         });

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Button;
 
 
 public class Profile extends ActionBarActivity {
@@ -30,6 +31,23 @@ public class Profile extends ActionBarActivity {
         //set bottombar profile button to already selected
         profile.setSelected(true);
         profile.setClickable(false);
+
+        Button nomi_button = (Button)findViewById(R.id.nomif_button);
+        nomi_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(Profile.this, Nomification.class);
+                startActivity(i);
+            }
+        });
+
+        Button return_button = (Button)findViewById(R.id.return_button);
+        return_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(Profile.this, FoodFeedActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
 
