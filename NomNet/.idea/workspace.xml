@@ -42,11 +42,11 @@
       <file leaf-file-name="FoodFeedActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/app/nomnet/FoodFeedActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.87473905" vertical-offset="1966" max-vertical-offset="2595">
-              <caret line="173" column="20" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.5125" vertical-offset="2210" max-vertical-offset="2640">
+              <caret line="175" column="29" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
               <folding>
-                <element signature="e#6525#6821#0" expanded="true" />
-                <element signature="e#6810#6811#0" expanded="true" />
+                <element signature="e#6525#6947#0" expanded="true" />
+                <element signature="e#6936#6937#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,8 +75,8 @@
       <file leaf-file-name="Camera.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/app/nomnet/Camera.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2385">
-              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+            <state vertical-scroll-proportion="-9.384615" vertical-offset="746" max-vertical-offset="2385">
+              <caret line="93" column="13" selection-start-line="93" selection-start-column="13" selection-end-line="93" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -1343,7 +1343,7 @@
     <option name="x" value="3" />
     <option name="y" value="23" />
     <option name="width" value="1277" />
-    <option name="height" value="775" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1899,7 +1899,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="23" width="1277" height="775" extended-state="0" />
+    <frame x="3" y="23" width="1277" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1914,7 +1914,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3657056" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21092564" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27704918" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1922,7 +1922,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22105263" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262519" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27868852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -2381,14 +2381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/app/nomnet/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2385">
-          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_bottom_bar.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="585">
@@ -2397,13 +2389,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/app/nomnet/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.384615" vertical-offset="746" max-vertical-offset="2385">
+          <caret line="93" column="13" selection-start-line="93" selection-start-column="13" selection-end-line="93" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/app/nomnet/FoodFeedActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87473905" vertical-offset="1966" max-vertical-offset="2595">
-          <caret line="173" column="20" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.5125" vertical-offset="2210" max-vertical-offset="2640">
+          <caret line="175" column="29" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
           <folding>
-            <element signature="e#6525#6821#0" expanded="true" />
-            <element signature="e#6810#6811#0" expanded="true" />
+            <element signature="e#6525#6947#0" expanded="true" />
+            <element signature="e#6936#6937#0" expanded="true" />
           </folding>
         </state>
       </provider>

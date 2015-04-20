@@ -171,7 +171,10 @@ public class FoodFeedActivity extends ActionBarActivity {
             public boolean onMenuItemClick(MenuItem mi){
                 if(mi.getItemId()==R.id.BottomBarCamera){
                     //action
-                    
+                    System.out.println("Printed");
+                    Camera picture = new Camera();
+                    picture.captureImage();
+
                 }
                 return true;
             }

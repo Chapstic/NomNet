@@ -85,7 +85,7 @@ public class Camera extends ActionBarActivity {
             return false;
         }
     }
-    private void captureImage() {
+    public void captureImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
