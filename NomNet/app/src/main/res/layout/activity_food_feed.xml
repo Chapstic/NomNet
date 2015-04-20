@@ -27,6 +27,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dip"
         android:layout_marginBottom="40dip"
+        android:text="@string/create_account"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@color/primaryColorDark"
+        android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dip"
+        android:layout_marginBottom="40dip"
         android:gravity="center"
         android:textSize="20sp"
         android:textColor="@color/white"

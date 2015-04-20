@@ -9,10 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class FoodFeedActivity extends ActionBarActivity {
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
@@ -23,7 +23,10 @@ public class FoodFeedActivity extends ActionBarActivity {
     private List<Nom> nomList;              // The list of noms to add to te feed
     private Intent intent;                  // Intent that allows us to go to other pages
 
+    private TextView textViewCreateAcct;
+
     private ImageButton home, search, camera, notifications, profile; //bottombar buttons
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,36 +43,59 @@ public class FoodFeedActivity extends ActionBarActivity {
         home.setSelected(true);
         home.setClickable(false);
 
+        // Create and populate list of noms
+        nomList = new ArrayList<>();
+        getNoms();
 
-    // Create and populate list of noms
-    nomList = new ArrayList<>();
-    getNoms();
+        // Initialize list view, feed nomList into adapter, set adapter for list view
+        listView = (ListView) findViewById(R.id.listView);
 
-    // Initialize list view, feed nomList into adapter, set adapter for list view
-    listView = (ListView)findViewById(R.id.listView);
-    intent = new Intent(this, ViewNom.class);
-    adapter = new FoodFeedListAdapter(this, nomList, intent);
-    listView.setAdapter(adapter);
-
-    // Planning
-    // If logged in, show bottom toolbar
-    if(((MyApplication)this.getApplication()).getIsLoggedIn()){
-
-    }
-    // If not logged in, prompt hide bottom toolbar, prompt to make an account
-    else{
-
-    }
+        //if click nom on food feed, go to xViewx CreateNom
+        intent = new Intent(this, CreateNom.class); //Replaced ViewNom.class with CreateNom.class FOR TESTING PURPOSES ONLY. CHANGE BACK AFTER*************
+        adapter = new FoodFeedListAdapter(this, nomList, intent);
+        listView.setAdapter(adapter);
 
 
+        textViewCreateAcct = (TextView) findViewById(R.id.create_account);
 
-    // For testing the global variables
+        // Planning
+        // If logged in, show bottom toolbar
+        if (((MyApplication) this.getApplication()).getIsLoggedIn()) {
+            textViewCreateAcct.setVisibility(View.GONE); // hide the text view
+        }
+        // If not logged in, hide bottom toolbar
+        // Prompt to make an account, link to registration activity
+        else {
+            textViewCreateAcct.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(FoodFeedActivity.this, Register.class);
+                    startActivity(i);
+                }
+            });
+        }
+
+        // Planning
+        // If logged in, show bottom toolbar
+        if (((MyApplication) this.getApplication()).getIsLoggedIn()) {
+
+        }
+        // If not logged in, prompt hide bottom toolbar, prompt to make an account
+        else {
+
+        }
+
+        // For testing the global variables
+
         // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
         //             Toast.LENGTH_LONG).show();
-    }
 
-    private void getNoms(){
+    } // End of onCreate
+
+    private void getNoms() {
+        String[] userNames = {"Sydney", "Izzy", "Rebecca", "Elliscope", "Albert"};
         String[] names = {"food1", "food2", "food3", "food4", "food5"};
+
         int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5};
         int[] upvotes = {20, 24, 36, 70, 14};
 
@@ -79,11 +105,10 @@ public class FoodFeedActivity extends ActionBarActivity {
                 "Salt - 3 tablespoons";
         String directions = "1. Mix mix, swirl mix" + '\n' +
                 "2. Drink" + '\n';
-        Recipe recipe = new Recipe("Pad Thai", ingredients, directions);
-        //testNom = new Nom("Albert", 128, recipe); //Testing functionality of Nom constructor and ViewNom compatibility
 
-        for(int i = 0; i < names.length; i++){
-            Nom newNom = new Nom(names[i], upvotes[i], images[i], recipe);
+        for (int i = 0; i < names.length; i++) {
+            Recipe recipe = new Recipe(names[i], ingredients, directions);
+            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe);
             nomList.add(newNom);
         }
     }
@@ -97,14 +122,13 @@ public class FoodFeedActivity extends ActionBarActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
 
     //Handle click actions from bottom toolbar
-    public void createBottomBarActions(){
+    public void createBottomBarActions() {
         //initialize bottombar buttons
         home = (ImageButton) findViewById(R.id.BottomBarHome);
         search = (ImageButton) findViewById(R.id.BottomBarSearch);
@@ -148,7 +172,7 @@ public class FoodFeedActivity extends ActionBarActivity {
                 notifications.setSelected(true);
                 profile.setSelected(false);
 
-               // startActivity(new Intent(FoodFeedActivity.this, NomificationActivity.class));
+                // startActivity(new Intent(FoodFeedActivity.this, NomificationActivity.class));
             }
         });
 
@@ -166,4 +190,9 @@ public class FoodFeedActivity extends ActionBarActivity {
         });
     }
 }
+
+
+
+
+
 

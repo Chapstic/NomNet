@@ -21,7 +21,8 @@
         android:layout_marginLeft="20dip"
         android:layout_marginBottom="20dip"
         android:textSize="45px"
-        android:text="Notifications"/>
+        android:text="Nomification"
+        android:id="@+id/nomif_text" />
     <ToggleButton
         android:id="@+id/togglebutton"
         android:layout_width="wrap_content"

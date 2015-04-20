@@ -33,5 +33,9 @@ public class Nom implements Serializable {
 
     public String getDirections() { return recipe.getDirections(); }
 
+    public void addUpvote(){ upvotes++; };
+
+    public void subtractUpvote(){ upvotes--; };
+
 
 }

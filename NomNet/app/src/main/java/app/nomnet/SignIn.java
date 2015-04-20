@@ -22,7 +22,7 @@ public class SignIn extends ActionBarActivity {
             public void onClick(View v) {
                 loginSuccess();
                 Intent i = new Intent(SignIn.this, FoodFeedActivity.class);
-                startActivity(i);
+                 startActivity(i);
             }
         });
 
