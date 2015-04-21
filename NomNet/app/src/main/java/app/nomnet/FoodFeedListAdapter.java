@@ -3,6 +3,13 @@ package app.nomnet;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +18,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class FoodFeedListAdapter extends BaseAdapter{
@@ -61,7 +72,12 @@ public class FoodFeedListAdapter extends BaseAdapter{
 
         name.setText(currentNom.getName());
         creator.setText(currentNom.getCreator());
-        image.setImageResource(currentNom.getImage());
+
+        // Optimizes feed images into bitmaps
+        // Also employs multithreading
+        image.setImageResource(R.drawable.logo);    // just use an small image placeholder
+        OptimizeImageThread oit = new OptimizeImageThread(currentNom.getImage(), image);
+        oit.start();
 
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,4 +106,17 @@ public class FoodFeedListAdapter extends BaseAdapter{
         return view;
     }
 
+    class OptimizeImageThread extends Thread {
+        private ImageView imageView;
+        private int imageID;
+        public OptimizeImageThread(int imageID, ImageView imageView){
+            this.imageView = imageView;
+            this.imageID = imageID;
+        }
+
+        public void run(){
+            BitmapWorkerTask task = new BitmapWorkerTask(imageView, activity);
+            task.execute(imageID);                          // convert image to a smaller bitmap
+        }
+    }
 }
