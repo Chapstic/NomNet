@@ -91,11 +91,15 @@ public class FoodFeedListAdapter extends BaseAdapter{
                 ImageView imgBtnLike = (ImageView) v.findViewById(R.id.likeBtn);
                 if (!upvoted){
                     imgBtnLike.setImageResource(R.drawable.triangle_red);
-                    currentNom.addUpvote(); //increment
+                    currentNom.addUpvote(); //increment, temporary until backend up
+                    UpvoteThread ut = new UpvoteThread();
+                    ut.start();
                     upvoted = true;
                 }else{
                     imgBtnLike.setImageResource(R.drawable.triangle);
-                    currentNom.subtractUpvote(); //decrement
+                    currentNom.subtractUpvote(); //decrement, temporary until backend up
+                    DownvoteThread dt = new DownvoteThread();
+                    dt.start();
                     upvoted = false;
                 }
             }
@@ -116,6 +120,20 @@ public class FoodFeedListAdapter extends BaseAdapter{
         public void run(){
             BitmapWorkerTask task = new BitmapWorkerTask(imageView, activity);
             task.execute(imageID);    // convert image to a smaller bitmap
+        }
+    }
+
+    // Use multithreading to send upvotes up
+    class UpvoteThread extends Thread{
+        public void run(){
+
+        }
+    }
+
+    // Use multithreading to send downvote (when you undo your upvote)
+    class DownvoteThread extends Thread{
+        public void run(){
+
         }
     }
 }
