@@ -69,7 +69,7 @@ private static final String TAG= "buckysMessage";
         BottomButtonActions bba = new BottomButtonActions(bottombarButtons, Nomification.this, 3);
 
 
-
+        //create Nomification List View
         CustomList adapter = new
                 CustomList(Nomification.this, web, imageId);
         list=(ListView)findViewById(R.id.list);

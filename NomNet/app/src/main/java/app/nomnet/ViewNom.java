@@ -9,17 +9,46 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
+import android.widget.Toast;
 
 
-public class ViewNom extends ActionBarActivity {
+public class ViewNom extends ActionBarActivity implements AbsListView.OnScrollListener{
     private Nom currentNom;
     private Toolbar topbar;
     private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, directionsLabel, ingredientsText, directionsText;
     private ImageView appImageView;
 
+
+
+
+
+    ListView list_com;
+    CustomList adapter;
+
+    String[] web1= {
+            "Sydney Liu \n commented on your post",
+            "Rebecca Wu \n commented on your post",
+            "Izzy Benavente \n commented on your post",
+            "Albert Yue \n commented on your post",
+            "Elliscope Fang \n commented on your post",
+    };
+
+
+    Integer[] imageId1= {
+
+            R.drawable.sydney,
+            R.drawable.rebecca,
+            R.drawable.isabella,
+            R.drawable.albert,
+            R.drawable.elliscope,
+    };
 
 
     //Nomification Part
@@ -64,9 +93,35 @@ public class ViewNom extends ActionBarActivity {
         directionsText.setText(currentNom.getDirections() );
 
 
-        //Nomification Implementaion
+        //Dynamic Comments under Nom
+//        adapter = new
+//                CustomList(ViewNom.this, web1, imageId1);
+//        list_com=(ListView)findViewById(R.id.Comments_listView);
+//        list_com.setAdapter(adapter);
+//        list_com.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                Toast.makeText(ViewNom.this, web1[+position] + "viewed your post recently ", Toast.LENGTH_SHORT).show();
+//            }
+////        });
+//        list_com.setOnScrollListener(this);
+
+
+        Button return_button = (Button)findViewById(R.id.ReturnButton);
+        return_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(ViewNom.this, Profile.class);
+                startActivity(i);
+            }
+        });
+
+        //Pop Up Nomification Implementaion
         notification = new NotificationCompat.Builder(this);
         notification.setAutoCancel(true);
+
+
+
 
     }
 
@@ -107,7 +162,10 @@ public class ViewNom extends ActionBarActivity {
     }
 
     //Nomification Event Handler
-    public void notiButtonOnClicked(View view) {
+
+
+    //wait for user info from database to be past in->change parameters and make it dynamic
+    public void notiButtonOnClicked( View view) {
         //suposed to be dynamically passed in as user profile image
 
         notification.setSmallIcon(R.drawable.isabella);
@@ -126,5 +184,27 @@ public class ViewNom extends ActionBarActivity {
         //Build notification and issue it
         NotificationManager nm =  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         nm.notify(uniqueID,notification.build());
+    }
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        // Can add a padding
+        boolean loadMore = firstVisibleItem + visibleItemCount >= totalItemCount;
+
+        // Load more items if there are more to load
+        if(loadMore && adapter.getCount() < adapter.getMaxItems()-1)
+        {
+            adapter.numComments += visibleItemCount; // or any other amount
+
+            if(adapter.getCount() >= adapter.getMaxItems()){
+                adapter.numComments = adapter.getMaxItems(); // keep in bounds
+            }
+
+            adapter.notifyDataSetChanged();
+        }
     }
 }

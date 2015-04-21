@@ -1461,12 +1461,13 @@ containing a value of this type.
         public static final int underlineselector=0x7f02004e;
     }
     public static final class id {
-        public static final int BottomBarCamera=0x7f0b0068;
-        public static final int BottomBarHome=0x7f0b0066;
-        public static final int BottomBarNotification=0x7f0b0069;
-        public static final int BottomBarProfile=0x7f0b006a;
-        public static final int BottomBarSearch=0x7f0b0067;
-        public static final int FoodFeedItem=0x7f0b006b;
+        public static final int BottomBarCamera=0x7f0b0069;
+        public static final int BottomBarHome=0x7f0b0067;
+        public static final int BottomBarNotification=0x7f0b006a;
+        public static final int BottomBarProfile=0x7f0b006b;
+        public static final int BottomBarSearch=0x7f0b0068;
+        public static final int Comments_listView=0x7f0b0066;
+        public static final int FoodFeedItem=0x7f0b006c;
         public static final int ReturnButton=0x7f0b004d;
         public static final int action_bar=0x7f0b0031;
         public static final int action_bar_activity_content=0x7f0b0000;
@@ -1476,13 +1477,13 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0b001f;
         public static final int action_bar_title=0x7f0b001e;
         public static final int action_context_bar=0x7f0b0032;
-        public static final int action_logout=0x7f0b0074;
+        public static final int action_logout=0x7f0b0075;
         public static final int action_menu_divider=0x7f0b0002;
         public static final int action_menu_presenter=0x7f0b0003;
         public static final int action_mode_bar=0x7f0b002e;
         public static final int action_mode_bar_stub=0x7f0b002d;
         public static final int action_mode_close_button=0x7f0b0020;
-        public static final int action_settings=0x7f0b0073;
+        public static final int action_settings=0x7f0b0074;
         public static final int activity_chooser_view_content=0x7f0b0021;
         public static final int always=0x7f0b0016;
         public static final int beginning=0x7f0b0013;
@@ -1517,12 +1518,12 @@ containing a value of this type.
         public static final int icon=0x7f0b0026;
         public static final int ifRoom=0x7f0b0018;
         public static final int image=0x7f0b0023;
-        public static final int img=0x7f0b0071;
+        public static final int img=0x7f0b0072;
         public static final int imgPreview=0x7f0b0040;
         public static final int ingredientsEdit=0x7f0b0046;
         public static final int ingredientsLabel=0x7f0b0061;
         public static final int ingredientsText=0x7f0b0062;
-        public static final int likeBtn=0x7f0b006d;
+        public static final int likeBtn=0x7f0b006e;
         public static final int link_to_register=0x7f0b005d;
         public static final int link_to_signin=0x7f0b0054;
         public static final int list=0x7f0b004c;
@@ -1532,10 +1533,10 @@ containing a value of this type.
         public static final int list_item=0x7f0b0025;
         public static final int middle=0x7f0b0015;
         public static final int never=0x7f0b0019;
-        public static final int nom_comment=0x7f0b0070;
-        public static final int nom_creator=0x7f0b006e;
-        public static final int nom_name=0x7f0b006f;
-        public static final int nom_pic=0x7f0b006c;
+        public static final int nom_comment=0x7f0b0071;
+        public static final int nom_creator=0x7f0b006f;
+        public static final int nom_name=0x7f0b0070;
+        public static final int nom_pic=0x7f0b006d;
         public static final int nomif_button=0x7f0b0051;
         public static final int nomif_text=0x7f0b0056;
         public static final int none=0x7f0b000e;
@@ -1548,7 +1549,7 @@ containing a value of this type.
         public static final int progress_horizontal=0x7f0b0006;
         public static final int radio=0x7f0b002b;
         public static final int return_button=0x7f0b0052;
-        public static final int search=0x7f0b0075;
+        public static final int search=0x7f0b0076;
         public static final int searchListView=0x7f0b0055;
         public static final int search_badge=0x7f0b0035;
         public static final int search_bar=0x7f0b0034;
@@ -1573,7 +1574,7 @@ containing a value of this type.
         public static final int title=0x7f0b0027;
         public static final int togglebutton=0x7f0b0057;
         public static final int topbar=0x7f0b003f;
-        public static final int txt=0x7f0b0072;
+        public static final int txt=0x7f0b0073;
         public static final int up=0x7f0b0008;
         public static final int upvotesText=0x7f0b005e;
         public static final int useLogo=0x7f0b0012;
