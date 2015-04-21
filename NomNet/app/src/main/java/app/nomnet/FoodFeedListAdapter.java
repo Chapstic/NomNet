@@ -3,25 +3,12 @@ package app.nomnet;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class FoodFeedListAdapter extends BaseAdapter{
@@ -30,6 +17,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
     private List<Nom> nomItems;
     private Intent intent;
     private boolean upvoted = false;
+    public int numItemsInFeed = 3;      // initial amount
 
     public FoodFeedListAdapter(Activity activity, List<Nom> nomItems, Intent intent){
         this.activity = activity;
@@ -37,9 +25,13 @@ public class FoodFeedListAdapter extends BaseAdapter{
         this.intent = intent;
     }
 
+    public int getMaxItems(){
+        return nomItems.size();
+    }
+
     @Override
     public int getCount() {
-        return nomItems.size();
+        return numItemsInFeed;
     }
 
     @Override
@@ -62,16 +54,20 @@ public class FoodFeedListAdapter extends BaseAdapter{
             view = inflater.inflate(R.layout.food_feed_item, null);
         }
 
+        // Grab the current nom from the list
         final Nom currentNom = nomItems.get(pos);
 
+        // Find the UI elements that will be used to display each item
         TextView name = (TextView)view.findViewById(R.id.nom_name);
         TextView creator = (TextView)view.findViewById(R.id.nom_creator);
         TextView textViewUpvotes = (TextView)view.findViewById(R.id.upvotesText);
         ImageView image = (ImageView)view.findViewById(R.id.nom_pic);
         ImageView comments = (ImageView)view.findViewById(R.id.nom_comment);
 
+        // Set the contents of the UI elements
         name.setText(currentNom.getName());
         creator.setText(currentNom.getCreator());
+        textViewUpvotes.setText(String.valueOf(currentNom.getUpvotes()));
 
         // Optimizes feed images into bitmaps
         // Also employs multithreading
@@ -79,6 +75,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
         OptimizeImageThread oit = new OptimizeImageThread(currentNom.getImage(), image);
         oit.start();
 
+        // When an item picture is hit, move to appropriate activity
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +84,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
             }
         });
 
+        // When the like button is pressed, change the upvote image
         view.findViewById(R.id.likeBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,10 +100,11 @@ public class FoodFeedListAdapter extends BaseAdapter{
                 }
             }
         });
-        textViewUpvotes.setText(String.valueOf(currentNom.getUpvotes()));
+
         return view;
     }
 
+    // For each image in the feed, optimize to a bitmap image that scales to screen
     class OptimizeImageThread extends Thread {
         private ImageView imageView;
         private int imageID;
@@ -116,7 +115,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
 
         public void run(){
             BitmapWorkerTask task = new BitmapWorkerTask(imageView, activity);
-            task.execute(imageID);                          // convert image to a smaller bitmap
+            task.execute(imageID);    // convert image to a smaller bitmap
         }
     }
 }

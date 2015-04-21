@@ -3,11 +3,13 @@ package app.nomnet;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,7 +17,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoodFeedActivity extends ActionBarActivity {
+public class FoodFeedActivity extends ActionBarActivity implements AbsListView.OnScrollListener {
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
 
     private Toolbar topbar;                 // This is the topbar that says NomNet
@@ -51,18 +53,17 @@ public class FoodFeedActivity extends ActionBarActivity {
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
         BottomButtonActions bba = new BottomButtonActions(bottombarButtons, FoodFeedActivity.this, 0);
 
-
         // Create and populate list of noms
         nomList = new ArrayList<>();
         getNoms();
 
         // Initialize list view, feed nomList into adapter, set adapter for list view
-
         listView = (ListView)findViewById(R.id.listView);
         intent = new Intent(this, ViewNom.class); //Replaced ViewNom.class with CreateNom.class FOR TESTING PURPOSES ONLY. CHANGE BACK AFTER*************
 
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
+        listView.setOnScrollListener(this);
 
 
         textViewCreateAcct = (TextView) findViewById(R.id.create_account);
@@ -94,8 +95,6 @@ public class FoodFeedActivity extends ActionBarActivity {
 
         }
 
-        // For testing the global variables
-
         // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
         //             Toast.LENGTH_LONG).show();
 
@@ -121,6 +120,27 @@ public class FoodFeedActivity extends ActionBarActivity {
             nomList.add(newNom);
         }
     }
+
+    // For never-ending feed
+    public void onScroll(AbsListView alv, int first, int numVisible, int total) {
+
+        // Can add a padding
+        boolean loadMore = first + numVisible >= total;
+
+        // Load more items if there are more to load
+        if(loadMore && adapter.getCount() < adapter.getMaxItems()-1)
+        {
+            adapter.numItemsInFeed += numVisible; // or any other amount
+
+            if(adapter.getCount() >= adapter.getMaxItems()){
+                adapter.numItemsInFeed = adapter.getMaxItems(); // keep in bounds
+            }
+
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    public void onScrollStateChanged(AbsListView alv, int i) { }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
