@@ -13,11 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 
 public class ViewNom extends ActionBarActivity {
     private Nom currentNom;
     private Toolbar topbar;
-    private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, directionsLabel, ingredientsText, directionsText;
+    private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, ingredientsText, directionsText, tagsText;
     private ImageView appImageView;
 
 
@@ -26,6 +30,8 @@ public class ViewNom extends ActionBarActivity {
     NotificationCompat.Builder notification;
     private static final int uniqueID = 45612;
 
+    private Set<String> tags;
+    private String stringTags;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +63,23 @@ public class ViewNom extends ActionBarActivity {
         ingredientsText = (TextView) findViewById(R.id.ingredientsText);
         ingredientsText.setText(currentNom.getIngredients() );
 
-        directionsLabel = (TextView) findViewById(R.id.directionsLabel);
-        directionsLabel.setText("Directions" );
-
         directionsText = (TextView) findViewById(R.id.directionsText);
         directionsText.setText(currentNom.getDirections() );
+
 
 
         //Nomification Implementaion
         notification = new NotificationCompat.Builder(this);
         notification.setAutoCancel(true);
+
+        // Initialize tags w/ noms tags
+        tags = currentNom.getTags();
+        tagsText = (TextView) findViewById(R.id.tagsText);
+        stringTags = "";
+        for(String s: tags){
+            stringTags = stringTags + s + " ";
+        }
+        tagsText.setText(stringTags);
 
     }
 

@@ -13,7 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FoodFeedActivity extends ActionBarActivity {
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
@@ -59,8 +61,11 @@ public class FoodFeedActivity extends ActionBarActivity {
 
         // Initialize list view, feed nomList into adapter, set adapter for list view
 
+
         listView = (ListView)findViewById(R.id.listView);
-        intent = new Intent(this, ViewNom.class); //Replaced ViewNom.class with CreateNom.class FOR TESTING PURPOSES ONLY. CHANGE BACK AFTER*************
+
+        //if click nom on food feed, go to xViewx CreateNom
+        intent = new Intent(this, ViewNom.class);
 
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
@@ -109,9 +114,17 @@ public class FoodFeedActivity extends ActionBarActivity {
         String directions = "1. Mix mix, swirl mix" + '\n' +
                 "2. Drink" + '\n';
 
+        Boolean breakfast, lunch, dinner;
+        breakfast = lunch = dinner = true;
+
+        Map<String, Boolean> tags = new HashMap<String, Boolean>();
+        tags.put("breakfast", true);
+        tags.put("lunch", true);
+        tags.put("dinner", true);
+
         for (int i = 0; i < names.length; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
-            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe);
+            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe, tags);
             nomList.add(newNom);
         }
     }

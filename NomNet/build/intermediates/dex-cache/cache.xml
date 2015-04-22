@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jar="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/classes-7340badc9320755228a7a0f891609ab6124bbf84.jar" />
+        <dex dex="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\pre-dexed\debug\classes-d66eb5fc3833af44f291fb8fbd7b48dfac0d5faf.jar" />
     </item>
     <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7d2525cba8ed61fff102977caed964fc22061e34">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/classes-2789b3791d064a6d226d965afe4440a01545c760.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.0/classes.jar"
+        jar="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/classes-656428ab8e3b253a2be7c1d24dbfc7f0dae0b777.jar" />
+        <dex dex="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\pre-dexed\debug\classes-b7f46f357cd44a61602b6dd8ed2223fb9851e1d0.jar" />
     </item>
     <item
-        jar="/Users/Elliscope/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-7b05d6b297a939b2f9fa006847379687c70c9ae3.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jar="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-153cbf0e214d5ebb428469c8a6763e37d84140ae.jar" />
+        <dex dex="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-690b11baec320a7ca1b6cbf3aec5b6ccf2f7f140.jar" />
     </item>
     <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/classes-cecbed02924337ca46672ea66a9194be05f22430.jar" />
+        <dex dex="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\pre-dexed\debug\classes-ac8d5a9467314605eaee95ee49565b35fab00664.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7d2525cba8ed61fff102977caed964fc22061e34">
+        <dex dex="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\pre-dexed\debug\classes-bc310d2ec76ca0c29b2221b66f548cd7f64b71c1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rebecca\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\Rebecca\Documents\NomNet\NomNet\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-3ab1046078f0dacb9904e29ab2e428b37a3147e6.jar" />
     </item>
 
 </items>

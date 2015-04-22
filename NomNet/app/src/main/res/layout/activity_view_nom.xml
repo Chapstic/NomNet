@@ -74,8 +74,9 @@
             android:id="@+id/directionsLabel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ingredientsText"
+            android:text="Directions"
             android:textStyle = "bold"
+            android:layout_below="@+id/ingredientsText"
             android:gravity = "center_horizontal"/>
 
         //Directions content
@@ -94,6 +95,24 @@
             android:layout_alignBaseline="@+id/directionsLabel"
             android:layout_alignBottom="@+id/directionsLabel"
             android:layout_centerHorizontal="true" />
+
+        //Tags label
+        <TextView
+            android:id="@+id/tagsLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Tags"
+            android:textStyle = "bold"
+            android:layout_below="@+id/directionsText"
+            android:gravity = "center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tagsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tagsLabel"/>
+
+
 
 
     </RelativeLayout>
