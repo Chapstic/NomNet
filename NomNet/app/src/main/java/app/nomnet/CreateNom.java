@@ -15,7 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class CreateNom extends ActionBarActivity implements View.OnClickListener {
@@ -34,8 +36,7 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
 
     private Intent intent;
 
-    List<Boolean> newTags;
-    Boolean veganChecked, vegetarianChecked, bfastChecked, lunchChecked, dinnerChecked;
+    private Map newTags;
 
 
     //Possibly add additional method to parse text
@@ -47,8 +48,9 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         setContentView(R.layout.activity_create_nom);
 
         // Initialize tags list and booleans
-        newTags = new ArrayList<Boolean>();
-        veganChecked = vegetarianChecked = bfastChecked = lunchChecked = dinnerChecked = false;
+        newTags = new HashMap<String, Boolean>();
+
+        newTags.put("vegan", false);
 
         // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
@@ -109,22 +111,12 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         ingredients = String.valueOf(ingredientsEdit.getText() );
         directions = String.valueOf(directionsEdit.getText() );
 
-        finalizeTags();
-
         newRecipe = new Recipe(dishname, ingredients, directions);
         newNom = new Nom("Placeholder Username", 0, nomImage, newRecipe, newTags);
 
         intent.putExtra("Nom", newNom); //Passes Nom object in Map<Key,Value> format to next activity (view_nom)
         v.getContext().startActivity(intent); //Creates Nom and immediately goes to ViewNom
 
-    }
-
-    public void finalizeTags(){
-        newTags.add(veganChecked);
-        newTags.add(vegetarianChecked);
-        newTags.add(bfastChecked);
-        newTags.add(lunchChecked);
-        newTags.add(dinnerChecked);
     }
 
     public void onCheckboxClicked(View view) {
@@ -135,41 +127,41 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         switch(view.getId()) {
             case R.id.checkbox_vegan:
                 if (checked){
-                    veganChecked = true;
+                    newTags.put("Vegan", true);
                 } else{
-                    veganChecked = false;
+                    newTags.put("Vegan", false);
                 }
                 break;
 
             case R.id.checkbox_vegetarian:
                 if (checked){
-                    vegetarianChecked = true;
+                    newTags.put("Vegetarian", true);
                 } else{
-                    vegetarianChecked = false;
+                    newTags.put("Vegetarian", false);
                 }
                 break;
 
             case R.id.checkbox_bfast:
                 if (checked){
-                    bfastChecked = true;
+                    newTags.put("Breakfast", true);
                 } else{
-                    bfastChecked = false;
+                    newTags.put("Breakfast", false);
                 }
                 break;
 
             case R.id.checkbox_lunch:
                 if (checked){
-                    lunchChecked = true;
+                    newTags.put("Lunch", true);
                 } else{
-                    lunchChecked = false;
+                    newTags.put("Lunch", false);
                 }
                 break;
 
             case R.id.checkbox_dinner:
                 if (checked){
-                    dinnerChecked = true;
+                    newTags.put("Dinner", true);
                 } else{
-                    dinnerChecked = false;
+                    newTags.put("Dinner", false);
                 }
                 break;
         }

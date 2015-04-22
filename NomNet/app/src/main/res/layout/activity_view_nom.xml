@@ -96,6 +96,12 @@
             android:layout_below="@+id/directionsText"
             android:gravity = "center_horizontal"/>
 
+        <TextView
+            android:id="@+id/tagsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tagsLabel"/>
+
 
 
 

@@ -2,7 +2,11 @@ package app.nomnet;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Albert on 4/11/2015.
@@ -11,10 +15,10 @@ public class Nom implements Serializable {
     private String creator; //Replace w/ user class later
     private int upvotes, image;
     private Recipe recipe; //Might be better to change recipe information to String[] so we can use scroll text fields later
-    List<Boolean> tags;
+    Map<String, Boolean> tags;
 
-    Nom(String creator, int upvotes, int image, Recipe recipe, List<Boolean> tags){
-        this.tags = new ArrayList<Boolean>();
+    Nom(String creator, int upvotes, int image, Recipe recipe, Map<String, Boolean> tags){
+        this.tags = new HashMap<String, Boolean>();
 
         this.creator = creator;
         this.upvotes = upvotes;
@@ -43,14 +47,20 @@ public class Nom implements Serializable {
 
     public void subtractUpvote(){ upvotes--; };
 
-    public List<Boolean> getTags(){
-        if(tags != null){
-            return tags;
-        } else{
-            System.out.println("Tags are null");
-            return null;
+    public Set<String> getTags(){
+        Set<String> results = new HashSet();
+
+        for(Map.Entry<String, Boolean> entry : tags.entrySet()) {
+            String key = entry.getKey();
+            Boolean value = entry.getValue();
+
+            if(value == true){
+                results.add(key);
+            }
         }
-    }
+
+        return results;
+    };
 
 
 }

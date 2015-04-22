@@ -1460,11 +1460,11 @@ containing a value of this type.
         public static final int underlineselector=0x7f02004d;
     }
     public static final class id {
-        public static final int BottomBarCamera=0x7f0a006a;
-        public static final int BottomBarHome=0x7f0a0068;
-        public static final int BottomBarNotification=0x7f0a006b;
-        public static final int BottomBarProfile=0x7f0a006c;
-        public static final int BottomBarSearch=0x7f0a0069;
+        public static final int BottomBarCamera=0x7f0a006b;
+        public static final int BottomBarHome=0x7f0a0069;
+        public static final int BottomBarNotification=0x7f0a006c;
+        public static final int BottomBarProfile=0x7f0a006d;
+        public static final int BottomBarSearch=0x7f0a006a;
         public static final int ReturnButton=0x7f0a0052;
         public static final int action_bar=0x7f0a0031;
         public static final int action_bar_activity_content=0x7f0a0000;
@@ -1474,13 +1474,13 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0a001f;
         public static final int action_bar_title=0x7f0a001e;
         public static final int action_context_bar=0x7f0a0032;
-        public static final int action_logout=0x7f0a0075;
+        public static final int action_logout=0x7f0a0076;
         public static final int action_menu_divider=0x7f0a0002;
         public static final int action_menu_presenter=0x7f0a0003;
         public static final int action_mode_bar=0x7f0a002e;
         public static final int action_mode_bar_stub=0x7f0a002d;
         public static final int action_mode_close_button=0x7f0a0020;
-        public static final int action_settings=0x7f0a0074;
+        public static final int action_settings=0x7f0a0075;
         public static final int activity_chooser_view_content=0x7f0a0021;
         public static final int always=0x7f0a0016;
         public static final int beginning=0x7f0a0013;
@@ -1520,12 +1520,12 @@ containing a value of this type.
         public static final int icon=0x7f0a0026;
         public static final int ifRoom=0x7f0a0018;
         public static final int image=0x7f0a0023;
-        public static final int img=0x7f0a0072;
+        public static final int img=0x7f0a0073;
         public static final int imgPreview=0x7f0a0040;
         public static final int ingredientsEdit=0x7f0a0046;
         public static final int ingredientsLabel=0x7f0a0063;
         public static final int ingredientsText=0x7f0a0064;
-        public static final int likeBtn=0x7f0a006e;
+        public static final int likeBtn=0x7f0a006f;
         public static final int link_to_register=0x7f0a005f;
         public static final int link_to_signin=0x7f0a0056;
         public static final int list=0x7f0a0051;
@@ -1534,10 +1534,10 @@ containing a value of this type.
         public static final int list_item=0x7f0a0025;
         public static final int middle=0x7f0a0015;
         public static final int never=0x7f0a0019;
-        public static final int nom_comment=0x7f0a0071;
-        public static final int nom_creator=0x7f0a006f;
-        public static final int nom_name=0x7f0a0070;
-        public static final int nom_pic=0x7f0a006d;
+        public static final int nom_comment=0x7f0a0072;
+        public static final int nom_creator=0x7f0a0070;
+        public static final int nom_name=0x7f0a0071;
+        public static final int nom_pic=0x7f0a006e;
         public static final int nomif_text=0x7f0a0058;
         public static final int none=0x7f0a000e;
         public static final int normal=0x7f0a000a;
@@ -1569,10 +1569,11 @@ containing a value of this type.
         public static final int tabMode=0x7f0a000b;
         public static final int tagCheckboxes=0x7f0a0048;
         public static final int tagsLabel=0x7f0a0067;
+        public static final int tagsText=0x7f0a0068;
         public static final int title=0x7f0a0027;
         public static final int togglebutton=0x7f0a0059;
         public static final int topbar=0x7f0a003f;
-        public static final int txt=0x7f0a0073;
+        public static final int txt=0x7f0a0074;
         public static final int up=0x7f0a0008;
         public static final int upvotesText=0x7f0a0060;
         public static final int useLogo=0x7f0a0012;
