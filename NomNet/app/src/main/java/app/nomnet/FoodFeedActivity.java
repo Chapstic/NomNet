@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class FoodFeedActivity extends ActionBarActivity {
     private Intent intent;                  // Intent that allows us to go to other pages
 
     private TextView textViewCreateAcct;
+    private LinearLayout bottomBarLayout; // include of bottombar layout
 
     private ImageButton[] bottombarButtons; //bottombar buttons
 
@@ -65,15 +67,17 @@ public class FoodFeedActivity extends ActionBarActivity {
 
 
         textViewCreateAcct = (TextView) findViewById(R.id.create_account);
+        bottomBarLayout = (LinearLayout) findViewById(R.id.bottombar);
 
         // Planning
         // If logged in, show bottom toolbar
         if (((MyApplication) this.getApplication()).getIsLoggedIn()) {
             textViewCreateAcct.setVisibility(View.GONE); // hide the text view
         }
-        // If not logged in, hide bottom toolbar
-        // Prompt to make an account, link to registration activity
-        else {
+        // If not logged in, hide bottom toolba
+        // Prompt to make an account, link to registration activityr
+        else{
+            bottomBarLayout.setVisibility(View.GONE);
             textViewCreateAcct.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -83,15 +87,6 @@ public class FoodFeedActivity extends ActionBarActivity {
             });
         }
 
-        // Planning
-        // If logged in, show bottom toolbar
-        if (((MyApplication) this.getApplication()).getIsLoggedIn()) {
-
-        }
-        // If not logged in, prompt hide bottom toolbar, prompt to make an account
-        else {
-
-        }
 
         // For testing the global variables
 
@@ -132,6 +127,8 @@ public class FoodFeedActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+       // TopBarActions tba = new TopBarActions(item);
+       // return tba.handleSelection();
         return super.onOptionsItemSelected(item);
     }
 
