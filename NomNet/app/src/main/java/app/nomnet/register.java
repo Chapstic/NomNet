@@ -19,12 +19,13 @@ public class Register extends ActionBarActivity {
         Button button1 = (Button)findViewById(R.id.btnSignup);
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                loginSuccess();
                 Intent i = new Intent(Register.this, FoodFeedActivity.class);
                 startActivity(i);
             }
         });
 
-       TextView signin = (TextView)this.findViewById(R.id.link_to_signin);
+        TextView signin = (TextView)this.findViewById(R.id.link_to_signin);
         signin.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -34,6 +35,10 @@ public class Register extends ActionBarActivity {
             }
         });
 
+    }
+
+    public void loginSuccess() {
+        ((MyApplication) this.getApplication()).setIsLoggedIn(true);
     }
 
 

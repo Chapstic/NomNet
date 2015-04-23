@@ -9,17 +9,48 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
+import android.widget.Toast;
 
-
+//implements AbsListView.OnScrollListener
 public class ViewNom extends ActionBarActivity {
     private Nom currentNom;
     private Toolbar topbar;
     private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, directionsLabel, ingredientsText, directionsText;
     private ImageView appImageView;
 
+
+
+
+
+    ListView list_com;
+    CustomList adapter;
+
+    String[] web1= {
+            "Sydney Liu \n commented on your post",
+            "Rebecca Wu \n commented on your post",
+            "Izzy Benavente \n commented on your post",
+            "Albert Yue \n commented on your post",
+            "Elliscope Fang \n commented on your post",
+    };
+
+
+    Integer[] imageId1= {
+
+            R.drawable.sydney,
+            R.drawable.rebecca,
+            R.drawable.isabella,
+            R.drawable.albert,
+            R.drawable.elliscope,
+    };
 
 
     //Nomification Part
@@ -64,7 +95,25 @@ public class ViewNom extends ActionBarActivity {
         directionsText.setText(currentNom.getDirections() );
 
 
-        //Nomification Implementaion
+        //Dynamic Comments under Nom
+        adapter = new
+                CustomList(ViewNom.this, currentNom.getComments(), currentNom.getC_userProfile());
+        list_com=(ListView)findViewById(R.id.Comments_listView);
+        list_com.setAdapter(adapter);
+
+        list_com.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Toast.makeText(ViewNom.this, currentNom.getComments()[+position], Toast.LENGTH_SHORT).show();
+            }
+        });
+        Utility.setListViewHeightBasedOnChildren(list_com);
+
+
+
+
+        //Pop Up Nomification Implementaion
         notification = new NotificationCompat.Builder(this);
         notification.setAutoCancel(true);
 
@@ -79,18 +128,24 @@ public class ViewNom extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent mainIntent = new Intent(ViewNom.this,Settings.class);
+                ViewNom.this.startActivity(mainIntent);
+                return true;
+            case R.id.action_logout:
+                Intent mainIntents = new Intent(ViewNom.this, SignIn.class);
+                ViewNom.this.startActivity(mainIntents);
+                ((MyApplication) this.getApplication()).setIsLoggedIn(false);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+
     }
+
 
     public String getCreator(){
         return currentNom.getCreator();
@@ -101,7 +156,10 @@ public class ViewNom extends ActionBarActivity {
     }
 
     //Nomification Event Handler
-    public void notiButtonOnClicked(View view) {
+
+
+    //wait for user info from database to be past in->change parameters and make it dynamic
+    public void notiButtonOnClicked( View view) {
         //suposed to be dynamically passed in as user profile image
 
         notification.setSmallIcon(R.drawable.isabella);
@@ -121,4 +179,50 @@ public class ViewNom extends ActionBarActivity {
         NotificationManager nm =  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         nm.notify(uniqueID,notification.build());
     }
+
+//
+//    @Override
+//    public void onScrollStateChanged(AbsListView view, int scrollState) {
+//        }
+//
+//    @Override
+//    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//        // Can add a padding
+//        boolean loadMore = firstVisibleItem + visibleItemCount >= totalItemCount;
+//
+//        // Load more items if there are more to load
+//        if(loadMore && adapter.getCount() < adapter.getMaxItems()-1)
+//        {
+//            adapter.numComments += visibleItemCount; // or any other amount
+//
+//            if(adapter.getCount() >= adapter.getMaxItems()){
+//                adapter.numComments = adapter.getMaxItems(); // keep in bounds
+//            }
+//
+//            adapter.notifyDataSetChanged();
+//        }
+//    }
+
+//    public static void setListViewHeightBasedOnChildren(ListView listView) {
+//        ListAdapter listAdapter = listView.getAdapter();
+//        if (listAdapter == null) {
+//            return;
+//        }
+//
+//        int totalHeight = 0;
+//        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
+//        for (int i = 0; i < listAdapter.getCount(); i++) {
+//            View listItem = listAdapter.getView(i, null, listView);
+//            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+//            totalHeight += listItem.getMeasuredHeight();
+//        }
+//
+//        setListViewHeight(listView, totalHeight);
+//    }
+//    public static void setListViewHeight(ListView listView, int height) {
+//        ViewGroup.LayoutParams params = listView.getLayoutParams();
+//        params.height = height + (listView.getDividerHeight() * (listView.getAdapter().getCount() - 1));
+//        listView.setLayoutParams(params);
+//        listView.requestLayout();
+//    }
 }

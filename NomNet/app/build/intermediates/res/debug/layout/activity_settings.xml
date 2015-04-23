@@ -1,5 +1,3 @@
-
-<!-- Login Form -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"

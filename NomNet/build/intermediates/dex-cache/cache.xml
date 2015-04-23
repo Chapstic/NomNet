@@ -16,6 +16,20 @@
         <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/classes-2789b3791d064a6d226d965afe4440a01545c760.jar" />
     </item>
     <item
+        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2">
+        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/classes-656428ab8e3b253a2be7c1d24dbfc7f0dae0b777.jar" />
+    </item>
+    <item
+        jar="/Users/Elliscope/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-7b05d6b297a939b2f9fa006847379687c70c9ae3.jar" />
+    </item>
+    <item
         jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -28,55 +42,6 @@
         revision="21.1.2"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
         <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/classes-cecbed02924337ca46672ea66a9194be05f22430.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7d2525cba8ed61fff102977caed964fc22061e34">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/pre-dexed/debug/classes-384e19cc0974325c34f097096928d0ecec8ba693.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/pre-dexed/debug/classes-275c9975cb3a01050ae8b69698434047d8590767.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet3/NomNet/app/build/intermediates/pre-dexed/debug/classes-656428ab8e3b253a2be7c1d24dbfc7f0dae0b777.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/pre-dexed/debug/classes-db196e896a026d1e57055ad82ecbc6c6f42888ec.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-7b05d6b297a939b2f9fa006847379687c70c9ae3.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/pre-dexed/debug/classes-88c858e175cf99b66519f5aaf5c76784e2701fbd.jar" />
-    </item>
-    <item
-        jar="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/Elliscope/Documents/Hackathon/2015Spring/NomNet/NomNet/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-845aed0fedce12ea28482b0ed9880acdaba28c17.jar" />
     </item>
 
 </items>

@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.nomnet" >
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <!-- Need name="MyApplication" for global variables -->
     <application
         android:name=".MyApplication"
@@ -14,7 +19,6 @@
             android:label="@string/title_activity_splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,7 +29,13 @@
         <activity
             android:name=".SearchActivity"
             android:label="NomNet" >
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+
+     </activity>
         <activity
             android:name=".SignIn"
             android:label="@string/title_activity_sign_in" >
@@ -39,7 +49,6 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.STARTINGPOINT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -63,6 +72,12 @@
             android:name=".CustomList"
             android:label="@string/title_activity_custom_list" >
         </activity>
+        <activity android:name=".Camera"
+            android:label="@string/title_activity_camera"
+            >
+        </activity>
     </application>
 
 </manifest>
+
+
