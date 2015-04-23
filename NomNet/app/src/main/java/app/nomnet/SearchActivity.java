@@ -69,7 +69,7 @@ public class SearchActivity extends ActionBarActivity {
         //save user's searches to content provider (SearchSuggestions)
         Intent i = getIntent();
         if(Intent.ACTION_SEARCH.equals(i.getAction())){
-            String query = i.getStringExtra(SearchManager.QUERY);
+            query = i.getStringExtra(SearchManager.QUERY);
             SearchRecentSuggestions srs = new SearchRecentSuggestions(this, SearchSuggestions.AUTHORITY, SearchSuggestions.MODE);
             //FOR TESTING PURPOSES ONLY!!!!!!!!!!!!!
             //ADD CLEAR HISTORY CODE TO SETTINGS PAGE
@@ -77,9 +77,14 @@ public class SearchActivity extends ActionBarActivity {
             if(query.equals("Clear History")){
                 srs.clearHistory();
             }
-            else{//leave in this order so Clear History option remains at top
+            else{
                 srs.saveRecentQuery(query, null);
                 srs.saveRecentQuery("Clear History", null);//adds clear history option to suggestions
+
+                //start SearchResults activity (pass query)
+                Intent goToResultsPage = new Intent(SearchActivity.this, SearchResults.class);
+                goToResultsPage.putExtra("query", query);
+                startActivity(goToResultsPage);
             }
 
         }
