@@ -64,6 +64,7 @@ public class Nom implements Serializable {
     public void addComments(Integer ImagID, String comment_string){
         Comments_user_profile.add(ImagID);
         Comments_list.add(comment_string);
+        System.out.println(Comments_list.size());
     }
 
     public Integer[] getC_userProfile(){

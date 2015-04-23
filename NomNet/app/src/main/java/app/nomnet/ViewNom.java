@@ -7,12 +7,15 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -160,6 +163,24 @@ public class ViewNom extends ActionBarActivity {
 
     //wait for user info from database to be past in->change parameters and make it dynamic
     public void notiButtonOnClicked( View view) {
+        //grab user comment input
+        EditText userInput = (EditText) findViewById(R.id.com_input);
+        userInput.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+            @Override
+        public boolean onEditorAction(TextView textView,int i, KeyEvent keyEvent){
+                boolean handled = false;
+                if(i == EditorInfo.IME_ACTION_NEXT){
+                    String inputText = textView.getText().toString();
+                    currentNom.addComments(R.drawable.sydney,inputText);
+
+
+
+                    Toast.makeText(ViewNom.this,"You commented "+ inputText,Toast.LENGTH_SHORT).show();
+
+                }
+            return handled;}
+        });
+
         //suposed to be dynamically passed in as user profile image
 
         notification.setSmallIcon(R.drawable.isabella);
