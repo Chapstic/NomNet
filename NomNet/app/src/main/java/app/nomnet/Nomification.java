@@ -66,7 +66,7 @@ private static final String TAG= "buckysMessage";
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, Nomification.this, 3);
+        new BottomButtonActions(bottombarButtons, Nomification.this, 3);
 
 
 

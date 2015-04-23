@@ -43,9 +43,9 @@ public class Nom implements Serializable {
 
     public String getDirections() { return recipe.getDirections(); }
 
-    public void addUpvote(){ upvotes++; };
+    public void addUpvote(){ upvotes++; }
 
-    public void subtractUpvote(){ upvotes--; };
+    public void subtractUpvote(){ upvotes--; }
 
     public Set<String> getTags(){
         Set<String> results = new HashSet();
@@ -54,13 +54,28 @@ public class Nom implements Serializable {
             String key = entry.getKey();
             Boolean value = entry.getValue();
 
-            if(value == true){
+            if(value){
                 results.add(key);
             }
         }
 
         return results;
-    };
+    }
 
+    // Checks to see if Nom has target tag (passed in)
+    public Boolean hasTag(String targetTag){
+        Boolean result = false;
+
+        for(Map.Entry<String, Boolean> entry : tags.entrySet()) {
+            String key = entry.getKey();
+            Boolean value = entry.getValue();
+
+            if(key == targetTag && value){
+                result = true;
+            }
+        }
+
+        return result;
+    }
 
 }

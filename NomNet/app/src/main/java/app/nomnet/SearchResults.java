@@ -1,41 +1,33 @@
 package app.nomnet;
 
+import android.app.SearchManager;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class FoodFeedActivity extends ActionBarActivity {
-    private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
 
-    private Toolbar topbar;                 // This is the topbar that says NomNet
-    private ListView listView;              // The feed
-    private FoodFeedListAdapter adapter;    // Adapter populates the feed with noms
-    private List<Nom> nomList;              // The list of noms to add to te feed
-    private Intent intent;                  // Intent that allows us to go to other pages
+public class SearchResults extends ActionBarActivity {
 
-    private TextView textViewCreateAcct;
-    private LinearLayout bottomBarLayout; // include of bottombar layout
-
-    private ImageButton[] bottombarButtons; //bottombar buttons
-
+    private ArrayList<Nom> nomResults; //arraylist holding resulting noms from search
+    private Toolbar topbar;
+    private ImageButton[] bottombarButtons;
+    private ListView nomListView;
+    private SearchResultsAdapter searchResultsAdapter;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_feed);
+        setContentView(R.layout.activity_search_results);
 
         topbar = (Toolbar) findViewById(R.id.topbar);
         topbar.setLogo(R.drawable.logosmall);
@@ -52,55 +44,32 @@ public class FoodFeedActivity extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        new BottomButtonActions(bottombarButtons, FoodFeedActivity.this, 0);
+       new BottomButtonActions(bottombarButtons, SearchResults.this, 1);
 
+        nomResults = new ArrayList<>();//initialize results list
 
-        // Create and populate list of noms
-        nomList = new ArrayList<>();
-        getNoms();
+        // Get the intent, verify the action and get the query
+        intent = getIntent();
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            search(query);//populate arraylist of resulting noms from query
+        }
 
-        // Initialize list view, feed nomList into adapter, set adapter for list view
-
-
-        listView = (ListView)findViewById(R.id.listView);
+        // Initialize nomListView, feed into adapter, set adapter
+        nomListView = (ListView)findViewById(R.id.resultsList);
 
         //if click nom on food feed, go to ViewNom
         intent = new Intent(this, ViewNom.class);
+        searchResultsAdapter = new SearchResultsAdapter(this, nomResults, intent);
+        nomListView.setAdapter(searchResultsAdapter);
 
-        adapter = new FoodFeedListAdapter(this, nomList, intent);
-        listView.setAdapter(adapter);
+        searchResultsAdapter = new SearchResultsAdapter(this, nomResults, intent);
+        nomListView.setAdapter(searchResultsAdapter);
+    }
 
+    //search for and populate arraylist of resulting Noms
+    public void search(String q){
 
-        textViewCreateAcct = (TextView) findViewById(R.id.create_account);
-        bottomBarLayout = (LinearLayout) findViewById(R.id.bottombar);
-
-        // Planning
-        // If logged in, show bottom toolbar
-        if (((MyApplication) this.getApplication()).getIsLoggedIn()) {
-            textViewCreateAcct.setVisibility(View.GONE); // hide the text view
-        }
-        // If not logged in, hide bottom toolba
-        // Prompt to make an account, link to registration activityr
-        else{
-            bottomBarLayout.setVisibility(View.GONE);
-            textViewCreateAcct.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(FoodFeedActivity.this, Register.class);
-                    startActivity(i);
-                }
-            });
-        }
-
-
-        // For testing the global variables
-
-        // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
-        //             Toast.LENGTH_LONG).show();
-
-    } // End of onCreate
-
-    private void getNoms() {
         String[] userNames = {"Sydney", "Izzy", "Rebecca", "Elliscope", "Albert"};
         String[] names = {"food1", "food2", "food3", "food4", "food5"};
 
@@ -125,30 +94,29 @@ public class FoodFeedActivity extends ActionBarActivity {
         for (int i = 0; i < names.length; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
             Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe, tags);
-            nomList.add(newNom);
+            nomResults.add(newNom);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_food_feed, menu);
-
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_search_results, menu);
+        return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       // TopBarActions tba = new TopBarActions(item);
-       // return tba.handleSelection();
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
-
 }
-
-
-
-
-
-
