@@ -85,16 +85,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/directionsLabel"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Notification Click"
-            android:id="@+id/noti_button"
-            android:onClick="notiButtonOnClicked"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="5dp"
-            android:layout_below="@+id/Comments_listView" />
-
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,6 +93,41 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="200dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Comments"
+            android:id="@+id/com_label"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Comments_listView"
+            android:textColor="#FFF"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/com_input"
+            android:layout_marginTop="45dp"
+            android:layout_below="@+id/com_label"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification Click"
+            android:id="@+id/noti_button"
+            android:onClick="notiButtonOnClicked"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/com_input" />
 
 
     </RelativeLayout>
