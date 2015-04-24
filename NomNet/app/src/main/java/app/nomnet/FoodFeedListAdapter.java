@@ -17,7 +17,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
     private List<Nom> nomItems;
     private Intent intent;
     private boolean upvoted = false;
-    public int numItemsInFeed = 3;      // initial amount
+    public int numItemsInFeed = 5;      // initial amount
 
     public FoodFeedListAdapter(Activity activity, List<Nom> nomItems, Intent intent){
         this.activity = activity;

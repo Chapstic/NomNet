@@ -3,6 +3,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -92,6 +94,24 @@ private static final String TAG= "buckysMessage";
         });
 
         Log.i(TAG,"OnCreate");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+
+        // Only show menu if logged in
+        if(((MyApplication) this.getApplication()).getIsLoggedIn()){
+            getMenuInflater().inflate(R.menu.menu_master, menu);
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        TopBarActions tba = new TopBarActions(item, this);
+        return tba.handledSelection();
     }
 }
 

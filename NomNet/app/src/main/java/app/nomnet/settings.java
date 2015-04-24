@@ -3,6 +3,7 @@ package app.nomnet;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,12 +19,21 @@ import android.widget.ToggleButton;
 
 public class Settings extends ActionBarActivity {
     private static final String TAG= "the button is on";
+
+    private Toolbar topbar;
     TextView nomif_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        // Add the topbar to the settings page
+        topbar = (Toolbar) findViewById(R.id.topbar);
+        topbar.setLogo(R.drawable.logosmall);
+        topbar.setTitle("");
+        setSupportActionBar(topbar);
+
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -63,7 +73,7 @@ public class Settings extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_settings, menu);
+        getMenuInflater().inflate(R.menu.menu_master_no_settings, menu);
         return true;
     }
 

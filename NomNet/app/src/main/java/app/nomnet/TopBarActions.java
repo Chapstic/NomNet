@@ -1,5 +1,7 @@
 package app.nomnet;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.MenuItem;
 
@@ -8,25 +10,25 @@ import android.view.MenuItem;
  */
 public class TopBarActions {
     private MenuItem item;
+    private Activity activity;
 
-    public TopBarActions(MenuItem mi){
+    public TopBarActions(MenuItem mi, Activity activity){
         item = mi;
+        this.activity = activity;
     }
-/*
     public boolean handledSelection(){
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent mainIntent = new Intent(FoodFeedActivity.this,Settings.class);
-                FoodFeedActivity.this.startActivity(mainIntent);
+                Intent mainIntent = new Intent(activity, Settings.class);
+                activity.startActivity(mainIntent);
                 return true;
             case R.id.action_logout:
-                Intent mainIntents = new Intent(FoodFeedActivity.this, SignIn.class);
-                FoodFeedActivity.this.startActivity(mainIntents);
-                ((MyApplication) this.getApplication()).setIsLoggedIn(false);
+                Intent mainIntents = new Intent(activity, SignIn.class);
+                activity.startActivity(mainIntents);
+                ((MyApplication) activity.getApplication()).setIsLoggedIn(false);
                 return true;
             default:
-                return super.onOptionsItemSelected(item);
+                return activity.onOptionsItemSelected(item);
         }
     }
-    */
 }

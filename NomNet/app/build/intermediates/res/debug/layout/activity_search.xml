@@ -26,9 +26,5 @@
         android:id="@+id/bottombar"
         layout= "@layout/bottombar"
         android:textColor="#FFF"/>
-
-
-
-
 </RelativeLayout>
 <!-- From: file:/C:/Users/Izzy/Documents/NomNet/NomNet/app/src/main/res/layout/activity_search.xml -->

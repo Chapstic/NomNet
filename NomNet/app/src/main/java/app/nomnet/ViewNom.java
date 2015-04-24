@@ -86,28 +86,14 @@ public class ViewNom extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_view_nom, menu);
+        getMenuInflater().inflate(R.menu.menu_master, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent mainIntent = new Intent(ViewNom.this,Settings.class);
-                ViewNom.this.startActivity(mainIntent);
-                return true;
-            case R.id.action_logout:
-                Intent mainIntents = new Intent(ViewNom.this, SignIn.class);
-                ViewNom.this.startActivity(mainIntents);
-                ((MyApplication) this.getApplication()).setIsLoggedIn(false);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-
+        TopBarActions tba = new TopBarActions(item, this);
+        return tba.handledSelection();
     }
 
 
