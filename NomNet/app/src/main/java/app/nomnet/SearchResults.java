@@ -29,7 +29,7 @@ public class SearchResults extends ActionBarActivity {
     private ListView nomListView;
     private SearchResultsAdapter searchResultsAdapter;
     private Intent intent;
-    private String query;
+    private String query, catQuery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,25 +51,31 @@ public class SearchResults extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-       new BottomButtonActions(bottombarButtons, SearchResults.this, 1, "searchResults");
+        new BottomButtonActions(bottombarButtons, SearchResults.this, 1, "searchResults");
+
+        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);//transition
 
         nomResults = new ArrayList<>();//initialize results list
 
         intent = getIntent();
-        query = intent.getExtras().getString("query");
-        search(query);
+        SearchRecentSuggestions srs = new SearchRecentSuggestions(this, SearchSuggestions.AUTHORITY, SearchSuggestions.MODE);
+
+        //category clicked
+        catQuery = intent.getExtras().getString("catQuery");
+        if(catQuery!=null)search(catQuery);
 
         //saves search queries to content provider for recent search suggestions
-        SearchRecentSuggestions srs = new SearchRecentSuggestions(this, SearchSuggestions.AUTHORITY, SearchSuggestions.MODE);
         //FOR TESTING PURPOSES ONLY!!!!!!!!!!!!!
         //ADD CLEAR HISTORY CODE TO SETTINGS PAGE
         //(or maybe keep? Clear History option doesn't always stay at top of list...)
-        if(query.equals("Clear History")){
+        if(query!=null && query.equalsIgnoreCase("Clear History")){
             srs.clearHistory();
         }
         else{
             srs.saveRecentQuery(query, null);
             srs.saveRecentQuery("Clear History", null);//adds clear history option to suggestions
+
+            search(query);
         }
 
         // Initialize nomListView, feed into adapter, set adapter

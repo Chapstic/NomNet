@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -28,7 +30,7 @@ public class SearchActivity extends ActionBarActivity {
     private ArrayList<String> categories;
     private ArrayAdapter<String> categoriesArrayAdapter;
 
-    private String query; //holds user's search query or category name
+    private String query, catQuery; //holds user's search query or category name
 
     private ImageButton[] bottombarButtons; //bottombar buttons
 
@@ -65,16 +67,18 @@ public class SearchActivity extends ActionBarActivity {
         categoriesArrayAdapter = new ArrayAdapter<>(this,
                 R.layout.stylelistitems,categories);
         categoriesListView.setAdapter(categoriesArrayAdapter);
+        Intent i = getIntent();
+
+        categoryClicks();
 
         //save user's searches to content provider (SearchSuggestions)
-        Intent i = getIntent();
         if(Intent.ACTION_SEARCH.equals(i.getAction())){
             query = i.getStringExtra(SearchManager.QUERY);
             SearchRecentSuggestions srs = new SearchRecentSuggestions(this, SearchSuggestions.AUTHORITY, SearchSuggestions.MODE);
             //FOR TESTING PURPOSES ONLY!!!!!!!!!!!!!
             //ADD CLEAR HISTORY CODE TO SETTINGS PAGE
             //(or maybe keep? Clear History option doesn't always stay at top of list...)
-            if(query.equals("Clear History")){
+            if(query.equalsIgnoreCase("Clear History")){
                 srs.clearHistory();
             }
             else{
@@ -87,8 +91,48 @@ public class SearchActivity extends ActionBarActivity {
                 startActivity(goToResultsPage);
             }
 
-        }
+        }//end content provider code
 
+
+
+    }
+
+    public void categoryClicks(){//handle clicks on categories
+        categoriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            private Intent goToResultsPage;
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0: //Vegan
+                            goToResultsPage = new Intent(SearchActivity.this, SearchResults.class);
+                            goToResultsPage.putExtra("catQuery", "Vegan");
+                            startActivity(goToResultsPage);
+                            break;
+                    case 1: //Vegetarian
+                            goToResultsPage = new Intent(SearchActivity.this, SearchResults.class);
+                            goToResultsPage.putExtra("catQuery", "Vegetarian");
+                            startActivity(goToResultsPage);
+                            break;
+                    case 2: //Breakfast
+                            goToResultsPage = new Intent(SearchActivity.this, SearchResults.class);
+                            goToResultsPage.putExtra("catQuery", "Breakfast");
+                            startActivity(goToResultsPage);
+                            break;
+                    case 3: //Lunch
+                            goToResultsPage = new Intent(SearchActivity.this, SearchResults.class);
+                            goToResultsPage.putExtra("catQuery", "Lunch");
+                            startActivity(goToResultsPage);
+                            break;
+                    case 4: //Dinner
+                            goToResultsPage = new Intent(SearchActivity.this, SearchResults.class);
+                            goToResultsPage.putExtra("catQuery", "Dinner");
+                            startActivity(goToResultsPage);
+                            break;
+                    default:
+                            break;
+                }
+            }
+        });
     }
 
     @Override
