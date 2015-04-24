@@ -2,6 +2,7 @@ package app.nomnet;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -94,8 +96,12 @@ public class ViewNom extends ActionBarActivity {
 
 
 
+
+
+
         //Comments Input text edit set up
-        EditText editText = (EditText) findViewById(R.id.com_input);
+        final EditText editText = (EditText) findViewById(R.id.com_input);
+
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -116,6 +122,12 @@ public class ViewNom extends ActionBarActivity {
                     list_com.setAdapter(adapter1);
 
                     Utility.setListViewHeightBasedOnChildren(list_com);
+
+                    InputMethodManager imm = (InputMethodManager)getSystemService(
+                    Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+
+
 
                     //enable notification pop up
 
