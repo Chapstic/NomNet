@@ -21,6 +21,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="NomNet"
         android:theme="@style/AppTheme" >
+        <provider
+            android:name="app.nomnet.SearchSuggestions"
+            android:authorities="com.nomnet.SearchSuggestions" />
+
         <activity
             android:name="app.nomnet.SplashActivity"
             android:label="@string/title_activity_splash" >
@@ -44,6 +48,9 @@
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchActivity" />
         </activity>
         <activity
             android:name="app.nomnet.SignIn"
@@ -85,6 +92,20 @@
         <activity
             android:name="app.nomnet.Camera"
             android:label="@string/title_activity_camera" >
+        </activity>
+        <activity
+            android:name="app.nomnet.SearchResults"
+            android:label="SearchResults" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchActivity" />
         </activity>
         <activity
             android:name="android.support.v7.widget.TestActivity"

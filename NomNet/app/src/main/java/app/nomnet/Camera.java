@@ -70,7 +70,7 @@ public class Camera extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, Camera.this, 2);
+        new BottomButtonActions(bottombarButtons, Camera.this, 2, "camera");
 
 
 

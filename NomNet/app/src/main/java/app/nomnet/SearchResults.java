@@ -4,40 +4,40 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
-public class SearchActivity extends ActionBarActivity {
+public class SearchResults extends ActionBarActivity {
 
+    private ArrayList<Nom> nomResults; //arraylist holding resulting noms from search
     private Toolbar topbar;
-    private ListView categoriesListView;
-    private ArrayList<String> categories;
-    private ArrayAdapter<String> categoriesArrayAdapter;
-
-    private String query; //holds user's search query or category name
-
-    private ImageButton[] bottombarButtons; //bottombar buttons
+    private ImageButton[] bottombarButtons;
+    private ListView nomListView;
+    private SearchResultsAdapter searchResultsAdapter;
+    private Intent intent;
+    private String query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_search_results);
 
         topbar = (Toolbar) findViewById(R.id.topbar);
+        topbar.setLogo(R.drawable.logosmall);
         topbar.setTitle("");
         setSupportActionBar(topbar);
 
@@ -51,53 +51,71 @@ public class SearchActivity extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        new BottomButtonActions(bottombarButtons, SearchActivity.this, 1, "search");
+       new BottomButtonActions(bottombarButtons, SearchResults.this, 1, "searchResults");
 
+        nomResults = new ArrayList<>();//initialize results list
 
-        //categories list
-        categoriesListView = (ListView) findViewById(R.id.searchListView);
-        categories = new ArrayList<>();
-        categories.add("VEGAN");
-        categories.add("VEGETARIAN");
-        categories.add("BREAKFAST");
-        categories.add("LUNCH");
-        categories.add("DINNER");
-        categoriesArrayAdapter = new ArrayAdapter<>(this,
-                R.layout.stylelistitems,categories);
-        categoriesListView.setAdapter(categoriesArrayAdapter);
+        intent = getIntent();
+        query = intent.getExtras().getString("query");
+        search(query);
 
-        //save user's searches to content provider (SearchSuggestions)
-        Intent i = getIntent();
-        if(Intent.ACTION_SEARCH.equals(i.getAction())){
-            query = i.getStringExtra(SearchManager.QUERY);
-            SearchRecentSuggestions srs = new SearchRecentSuggestions(this, SearchSuggestions.AUTHORITY, SearchSuggestions.MODE);
-            //FOR TESTING PURPOSES ONLY!!!!!!!!!!!!!
-            //ADD CLEAR HISTORY CODE TO SETTINGS PAGE
-            //(or maybe keep? Clear History option doesn't always stay at top of list...)
-            if(query.equals("Clear History")){
-                srs.clearHistory();
-            }
-            else{
-                srs.saveRecentQuery(query, null);
-                srs.saveRecentQuery("Clear History", null);//adds clear history option to suggestions
-
-                //start SearchResults activity (pass query)
-                Intent goToResultsPage = new Intent(SearchActivity.this, SearchResults.class);
-                goToResultsPage.putExtra("query", query);
-                startActivity(goToResultsPage);
-            }
-
+        //saves search queries to content provider for recent search suggestions
+        SearchRecentSuggestions srs = new SearchRecentSuggestions(this, SearchSuggestions.AUTHORITY, SearchSuggestions.MODE);
+        //FOR TESTING PURPOSES ONLY!!!!!!!!!!!!!
+        //ADD CLEAR HISTORY CODE TO SETTINGS PAGE
+        //(or maybe keep? Clear History option doesn't always stay at top of list...)
+        if(query.equals("Clear History")){
+            srs.clearHistory();
+        }
+        else{
+            srs.saveRecentQuery(query, null);
+            srs.saveRecentQuery("Clear History", null);//adds clear history option to suggestions
         }
 
+        // Initialize nomListView, feed into adapter, set adapter
+        nomListView = (ListView)findViewById(R.id.resultsList);
+
+        //if click nom on food feed, go to ViewNom
+        intent = new Intent(this, ViewNom.class);
+        searchResultsAdapter = new SearchResultsAdapter(this, nomResults, intent);
+        nomListView.setAdapter(searchResultsAdapter);
+    }
+
+    //search for and populate arraylist of resulting Noms
+    public void search(String q){
+
+        String[] userNames = {"Sydney", "Izzy", "Rebecca", "Elliscope", "Albert"};
+        String[] names = {"food1", "food2", "food3", "food4", "food5"};
+
+        int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5};
+        int[] upvotes = {20, 24, 36, 70, 14};
+
+        //***********HARD-CODED data for testing purposes only. REMOVE WHEN DONE.****************
+        //Probably want to create functions to parse ingredients and directions based on user input
+        String ingredients = "Water - 4 cups" + '\n' +
+                "Salt - 3 tablespoons";
+        String directions = "1. Mix mix, swirl mix" + '\n' +
+                "2. Drink" + '\n';
+
+        Boolean breakfast, lunch, dinner;
+        breakfast = lunch = dinner = true;
+
+        Map<String, Boolean> tags = new HashMap<String, Boolean>();
+        tags.put("breakfast", true);
+        tags.put("lunch", true);
+        tags.put("dinner", true);
+
+        for (int i = 0; i < names.length; i++) {
+            Recipe recipe = new Recipe(names[i], ingredients, directions);
+            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe, tags);
+            nomResults.add(newNom);
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu
-        MenuInflater inflater = getMenuInflater();
         // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.menu_search, menu);
-
+        getMenuInflater().inflate(R.menu.menu_search, menu);
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
@@ -136,16 +154,14 @@ public class SearchActivity extends ActionBarActivity {
         searchIcon.setImageResource(R.drawable.search_bar_icon);//search icon
         searchIcon.getLayoutParams().height = 80;
 
-       // l1.setBackgroundColor(Color.GRAY); //FOR SEEING SPACING
+        // l1.setBackgroundColor(Color.GRAY); //FOR SEEING SPACING
 
 
         l3.setBackgroundResource(R.drawable.abc_textfield_search_default_mtrl_alpha);//searchplate underline color
 
         l4.setBackgroundResource(R.drawable.abc_textfield_search_default_mtrl_alpha);//voiceicon underline
 
-
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override

@@ -2,7 +2,6 @@ package app.nomnet;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,9 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class CreateNom extends ActionBarActivity implements View.OnClickListener {
@@ -31,6 +36,9 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
 
     private Intent intent;
 
+    private Map newTags;
+
+
     //Possibly add additional method to parse text
 
     @Override
@@ -38,6 +46,11 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         intent = new Intent(this, ViewNom.class); //Users view the Nom immediately after posting. Check line 40 activity_view_nom
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_nom);
+
+        // Initialize tags list and booleans
+        newTags = new HashMap<String, Boolean>();
+
+        newTags.put("vegan", false);
 
         // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
@@ -66,7 +79,6 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         //Access the PostButton in create_nom.xml
         postButton = (Button) findViewById(R.id.postButton);
         postButton.setOnClickListener(this);
-
     }
 
 
@@ -100,11 +112,59 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         directions = String.valueOf(directionsEdit.getText() );
 
         newRecipe = new Recipe(dishname, ingredients, directions);
-        newNom = new Nom("Placeholder Username", 0, nomImage, newRecipe);
+        newNom = new Nom("Placeholder Username", 0, nomImage, newRecipe, newTags);
 
         intent.putExtra("Nom", newNom); //Passes Nom object in Map<Key,Value> format to next activity (view_nom)
         v.getContext().startActivity(intent); //Creates Nom and immediately goes to ViewNom
 
+    }
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked and update booleans accordingly
+        switch(view.getId()) {
+            case R.id.checkbox_vegan:
+                if (checked){
+                    newTags.put("Vegan", true);
+                } else{
+                    newTags.put("Vegan", false);
+                }
+                break;
+
+            case R.id.checkbox_vegetarian:
+                if (checked){
+                    newTags.put("Vegetarian", true);
+                } else{
+                    newTags.put("Vegetarian", false);
+                }
+                break;
+
+            case R.id.checkbox_bfast:
+                if (checked){
+                    newTags.put("Breakfast", true);
+                } else{
+                    newTags.put("Breakfast", false);
+                }
+                break;
+
+            case R.id.checkbox_lunch:
+                if (checked){
+                    newTags.put("Lunch", true);
+                } else{
+                    newTags.put("Lunch", false);
+                }
+                break;
+
+            case R.id.checkbox_dinner:
+                if (checked){
+                    newTags.put("Dinner", true);
+                } else{
+                    newTags.put("Dinner", false);
+                }
+                break;
+        }
     }
 
 }

@@ -11,11 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FoodFeedActivity extends ActionBarActivity implements AbsListView.OnScrollListener {
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
@@ -27,6 +30,7 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
     private Intent intent;                  // Intent that allows us to go to other pages
 
     private TextView textViewCreateAcct;
+    private LinearLayout bottomBarLayout; // include of bottombar layout
 
     private ImageButton[] bottombarButtons; //bottombar buttons
 
@@ -51,7 +55,8 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, FoodFeedActivity.this, 0);
+
+        new BottomButtonActions(bottombarButtons, FoodFeedActivity.this, 0, "foodfeed");
 
         // Create and populate list of noms
         nomList = new ArrayList<>();
@@ -59,7 +64,9 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
 
         // Initialize list view, feed nomList into adapter, set adapter for list view
         listView = (ListView)findViewById(R.id.listView);
-        intent = new Intent(this, ViewNom.class); //Replaced ViewNom.class with CreateNom.class FOR TESTING PURPOSES ONLY. CHANGE BACK AFTER*************
+
+        //if click nom on food feed, go to ViewNom
+        intent = new Intent(this, ViewNom.class);
 
         adapter = new FoodFeedListAdapter(this, nomList, intent);
         listView.setAdapter(adapter);
@@ -67,15 +74,17 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
 
 
         textViewCreateAcct = (TextView) findViewById(R.id.create_account);
+        bottomBarLayout = (LinearLayout) findViewById(R.id.bottombar);
 
         // Planning
         // If logged in, show bottom toolbar
         if (((MyApplication) this.getApplication()).getIsLoggedIn()) {
             textViewCreateAcct.setVisibility(View.GONE); // hide the text view
         }
-        // If not logged in, hide bottom toolbar
-        // Prompt to make an account, link to registration activity
-        else {
+        // If not logged in, hide bottom toolba
+        // Prompt to make an account, link to registration activityr
+        else{
+            bottomBarLayout.setVisibility(View.GONE);
             textViewCreateAcct.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -85,15 +94,6 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
             });
         }
 
-        // Planning
-        // If logged in, show bottom toolbar
-        if (((MyApplication) this.getApplication()).getIsLoggedIn()) {
-
-        }
-        // If not logged in, prompt hide bottom toolbar, prompt to make an account
-        else {
-
-        }
 
         // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
         //             Toast.LENGTH_LONG).show();
@@ -114,9 +114,17 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
         String directions = "1. Mix mix, swirl mix" + '\n' +
                 "2. Drink" + '\n';
 
+        Boolean breakfast, lunch, dinner;
+        breakfast = lunch = dinner = true;
+
+        Map<String, Boolean> tags = new HashMap<String, Boolean>();
+        tags.put("breakfast", true);
+        tags.put("lunch", true);
+        tags.put("dinner", true);
+
         for (int i = 0; i < names.length; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
-            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe);
+            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe, tags);
             nomList.add(newNom);
         }
     }
@@ -153,6 +161,8 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+       // TopBarActions tba = new TopBarActions(item);
+       // return tba.handleSelection();
         return super.onOptionsItemSelected(item);
     }
 
