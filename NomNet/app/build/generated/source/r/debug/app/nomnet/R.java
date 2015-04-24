@@ -17,6 +17,10 @@ public final class R {
         public static final int abc_slide_in_top=0x7f050005;
         public static final int abc_slide_out_bottom=0x7f050006;
         public static final int abc_slide_out_top=0x7f050007;
+        public static final int in_from_left=0x7f050008;
+        public static final int in_from_right=0x7f050009;
+        public static final int out_to_left=0x7f05000a;
+        public static final int out_to_right=0x7f05000b;
     }
     public static final class array {
         public static final int privacy_arrays=0x7f070000;
@@ -1440,30 +1444,29 @@ containing a value of this type.
         public static final int camera=0x7f020039;
         public static final int clear=0x7f02003a;
         public static final int comments=0x7f02003b;
-        public static final int darkredbg=0x7f02003c;
-        public static final int edittextbox=0x7f02003d;
-        public static final int elliscope=0x7f02003e;
-        public static final int food1=0x7f02003f;
-        public static final int food2=0x7f020040;
-        public static final int food3=0x7f020041;
-        public static final int food4=0x7f020042;
-        public static final int food5=0x7f020043;
-        public static final int home=0x7f020044;
-        public static final int isabella=0x7f020045;
-        public static final int logo=0x7f020046;
-        public static final int logosmall=0x7f020047;
-        public static final int mic=0x7f020048;
-        public static final int notifications=0x7f020049;
-        public static final int profile=0x7f02004a;
-        public static final int rebecca=0x7f02004b;
-        public static final int search=0x7f02004c;
-        public static final int search_bar_icon=0x7f02004d;
-        public static final int sydney=0x7f02004e;
-        public static final int topbarsearch=0x7f02004f;
-        public static final int triangle=0x7f020050;
-        public static final int triangle_red=0x7f020051;
-        public static final int underline=0x7f020052;
-        public static final int underlineselector=0x7f020053;
+        public static final int edittextbox=0x7f02003c;
+        public static final int elliscope=0x7f02003d;
+        public static final int food1=0x7f02003e;
+        public static final int food2=0x7f02003f;
+        public static final int food3=0x7f020040;
+        public static final int food4=0x7f020041;
+        public static final int food5=0x7f020042;
+        public static final int home=0x7f020043;
+        public static final int isabella=0x7f020044;
+        public static final int logo=0x7f020045;
+        public static final int logosmall=0x7f020046;
+        public static final int mic=0x7f020047;
+        public static final int notifications=0x7f020048;
+        public static final int profile=0x7f020049;
+        public static final int rebecca=0x7f02004a;
+        public static final int search=0x7f02004b;
+        public static final int search_bar_icon=0x7f02004c;
+        public static final int sydney=0x7f02004d;
+        public static final int topbarsearch=0x7f02004e;
+        public static final int triangle=0x7f02004f;
+        public static final int triangle_red=0x7f020050;
+        public static final int underline=0x7f020051;
+        public static final int underlineselector=0x7f020052;
     }
     public static final class id {
         public static final int BottomBarCamera=0x7f0b0071;
@@ -1651,11 +1654,10 @@ containing a value of this type.
         public static final int menu_profile=0x7f0f0006;
         public static final int menu_register=0x7f0f0007;
         public static final int menu_search=0x7f0f0008;
-        public static final int menu_search_results=0x7f0f0009;
-        public static final int menu_settings=0x7f0f000a;
-        public static final int menu_sign_in=0x7f0f000b;
-        public static final int menu_splash=0x7f0f000c;
-        public static final int menu_view_nom=0x7f0f000d;
+        public static final int menu_settings=0x7f0f0009;
+        public static final int menu_sign_in=0x7f0f000a;
+        public static final int menu_splash=0x7f0f000b;
+        public static final int menu_view_nom=0x7f0f000c;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;

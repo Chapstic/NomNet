@@ -37,7 +37,7 @@ public class Profile extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        new BottomButtonActions(bottombarButtons, Profile.this, 4);
+        new BottomButtonActions(bottombarButtons, Profile.this, 4, "profile");
 
         Button nomi_button = (Button)findViewById(R.id.nomif_button);
         nomi_button.setOnClickListener(new View.OnClickListener() {

@@ -52,8 +52,7 @@ public class FoodFeedActivity extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        new BottomButtonActions(bottombarButtons, FoodFeedActivity.this, 0);
-
+        new BottomButtonActions(bottombarButtons, FoodFeedActivity.this, 0, "foodfeed");
 
         // Create and populate list of noms
         nomList = new ArrayList<>();

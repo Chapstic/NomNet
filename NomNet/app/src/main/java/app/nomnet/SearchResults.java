@@ -51,7 +51,7 @@ public class SearchResults extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-       new BottomButtonActions(bottombarButtons, SearchResults.this, 1);
+       new BottomButtonActions(bottombarButtons, SearchResults.this, 1, "searchResults");
 
         nomResults = new ArrayList<>();//initialize results list
 
