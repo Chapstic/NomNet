@@ -47,25 +47,6 @@ public class Nomification extends ActionBarActivity {
 
     }
 
-
-    String[] web= {
-            "Sydney Liu \n commented on your post",
-            "Rebecca Wu \n commented on your post",
-            "Izzy Benavente \n commented on your post",
-            "Albert Yue \n commented on your post",
-            "Elliscope Fang \n commented on your post",
-    };
-
-
-    Integer[] imageId= {
-
-            R.drawable.sydney,
-            R.drawable.rebecca,
-            R.drawable.isabella,
-            R.drawable.albert,
-            R.drawable.elliscope,
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,9 +86,6 @@ public class Nomification extends ActionBarActivity {
                 Toast.makeText(Nomification.this, getComments()[+ position]+ "viewed your post recently ", Toast.LENGTH_SHORT).show();
             }
         });
-       // Utility.setListViewHeightBasedOnChildren(list);
-       // System.out.println(web.length);
-
 
         Button return_button = (Button)findViewById(R.id.ReturnButton);
         return_button.setOnClickListener(new View.OnClickListener() {

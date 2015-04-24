@@ -117,6 +117,25 @@ public class ViewNom extends ActionBarActivity {
 
                     Utility.setListViewHeightBasedOnChildren(list_com);
 
+                    //enable notification pop up
+
+                    notification.setSmallIcon(R.drawable.isabella);
+
+                    notification.setTicker("New Nomification");
+                    notification.setWhen(System.currentTimeMillis());
+
+                    notification.setContentTitle("Izzy");
+                    notification.setContentText("liked your post");
+
+                    //The class that should be sent to once clicked
+                    Intent intent = new Intent(ViewNom.this,Nomification.class);
+                    PendingIntent pendingIntent =  PendingIntent.getActivity(ViewNom.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+                    notification.setContentIntent(pendingIntent);
+
+                    //Build notification and issue it
+                    NotificationManager nm =  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    nm.notify(uniqueID,notification.build());
+
                     handled = true;
                 }
                 return handled;
