@@ -115,6 +115,33 @@ public class ViewNom extends ActionBarActivity {
 
 
 
+        //Comments Input text edit set up
+        EditText editText = (EditText) findViewById(R.id.com_input);
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    String inputText = v.getText().toString();
+
+                    //input user image id ->connect with database
+                    currentNom.addComments(R.drawable.sydney,inputText);
+
+                    //reinitialize the adapter
+                    CustomList adapter1 = new
+                            CustomList(ViewNom.this, currentNom.getComments(), currentNom.getC_userProfile());
+                    list_com=(ListView)findViewById(R.id.Comments_listView);
+                    adapter1.notifyDataSetChanged();
+                    list_com.setAdapter(adapter1);
+
+                    Utility.setListViewHeightBasedOnChildren(list_com);
+
+                    handled = true;
+                }
+                return handled;
+            }
+        });
+
 
         //Pop Up Nomification Implementaion
         notification = new NotificationCompat.Builder(this);
@@ -163,23 +190,6 @@ public class ViewNom extends ActionBarActivity {
 
     //wait for user info from database to be past in->change parameters and make it dynamic
     public void notiButtonOnClicked( View view) {
-        //grab user comment input
-        EditText userInput = (EditText) findViewById(R.id.com_input);
-        userInput.setOnEditorActionListener(new TextView.OnEditorActionListener(){
-            @Override
-        public boolean onEditorAction(TextView textView,int i, KeyEvent keyEvent){
-                boolean handled = false;
-                if(i == EditorInfo.IME_ACTION_NEXT){
-                    String inputText = textView.getText().toString();
-                    currentNom.addComments(R.drawable.sydney,inputText);
-
-
-
-                    Toast.makeText(ViewNom.this,"You commented "+ inputText,Toast.LENGTH_SHORT).show();
-
-                }
-            return handled;}
-        });
 
         //suposed to be dynamically passed in as user profile image
 

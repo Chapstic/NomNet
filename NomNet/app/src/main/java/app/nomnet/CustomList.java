@@ -10,7 +10,7 @@ public class CustomList extends ArrayAdapter<String>{
     private final Activity context;
     private final String[] web;
     private final Integer[] imageId;
-    public int numComments = 3;      // initial amount
+    public int numComments;      // initial amount
 
 
 
@@ -20,6 +20,7 @@ public class CustomList extends ArrayAdapter<String>{
         this.context = context;
         this.web = web;
         this.imageId = imageId;
+        this.numComments = web.length;
     }
 
 
