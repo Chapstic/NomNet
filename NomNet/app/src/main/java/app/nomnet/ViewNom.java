@@ -31,29 +31,8 @@ public class ViewNom extends ActionBarActivity {
     private ImageView appImageView;
 
 
-
-
-
     ListView list_com;
     CustomList adapter;
-
-    String[] web1= {
-            "Sydney Liu \n commented on your post",
-            "Rebecca Wu \n commented on your post",
-            "Izzy Benavente \n commented on your post",
-            "Albert Yue \n commented on your post",
-            "Elliscope Fang \n commented on your post",
-    };
-
-
-    Integer[] imageId1= {
-
-            R.drawable.sydney,
-            R.drawable.rebecca,
-            R.drawable.isabella,
-            R.drawable.albert,
-            R.drawable.elliscope,
-    };
 
 
     //Nomification Part
@@ -123,6 +102,8 @@ public class ViewNom extends ActionBarActivity {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
                     String inputText = v.getText().toString();
+                    Intent i = new Intent(ViewNom.this,Nomification.class);
+                    i.putExtra("inputText",inputText);
 
                     //input user image id ->connect with database
                     currentNom.addComments(R.drawable.sydney,inputText);
