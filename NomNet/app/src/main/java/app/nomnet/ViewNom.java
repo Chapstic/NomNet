@@ -2,21 +2,35 @@ package app.nomnet;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
-
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+
+
+//implements AbsListView.OnScrollListener
 
 public class ViewNom extends ActionBarActivity {
     private Nom currentNom;
@@ -24,6 +38,9 @@ public class ViewNom extends ActionBarActivity {
     private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, ingredientsText, directionsText, tagsText;
     private ImageView appImageView;
 
+
+    ListView list_com;
+    CustomList adapter;
 
 
     //Nomification Part
@@ -68,7 +85,85 @@ public class ViewNom extends ActionBarActivity {
 
 
 
+
         //Nomification Implementaion
+
+        //Dynamic Comments under Nom
+        adapter = new CustomList(ViewNom.this, currentNom.getComments(), currentNom.getC_userProfile());
+        list_com=(ListView)findViewById(R.id.Comments_listView);
+        list_com.setAdapter(adapter);
+
+        list_com.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Toast.makeText(ViewNom.this, currentNom.getComments()[+position], Toast.LENGTH_SHORT).show();
+            }
+        });
+        Utility.setListViewHeightBasedOnChildren(list_com);
+
+
+
+
+
+
+        //Comments Input text edit set up
+        final EditText editText = (EditText) findViewById(R.id.com_input);
+
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    String inputText = v.getText().toString();
+                    Intent i = new Intent(ViewNom.this,Nomification.class);
+                    i.putExtra("inputText",inputText);
+
+                    //input user image id ->connect with database
+                    currentNom.addComments(R.drawable.sydney,inputText);
+
+                    //reinitialize the adapter
+                    CustomList adapter1 = new
+                            CustomList(ViewNom.this, currentNom.getComments(), currentNom.getC_userProfile());
+                    list_com=(ListView)findViewById(R.id.Comments_listView);
+                    adapter1.notifyDataSetChanged();
+                    list_com.setAdapter(adapter1);
+
+                    Utility.setListViewHeightBasedOnChildren(list_com);
+
+                    InputMethodManager imm = (InputMethodManager)getSystemService(
+                    Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+
+
+
+                    //enable notification pop up
+
+                    notification.setSmallIcon(R.drawable.isabella);
+
+                    notification.setTicker("New Nomification");
+                    notification.setWhen(System.currentTimeMillis());
+
+                    notification.setContentTitle("Izzy");
+                    notification.setContentText("liked your post");
+
+                    //The class that should be sent to once clicked
+                    Intent intent = new Intent(ViewNom.this,Nomification.class);
+                    PendingIntent pendingIntent =  PendingIntent.getActivity(ViewNom.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+                    notification.setContentIntent(pendingIntent);
+
+                    //Build notification and issue it
+                    NotificationManager nm =  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    nm.notify(uniqueID,notification.build());
+
+                    handled = true;
+                }
+                return handled;
+            }
+        });
+
+
+        //Pop Up Nomification Implementaion
         notification = new NotificationCompat.Builder(this);
         notification.setAutoCancel(true);
 
@@ -106,7 +201,11 @@ public class ViewNom extends ActionBarActivity {
     }
 
     //Nomification Event Handler
-    public void notiButtonOnClicked(View view) {
+
+
+    //wait for user info from database to be past in->change parameters and make it dynamic
+    public void notiButtonOnClicked( View view) {
+
         //suposed to be dynamically passed in as user profile image
 
         notification.setSmallIcon(R.drawable.isabella);
@@ -126,4 +225,50 @@ public class ViewNom extends ActionBarActivity {
         NotificationManager nm =  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         nm.notify(uniqueID,notification.build());
     }
+
+//
+//    @Override
+//    public void onScrollStateChanged(AbsListView view, int scrollState) {
+//        }
+//
+//    @Override
+//    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//        // Can add a padding
+//        boolean loadMore = firstVisibleItem + visibleItemCount >= totalItemCount;
+//
+//        // Load more items if there are more to load
+//        if(loadMore && adapter.getCount() < adapter.getMaxItems()-1)
+//        {
+//            adapter.numComments += visibleItemCount; // or any other amount
+//
+//            if(adapter.getCount() >= adapter.getMaxItems()){
+//                adapter.numComments = adapter.getMaxItems(); // keep in bounds
+//            }
+//
+//            adapter.notifyDataSetChanged();
+//        }
+//    }
+
+//    public static void setListViewHeightBasedOnChildren(ListView listView) {
+//        ListAdapter listAdapter = listView.getAdapter();
+//        if (listAdapter == null) {
+//            return;
+//        }
+//
+//        int totalHeight = 0;
+//        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
+//        for (int i = 0; i < listAdapter.getCount(); i++) {
+//            View listItem = listAdapter.getView(i, null, listView);
+//            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+//            totalHeight += listItem.getMeasuredHeight();
+//        }
+//
+//        setListViewHeight(listView, totalHeight);
+//    }
+//    public static void setListViewHeight(ListView listView, int height) {
+//        ViewGroup.LayoutParams params = listView.getLayoutParams();
+//        params.height = height + (listView.getDividerHeight() * (listView.getAdapter().getCount() - 1));
+//        listView.setLayoutParams(params);
+//        listView.requestLayout();
+//    }
 }
