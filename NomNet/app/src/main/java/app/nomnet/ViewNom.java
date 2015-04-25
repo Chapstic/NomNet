@@ -3,10 +3,13 @@ package app.nomnet;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -24,8 +27,6 @@ public class ViewNom extends ActionBarActivity {
     private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, ingredientsText, directionsText, tagsText;
     private ImageView appImageView;
 
-
-
     //Nomification Part
     NotificationCompat.Builder notification;
     private static final int uniqueID = 45612;
@@ -42,8 +43,10 @@ public class ViewNom extends ActionBarActivity {
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
 
-        Intent intent = getIntent();
-        currentNom = (Nom)intent.getSerializableExtra("Nom");
+        Bundle b = getIntent().getExtras();
+        currentNom = b.getParcelable("Nom");
+
+        System.out.println("CHECKING STUFF" + '\n' + "NAME: " + currentNom.getName() + '\n');
 
         creatorText = (TextView) findViewById(R.id.creatorText);
         creatorText.setText(currentNom.getCreator());
@@ -52,7 +55,7 @@ public class ViewNom extends ActionBarActivity {
         upvotesText.setText(Integer.toString(currentNom.getUpvotes()) );
 
         appImageView = (ImageView) findViewById(R.id.foodImage);
-        appImageView.setImageDrawable(getResources().getDrawable(currentNom.getImage() ));
+        appImageView.setImageBitmap(currentNom.getImage() );
 
         dishNameText = (TextView) findViewById(R.id.dishNameText);
         dishNameText.setText(currentNom.getName() );
@@ -65,7 +68,6 @@ public class ViewNom extends ActionBarActivity {
 
         directionsText = (TextView) findViewById(R.id.directionsText);
         directionsText.setText(currentNom.getDirections() );
-
 
 
         //Nomification Implementaion

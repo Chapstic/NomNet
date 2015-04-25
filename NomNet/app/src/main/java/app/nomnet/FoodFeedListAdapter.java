@@ -3,6 +3,9 @@ package app.nomnet;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +64,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
 
         name.setText(currentNom.getName());
         creator.setText(currentNom.getCreator());
-        image.setImageResource(currentNom.getImage());
+        image.setImageBitmap(currentNom.getImage() );
 
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,10 +1,16 @@
 package app.nomnet;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,29 +20,32 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 public class CreateNom extends ActionBarActivity implements View.OnClickListener {
 
     private Toolbar topbar;
-    private int nomImage;
+    private Bitmap bitmap;
     private Nom newNom;
     private Recipe newRecipe;
 
     private ImageView nomPhoto;
-    private TextView createLabel;
     private EditText dishEdit, ingredientsEdit, directionsEdit;
     private String ingredients; //change to String[] later
-    private String dishname, directions;
+    private String dishname, directions, bitString;
     private Button postButton;
 
     private Intent intent;
 
-    private Map newTags;
+    private Map<String, Boolean> newTags;
+    private Set<String> refinedTags;
 
 
     //Possibly add additional method to parse text
@@ -49,20 +58,17 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
 
         // Initialize tags list and booleans
         newTags = new HashMap<String, Boolean>();
-
-        newTags.put("vegan", false);
+        refinedTags = new HashSet<String>();
 
         // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
 
-        createLabel = (TextView) findViewById(R.id.createLabel);
-        createLabel.setText("Create a Nom!");
+        bitmap = getIntent().getExtras().getParcelable("imagepass");
 
-        //Initialize and access the Image based on camera
-        nomImage = R.drawable.food1; //***********HARDCODED image should eventually be swapped out w/ Camera photo******************
+        //Initialize and access the Image based on data from camera
         nomPhoto = (ImageView) findViewById(R.id.foodImage);
-        nomPhoto.setImageDrawable(getResources().getDrawable(nomImage) );
+        nomPhoto.setImageBitmap(bitmap);
 
         //Access the dishEdit field in create_nom.xml
         dishEdit = (EditText) findViewById(R.id.dishEdit);
@@ -110,9 +116,10 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         dishname = String.valueOf(dishEdit.getText() );
         ingredients = String.valueOf(ingredientsEdit.getText() );
         directions = String.valueOf(directionsEdit.getText() );
+        parseTags();
 
         newRecipe = new Recipe(dishname, ingredients, directions);
-        newNom = new Nom("Placeholder Username", 0, nomImage, newRecipe, newTags);
+        newNom = new Nom("Placeholder Username", 0, bitmap, newRecipe, refinedTags);
 
         intent.putExtra("Nom", newNom); //Passes Nom object in Map<Key,Value> format to next activity (view_nom)
         v.getContext().startActivity(intent); //Creates Nom and immediately goes to ViewNom
@@ -167,4 +174,16 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         }
     }
 
+    public void parseTags(){
+        for(Map.Entry<String, Boolean> entry : newTags.entrySet() ) { // Iterate through map looking for keys that are true
+            String key = entry.getKey();
+            Boolean value = entry.getValue();
+            System.out.println("ITERATING THROUGH TAGS" + '\n');
+
+            if(value == true){
+                refinedTags.add(key);
+            }
+        }
+
+    }
 }
