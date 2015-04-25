@@ -35,7 +35,8 @@ public class ViewNom extends ActionBarActivity {
 
     ListView list_com;
     CustomList adapter;
-
+    String inputText;
+    EditText editText;
 
     //Nomification Part
     NotificationCompat.Builder notification;
@@ -96,63 +97,27 @@ public class ViewNom extends ActionBarActivity {
 
 
 
-
+        editText = (EditText) findViewById(R.id.com_input);
 
 
         //Comments Input text edit set up
-        final EditText editText = (EditText) findViewById(R.id.com_input);
-
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                boolean handled = false;
-                if (actionId == EditorInfo.IME_ACTION_SEND) {
-                    String inputText = v.getText().toString();
-                    Intent i = new Intent(ViewNom.this,Nomification.class);
-                    i.putExtra("inputText",inputText);
-
-                    //input user image id ->connect with database
-                    currentNom.addComments(R.drawable.sydney,inputText);
-
-                    //reinitialize the adapter
-                    CustomList adapter1 = new
-                            CustomList(ViewNom.this, currentNom.getComments(), currentNom.getC_userProfile());
-                    list_com=(ListView)findViewById(R.id.Comments_listView);
-                    adapter1.notifyDataSetChanged();
-                    list_com.setAdapter(adapter1);
-
-                    Utility.setListViewHeightBasedOnChildren(list_com);
-
-                    InputMethodManager imm = (InputMethodManager)getSystemService(
-                    Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-
-
-
-                    //enable notification pop up
-
-                    notification.setSmallIcon(R.drawable.isabella);
-
-                    notification.setTicker("New Nomification");
-                    notification.setWhen(System.currentTimeMillis());
-
-                    notification.setContentTitle("Izzy");
-                    notification.setContentText("liked your post");
-
-                    //The class that should be sent to once clicked
-                    Intent intent = new Intent(ViewNom.this,Nomification.class);
-                    PendingIntent pendingIntent =  PendingIntent.getActivity(ViewNom.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-                    notification.setContentIntent(pendingIntent);
-
-                    //Build notification and issue it
-                    NotificationManager nm =  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    nm.notify(uniqueID,notification.build());
-
-                    handled = true;
-                }
-                return handled;
-            }
-        });
+//        editText = (EditText) findViewById(R.id.com_input);
+//
+//        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                boolean handled = false;
+//                if (actionId == EditorInfo.IME_ACTION_SEND) {
+//                    inputText = v.getText().toString();
+//                    Intent i = new Intent(ViewNom.this,Nomification.class);
+//                    i.putExtra("inputText",inputText);
+//
+//
+//                    handled = true;
+//                }
+//                return handled;
+//            }
+//        });
 
 
         //Pop Up Nomification Implementaion
@@ -202,6 +167,25 @@ public class ViewNom extends ActionBarActivity {
 
     //wait for user info from database to be past in->change parameters and make it dynamic
     public void notiButtonOnClicked( View view) {
+
+        inputText = editText.getText().toString();
+        //input user image id ->connect with database
+        currentNom.addComments(R.drawable.sydney,inputText);
+
+        //reinitialize the adapter
+        CustomList adapter1 = new
+                CustomList(ViewNom.this, currentNom.getComments(), currentNom.getC_userProfile());
+        list_com=(ListView)findViewById(R.id.Comments_listView);
+        adapter1.notifyDataSetChanged();
+        list_com.setAdapter(adapter1);
+
+        Utility.setListViewHeightBasedOnChildren(list_com);
+
+        InputMethodManager imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+
+        editText.setText("", TextView.BufferType.EDITABLE);
 
         //suposed to be dynamically passed in as user profile image
 

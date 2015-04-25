@@ -122,7 +122,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:imeOptions="actionSend"
             android:ems="10"
             android:id="@+id/com_input"
@@ -130,18 +130,18 @@
             android:layout_below="@+id/com_label"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignRight="@+id/noti_button"
+            android:layout_alignEnd="@+id/noti_button" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Notification Click"
+            android:text="Send"
             android:id="@+id/noti_button"
             android:onClick="notiButtonOnClicked"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/com_input" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/directionsLabel"
+            android:layout_alignEnd="@+id/directionsLabel" />
 
 
     </RelativeLayout>
