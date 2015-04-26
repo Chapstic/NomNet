@@ -82,7 +82,7 @@ public class ViewNom extends ActionBarActivity {
 
         //Dynamic Comments under Nom
         adapter = new
-                CustomList(ViewNom.this, currentNom.getComments(), currentNom.getC_userProfile());
+                CustomList(ViewNom.this, currentNom.getCommentsObject().getComments(), currentNom.getCommentsObject().getC_userProfile());
         list_com=(ListView)findViewById(R.id.Comments_listView);
         list_com.setAdapter(adapter);
 
@@ -90,35 +90,12 @@ public class ViewNom extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(ViewNom.this, currentNom.getComments()[+position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewNom.this, currentNom.getCommentsObject().getComments()[+position], Toast.LENGTH_SHORT).show();
             }
         });
         Utility.setListViewHeightBasedOnChildren(list_com);
 
-
-
         editText = (EditText) findViewById(R.id.com_input);
-
-
-        //Comments Input text edit set up
-//        editText = (EditText) findViewById(R.id.com_input);
-//
-//        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                boolean handled = false;
-//                if (actionId == EditorInfo.IME_ACTION_SEND) {
-//                    inputText = v.getText().toString();
-//                    Intent i = new Intent(ViewNom.this,Nomification.class);
-//                    i.putExtra("inputText",inputText);
-//
-//
-//                    handled = true;
-//                }
-//                return handled;
-//            }
-//        });
-
 
         //Pop Up Nomification Implementaion
         notification = new NotificationCompat.Builder(this);
@@ -170,11 +147,11 @@ public class ViewNom extends ActionBarActivity {
 
         inputText = editText.getText().toString();
         //input user image id ->connect with database
-        currentNom.addComments(R.drawable.sydney,inputText);
+        currentNom.getCommentsObject().addComments(R.drawable.sydney,inputText);
 
         //reinitialize the adapter
         CustomList adapter1 = new
-                CustomList(ViewNom.this, currentNom.getComments(), currentNom.getC_userProfile());
+                CustomList(ViewNom.this, currentNom.getCommentsObject().getComments(), currentNom.getCommentsObject().getC_userProfile());
         list_com=(ListView)findViewById(R.id.Comments_listView);
         adapter1.notifyDataSetChanged();
         list_com.setAdapter(adapter1);
@@ -207,49 +184,4 @@ public class ViewNom extends ActionBarActivity {
         nm.notify(uniqueID,notification.build());
     }
 
-//
-//    @Override
-//    public void onScrollStateChanged(AbsListView view, int scrollState) {
-//        }
-//
-//    @Override
-//    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//        // Can add a padding
-//        boolean loadMore = firstVisibleItem + visibleItemCount >= totalItemCount;
-//
-//        // Load more items if there are more to load
-//        if(loadMore && adapter.getCount() < adapter.getMaxItems()-1)
-//        {
-//            adapter.numComments += visibleItemCount; // or any other amount
-//
-//            if(adapter.getCount() >= adapter.getMaxItems()){
-//                adapter.numComments = adapter.getMaxItems(); // keep in bounds
-//            }
-//
-//            adapter.notifyDataSetChanged();
-//        }
-//    }
-
-//    public static void setListViewHeightBasedOnChildren(ListView listView) {
-//        ListAdapter listAdapter = listView.getAdapter();
-//        if (listAdapter == null) {
-//            return;
-//        }
-//
-//        int totalHeight = 0;
-//        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
-//        for (int i = 0; i < listAdapter.getCount(); i++) {
-//            View listItem = listAdapter.getView(i, null, listView);
-//            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-//            totalHeight += listItem.getMeasuredHeight();
-//        }
-//
-//        setListViewHeight(listView, totalHeight);
-//    }
-//    public static void setListViewHeight(ListView listView, int height) {
-//        ViewGroup.LayoutParams params = listView.getLayoutParams();
-//        params.height = height + (listView.getDividerHeight() * (listView.getAdapter().getCount() - 1));
-//        listView.setLayoutParams(params);
-//        listView.requestLayout();
-//    }
 }
