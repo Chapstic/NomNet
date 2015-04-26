@@ -8,6 +8,7 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="21" />
 
+    <!-- Camera requirements -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />

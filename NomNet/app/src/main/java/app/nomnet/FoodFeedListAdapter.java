@@ -3,6 +3,9 @@ package app.nomnet;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,10 +70,12 @@ public class FoodFeedListAdapter extends BaseAdapter{
         // Set the contents of the UI elements
         name.setText(currentNom.getName());
         creator.setText(currentNom.getCreator());
+
         textViewUpvotes.setText(String.valueOf(currentNom.getUpvotes()));
 
         // Sets the image of each food feed item using the bitmaps
-        image.setImageBitmap(((MyApplication) activity.getApplication()).getImagewithID(pos).getBitmap());
+        int imageID = currentNom.getImageID();
+        image.setImageBitmap(((MyApplication) activity.getApplication()).getImagewithID(imageID).getBitmap() );
 
         // When an item picture is hit, move to appropriate activity
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {

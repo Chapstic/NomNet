@@ -1,6 +1,8 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
 	package
 		ADDED from AndroidManifest.xml:3:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -8,19 +10,17 @@ ADDED from AndroidManifest.xml:2:1
 	android:versionName
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
 	android:versionCode
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 uses-permission#android.permission.CAMERA
-ADDED from AndroidManifest.xml:5:5
+ADDED from AndroidManifest.xml:6:5
 	android:name
-		ADDED from AndroidManifest.xml:5:22
+		ADDED from AndroidManifest.xml:6:22
 uses-feature#android.hardware.camera
-ADDED from AndroidManifest.xml:7:5
+ADDED from AndroidManifest.xml:8:5
 	android:name
-		ADDED from AndroidManifest.xml:7:19
+		ADDED from AndroidManifest.xml:8:19
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from AndroidManifest.xml:9:5
 	android:name
@@ -90,10 +90,10 @@ ADDED from AndroidManifest.xml:40:13
 		ADDED from AndroidManifest.xml:41:17
 meta-data#android.app.default_searchable
 ADDED from AndroidManifest.xml:43:13
-	android:value
-		ADDED from AndroidManifest.xml:45:17
 	android:name
 		ADDED from AndroidManifest.xml:44:17
+	android:value
+		ADDED from AndroidManifest.xml:45:17
 activity#app.nomnet.SignIn
 ADDED from AndroidManifest.xml:48:9
 	android:label

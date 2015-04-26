@@ -36,6 +36,10 @@ public class MyApplication extends Application {
         images.add(i);
     }
 
+    public int getImgListSize(){
+        return images.size();
+    }
+
     public Image getImagewithID(int id){
         for(int i = 0; i < images.size(); i++){
             if(images.get(i).getImageID() == id){

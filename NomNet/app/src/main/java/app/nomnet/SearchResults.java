@@ -17,8 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class SearchResults extends ActionBarActivity {
@@ -93,7 +93,7 @@ public class SearchResults extends ActionBarActivity {
         String[] userNames = {"Sydney", "Izzy", "Rebecca", "Elliscope", "Albert"};
         String[] names = {"food1", "food2", "food3", "food4", "food5"};
 
-        int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5};
+        int[] imageIDs = {0,1,2,3,4};
         int[] upvotes = {20, 24, 36, 70, 14};
 
         //***********HARD-CODED data for testing purposes only. REMOVE WHEN DONE.****************
@@ -103,17 +103,14 @@ public class SearchResults extends ActionBarActivity {
         String directions = "1. Mix mix, swirl mix" + '\n' +
                 "2. Drink" + '\n';
 
-        Boolean breakfast, lunch, dinner;
-        breakfast = lunch = dinner = true;
-
-        Map<String, Boolean> tags = new HashMap<String, Boolean>();
-        tags.put("breakfast", true);
-        tags.put("lunch", true);
-        tags.put("dinner", true);
+        Set<String> tags = new HashSet<String>();
+        tags.add("breakfast");
+        tags.add("lunch");
+        tags.add("dinner");
 
         for (int i = 0; i < names.length; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
-            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe, tags);
+            Nom newNom = new Nom(userNames[i], upvotes[i], imageIDs[i], recipe, tags);
             nomResults.add(newNom);
         }
     }

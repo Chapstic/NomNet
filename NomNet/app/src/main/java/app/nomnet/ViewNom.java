@@ -3,10 +3,13 @@ package app.nomnet;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -21,10 +24,8 @@ import java.util.Set;
 public class ViewNom extends ActionBarActivity {
     private Nom currentNom;
     private Toolbar topbar;
-    private TextView creatorText, upvotesText, dishNameText, ingredientsLabel, ingredientsText, directionsText, tagsText;
+    private TextView creatorText, upvotesText, dishNameText, ingredientsText, directionsText, tagsText;
     private ImageView appImageView;
-
-
 
     //Nomification Part
     NotificationCompat.Builder notification;
@@ -42,8 +43,8 @@ public class ViewNom extends ActionBarActivity {
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
 
-        Intent intent = getIntent();
-        currentNom = (Nom)intent.getSerializableExtra("Nom");
+        Bundle b = getIntent().getExtras();
+        currentNom = b.getParcelable("Nom");
 
         creatorText = (TextView) findViewById(R.id.creatorText);
         creatorText.setText(currentNom.getCreator());
@@ -52,20 +53,17 @@ public class ViewNom extends ActionBarActivity {
         upvotesText.setText(Integer.toString(currentNom.getUpvotes()) );
 
         appImageView = (ImageView) findViewById(R.id.foodImage);
-        appImageView.setImageDrawable(getResources().getDrawable(currentNom.getImageID() ));
+        int imageID = currentNom.getImageID();
+        appImageView.setImageBitmap(((MyApplication) this.getApplication()).getImagewithID(imageID).getBitmap() );
 
         dishNameText = (TextView) findViewById(R.id.dishNameText);
         dishNameText.setText(currentNom.getName() );
-
-        ingredientsLabel = (TextView) findViewById(R.id.ingredientsLabel);
-        ingredientsLabel.setText("Ingredients" );
 
         ingredientsText = (TextView) findViewById(R.id.ingredientsText);
         ingredientsText.setText(currentNom.getIngredients() );
 
         directionsText = (TextView) findViewById(R.id.directionsText);
         directionsText.setText(currentNom.getDirections() );
-
 
 
         //Nomification Implementaion

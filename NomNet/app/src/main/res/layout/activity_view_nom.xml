@@ -59,6 +59,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dishNameText"
+            android:text="Ingredients"
             android:textStyle = "bold"
             android:gravity = "center_horizontal"/>
 
