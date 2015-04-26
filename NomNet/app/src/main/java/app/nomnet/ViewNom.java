@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -55,9 +56,14 @@ public class ViewNom extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_nom);
 
+        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+
         // Sets the top toolbar to be the one we specifically created
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back);
 
         Intent intent = getIntent();
         currentNom = (Nom)intent.getSerializableExtra("Nom");
@@ -187,8 +193,14 @@ public class ViewNom extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        TopBarActions tba = new TopBarActions(item, this);
-        return tba.handledSelection();
+        if(item.getItemId()==R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+        else{
+            TopBarActions tba = new TopBarActions(item, this);
+            return tba.handledSelection();
+        }
     }
 
 

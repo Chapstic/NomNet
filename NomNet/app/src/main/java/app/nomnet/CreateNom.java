@@ -56,6 +56,8 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         topbar = (Toolbar) findViewById(R.id.topbar);
         setSupportActionBar(topbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         createLabel = (TextView) findViewById(R.id.createLabel);
         createLabel.setText("Create a Nom!");
 

@@ -35,6 +35,8 @@ public class SignIn extends ActionBarActivity {
                 startActivity(i);
             }
         });
+
+        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
     }
 
    public void loginSuccess() {

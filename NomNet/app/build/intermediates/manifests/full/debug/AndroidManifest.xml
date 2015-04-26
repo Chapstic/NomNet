@@ -27,7 +27,9 @@
 
         <activity
             android:name="app.nomnet.SplashActivity"
-            android:label="@string/title_activity_splash" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_splash"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,13 +38,21 @@
         </activity>
         <activity
             android:name="app.nomnet.ViewNom"
-            android:label="@string/title_activity_view_nom" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_view_nom"
+            android:parentActivityName="app.nomnet.FoodFeedActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="app.nomnet.SearchActivity"
-            android:label="NomNet" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="NomNet"
+            android:screenOrientation="portrait" >
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
+                <action
+                    android:name="android.intent.action.SEARCH"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:screenOrientation="portrait" />
             </intent-filter>
 
             <meta-data
@@ -54,15 +64,21 @@
         </activity>
         <activity
             android:name="app.nomnet.SignIn"
-            android:label="@string/title_activity_sign_in" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_sign_in"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="app.nomnet.Register"
-            android:label="@string/title_activity_register" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_register"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="app.nomnet.FoodFeedActivity"
-            android:label="@string/app_name" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.STARTINGPOINT" />
 
@@ -71,31 +87,40 @@
         </activity>
         <activity
             android:name="app.nomnet.Profile"
-            android:label="@string/title_activity_profile" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_profile"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="app.nomnet.Settings"
-            android:label="@string/title_activity_settings" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="app.nomnet.CreateNom"
-            android:label="@string/title_activity_create_nom" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_create_nom"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="app.nomnet.Nomification"
-            android:label="@string/title_activity_nomification" >
-        </activity>
-        <activity
-            android:name="app.nomnet.CustomList"
-            android:label="@string/title_activity_custom_list" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_nomification"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="app.nomnet.Camera"
-            android:label="@string/title_activity_camera" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_camera"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="app.nomnet.SearchResults"
-            android:label="SearchResults" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="SearchResults"
+            android:parentActivityName="app.nomnet.SearchActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>

@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.provider.SearchRecentSuggestions;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
@@ -40,6 +42,14 @@ public class SearchResults extends ActionBarActivity {
         topbar.setLogo(R.drawable.logosmall);
         topbar.setTitle("");
         setSupportActionBar(topbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back);
+
+        topbar.getChildAt(0).getLayoutParams().width = 60;
 
         bottombarButtons = new ImageButton[5];
         //initialize bottombar buttons
@@ -160,8 +170,7 @@ public class SearchResults extends ActionBarActivity {
         searchIcon.setImageResource(R.drawable.search_bar_icon);//search icon
         searchIcon.getLayoutParams().height = 80;
 
-        // l1.setBackgroundColor(Color.GRAY); //FOR SEEING SPACING
-
+      // l1.setBackgroundColor(Color.GRAY); //FOR SEEING SPACING
 
         l3.setBackgroundResource(R.drawable.abc_textfield_search_default_mtrl_alpha);//searchplate underline color
 
@@ -172,7 +181,13 @@ public class SearchResults extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        TopBarActions tba = new TopBarActions(item, this);
-        return tba.handledSelection();
+        if(item.getItemId()==R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+        else{
+            TopBarActions tba = new TopBarActions(item, this);
+            return tba.handledSelection();
+        }
     }
 }
