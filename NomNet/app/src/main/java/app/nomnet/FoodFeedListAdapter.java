@@ -69,11 +69,8 @@ public class FoodFeedListAdapter extends BaseAdapter{
         creator.setText(currentNom.getCreator());
         textViewUpvotes.setText(String.valueOf(currentNom.getUpvotes()));
 
-        // Optimizes feed images into bitmaps
-        // Also employs multithreading
-        image.setImageResource(R.drawable.logo);    // just use an small image placeholder
-        OptimizeImageThread oit = new OptimizeImageThread(currentNom.getImage(), image);
-        oit.start();
+        // Sets the image of each food feed item using the bitmaps
+        image.setImageBitmap(((MyApplication) activity.getApplication()).getImagewithID(pos).getBitmap());
 
         // When an item picture is hit, move to appropriate activity
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {
@@ -106,21 +103,6 @@ public class FoodFeedListAdapter extends BaseAdapter{
         });
 
         return view;
-    }
-
-    // For each image in the feed, optimize to a bitmap image that scales to screen
-    class OptimizeImageThread extends Thread {
-        private ImageView imageView;
-        private int imageID;
-        public OptimizeImageThread(int imageID, ImageView imageView){
-            this.imageView = imageView;
-            this.imageID = imageID;
-        }
-
-        public void run(){
-            BitmapWorkerTask task = new BitmapWorkerTask(imageView, activity);
-            task.execute(imageID);    // convert image to a smaller bitmap
-        }
     }
 
     // Use multithreading to send upvotes up

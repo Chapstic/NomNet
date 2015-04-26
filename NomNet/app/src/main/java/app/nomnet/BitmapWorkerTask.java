@@ -22,14 +22,13 @@ import java.lang.ref.WeakReference;
  */
 
 public class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
-    private final WeakReference<ImageView> imageViewReference;
     private int data = 0;
     private Activity activity;
+    private int imageID;
 
-    public BitmapWorkerTask(ImageView imageView, Activity activity) {
-        // Use a WeakReference to ensure the ImageView can be garbage collected
-        imageViewReference = new WeakReference<ImageView>(imageView);
+    public BitmapWorkerTask(Activity activity, int id) {
         this.activity = activity;
+        this.imageID = id;
     }
 
     // Decode image in background.
@@ -50,11 +49,11 @@ public class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
     // Once complete, see if ImageView is still around and set bitmap.
     @Override
     protected void onPostExecute(Bitmap bitmap) {
-        if (imageViewReference != null && bitmap != null) {
-            final ImageView imageView = imageViewReference.get();
-            if (imageView != null) {
-                imageView.setImageBitmap(bitmap);
-            }
+        if (bitmap != null) {
+            // When done, add bitmap to array
+            Image image = new Image(imageID, "Food");
+            image.setBitmap(bitmap);
+            ((MyApplication) activity.getApplication()).addImage(image);
         }
     }
 

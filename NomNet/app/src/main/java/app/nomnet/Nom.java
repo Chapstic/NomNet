@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class Nom implements Serializable {
     private String creator; //Replace w/ user class later
-    private int upvotes, image;
+    private int upvotes, imageID;
     private Recipe recipe; //Might be better to change recipe information to String[] so we can use scroll text fields later
     Map<String, Boolean> tags;
 
@@ -22,7 +22,7 @@ public class Nom implements Serializable {
 
         this.creator = creator;
         this.upvotes = upvotes;
-        this.image = image;
+        this.imageID = image;
         this.recipe = recipe;
         this.tags = tags;
     }
@@ -35,7 +35,7 @@ public class Nom implements Serializable {
         return upvotes;
     }
 
-    public int getImage() { return image; }
+    public int getImageID() { return imageID; }
 
     public String getName() { return recipe.getName(); }
 

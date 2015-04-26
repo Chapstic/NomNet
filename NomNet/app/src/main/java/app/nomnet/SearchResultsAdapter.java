@@ -61,7 +61,7 @@ public class SearchResultsAdapter extends BaseAdapter{
 
         name.setText(currentNom.getName());
         creator.setText(currentNom.getCreator());
-        image.setImageResource(currentNom.getImage());
+        image.setImageResource(currentNom.getImageID());
 
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {
             @Override

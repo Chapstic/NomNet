@@ -52,7 +52,7 @@ public class ViewNom extends ActionBarActivity {
         upvotesText.setText(Integer.toString(currentNom.getUpvotes()) );
 
         appImageView = (ImageView) findViewById(R.id.foodImage);
-        appImageView.setImageDrawable(getResources().getDrawable(currentNom.getImage() ));
+        appImageView.setImageDrawable(getResources().getDrawable(currentNom.getImageID() ));
 
         dishNameText = (TextView) findViewById(R.id.dishNameText);
         dishNameText.setText(currentNom.getName() );
