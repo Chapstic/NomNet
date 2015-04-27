@@ -1,8 +1,6 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:12:1
-	xmlns:android
-		ADDED from AndroidManifest.xml:12:11
 	package
 		ADDED from AndroidManifest.xml:13:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -10,6 +8,8 @@ ADDED from AndroidManifest.xml:12:1
 	android:versionName
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:12:11
 	android:versionCode
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
@@ -106,10 +106,10 @@ ADDED from AndroidManifest.xml:59:13
 		ADDED from AndroidManifest.xml:60:17
 meta-data#android.app.default_searchable
 ADDED from AndroidManifest.xml:62:13
-	android:name
-		ADDED from AndroidManifest.xml:63:17
 	android:value
 		ADDED from AndroidManifest.xml:64:17
+	android:name
+		ADDED from AndroidManifest.xml:63:17
 activity#app.nomnet.SignIn
 ADDED from AndroidManifest.xml:67:9
 	android:screenOrientation
