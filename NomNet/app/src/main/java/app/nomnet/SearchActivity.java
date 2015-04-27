@@ -55,6 +55,8 @@ public class SearchActivity extends ActionBarActivity {
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
         new BottomButtonActions(bottombarButtons, SearchActivity.this, 1, "search");
 
+        overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+
 
         //categories list
         categoriesListView = (ListView) findViewById(R.id.searchListView);

@@ -67,6 +67,8 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
 
         new BottomButtonActions(bottombarButtons, FoodFeedActivity.this, 0, "foodfeed");
 
+        overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+
         // Create and populate list of noms
         nomList = new ArrayList<>();
         getNoms();
