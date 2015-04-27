@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class FoodFeedListAdapter extends BaseAdapter{
@@ -26,6 +28,22 @@ public class FoodFeedListAdapter extends BaseAdapter{
         this.activity = activity;
         this.nomItems = nomItems;
         this.intent = intent;
+
+        // Get the images that will be in the food feed
+        if(!((MyApplication)activity.getApplication()).getIsDoneConvertingImages()) {
+            int[] images = {R.drawable.food11, R.drawable.food12, R.drawable.food13, R.drawable.food14, R.drawable.food15,
+                    R.drawable.food16, R.drawable.food17, R.drawable.food18, R.drawable.food19, R.drawable.food20};
+            List<Integer> imageIDs = new ArrayList<>();
+            for (int i = 10; i < 20; i++) {
+                imageIDs.add(i);
+            }
+            for (int i = 0; i < 5; i++) {
+                OptimizeImageThread oit = new OptimizeImageThread(images[i], imageIDs.get(i));
+                oit.start();
+            }
+            // Set to true, will not have to convert images again
+            ((MyApplication)activity.getApplication()).setIsDoneConvertingImages(true);
+        }
     }
 
     public int getMaxItems(){
@@ -50,6 +68,8 @@ public class FoodFeedListAdapter extends BaseAdapter{
     // Set the contents for each food feed item
     @Override
     public View getView(int pos, View view, ViewGroup parent){
+        while(!((MyApplication)activity.getApplication()).getIsDoneConvertingImages()){
+        }
         if(inflater == null){
             inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
@@ -75,7 +95,11 @@ public class FoodFeedListAdapter extends BaseAdapter{
 
         // Sets the image of each food feed item using the bitmaps
         int imageID = currentNom.getImageID();
-        image.setImageBitmap(((MyApplication) activity.getApplication()).getImagewithID(imageID).getBitmap() );
+        if(activity.getApplication() == null){
+            image.setImageBitmap(((MyApplication)activity.getApplication()).getImagewithID(0).getBitmap());
+        }else{
+            image.setImageBitmap(((MyApplication) activity.getApplication()).getImagewithID(imageID).getBitmap());
+        }
 
         // When an item picture is hit, move to appropriate activity
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {
@@ -121,6 +145,21 @@ public class FoodFeedListAdapter extends BaseAdapter{
     class DownvoteThread extends Thread{
         public void run(){
 
+        }
+    }
+
+    // For each image in the feed, optimize to a bitmap image that scales to screen
+    class OptimizeImageThread extends Thread {
+        private int image;
+        private int imageID;
+        public OptimizeImageThread(int image, int imageID){
+            this.image = image;
+            this.imageID = imageID;
+        }
+
+        public void run(){
+            BitmapWorkerTask task = new BitmapWorkerTask(activity, imageID);
+            task.execute(image);    // convert image to a smaller bitmap
         }
     }
 }

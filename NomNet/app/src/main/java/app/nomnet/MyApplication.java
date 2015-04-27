@@ -17,6 +17,7 @@ public class MyApplication extends Application {
 
     private String currentUser;
     private boolean isLoggedIn = false;
+    private boolean isDoneConvertingImages = false;
     private List<Image> images = new ArrayList<>();
 
     public String getCurrentUser() {
@@ -38,6 +39,13 @@ public class MyApplication extends Application {
 
     public int getImgListSize(){
         return images.size();
+    }
+
+    public void setIsDoneConvertingImages(boolean b){
+        isDoneConvertingImages = b;
+    }
+    public boolean getIsDoneConvertingImages(){
+        return isDoneConvertingImages;
     }
 
     public Image getImagewithID(int id){

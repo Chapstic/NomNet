@@ -21,10 +21,7 @@ public class Nom implements Parcelable {
     public List<String> Comments_list;
     public List<Integer> Comments_user_profile;
 
-
-    // Standard basic constructor for non-parcel object
     Nom(String creator, int upvotes, int imageID, Recipe recipe, Set<String> tags){
-
         this.creator = creator;
         this.upvotes = upvotes;
         this.imageID = imageID;

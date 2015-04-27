@@ -92,9 +92,6 @@ public class SearchActivity extends ActionBarActivity {
             }
 
         }//end content provider code
-
-
-
     }
 
     public void categoryClicks(){//handle clicks on categories
