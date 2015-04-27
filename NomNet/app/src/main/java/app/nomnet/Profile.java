@@ -37,7 +37,7 @@ public class Profile extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, Profile.this, 4);
+        new BottomButtonActions(bottombarButtons, Profile.this, 4, "profile");
 
         Button nomi_button = (Button)findViewById(R.id.nomif_button);
         nomi_button.setOnClickListener(new View.OnClickListener() {
@@ -58,26 +58,17 @@ public class Profile extends ActionBarActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        getMenuInflater().inflate(R.menu.menu_master, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        TopBarActions tba = new TopBarActions(item, this);
+        return tba.handledSelection();
     }
+
 }

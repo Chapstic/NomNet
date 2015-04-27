@@ -12,8 +12,8 @@
     android:layout_alignParentBottom="true">
 
     <ImageButton
-        android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
         android:layout_weight="1"
         android:id="@+id/BottomBarHome"
         android:src="@drawable/home"
@@ -22,8 +22,8 @@
         android:layout_gravity="bottom"/>
 
     <ImageButton
-        android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
         android:layout_weight="1"
         android:id="@+id/BottomBarSearch"
         android:src="@drawable/search"
@@ -32,8 +32,8 @@
         android:layout_gravity="bottom"/>
 
     <ImageButton
-        android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
         android:layout_weight="1"
         android:id="@+id/BottomBarCamera"
         android:src="@drawable/camera"
@@ -42,8 +42,8 @@
         android:layout_gravity="bottom"/>
 
     <ImageButton
-        android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
         android:layout_weight="1"
         android:id="@+id/BottomBarNotification"
         android:src="@drawable/notifications"
@@ -53,8 +53,8 @@
         android:layout_gravity="bottom"/>
 
     <ImageButton
-        android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:layout_width="@dimen/abc_action_button_min_width_material"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
         android:layout_weight="1"
         android:id="@+id/BottomBarProfile"
         android:src="@drawable/profile"

@@ -83,10 +83,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
+                    android:paddingTop="3sp"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="20dp"
                     android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    android:textSize="20sp"/>
 
                 <ImageView
                     android:id="@+id/nom_comment"

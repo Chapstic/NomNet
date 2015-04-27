@@ -8,6 +8,7 @@ import java.util.List;
  * Created by Elliscope on 4/26/15.
  */
 public class Comments implements Serializable {
+
     public List<String> Comments_list;
     public List<Integer> Comments_user_profile;
 
@@ -16,6 +17,7 @@ public class Comments implements Serializable {
 
         Comments_list = new ArrayList<String>();
         Comments_user_profile = new ArrayList<Integer>();
+
     }
 
     public void addComments(Integer ImagID, String comment_string){

@@ -22,9 +22,10 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/topbar"
-            android:textStyle = "bold"
+            android:text="Create a Nom!"
+            android:textStyle="bold"
             android:textSize="26sp"
-            android:gravity = "center_horizontal"/>
+            android:gravity="center_horizontal"/>
 
         //INSERT IMAGE HERE
         <ImageView
@@ -64,7 +65,45 @@
             android:hint="Directions"
             android:layout_below="@+id/ingredientsEdit"/>
 
-        //Create post Button locks in info
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/tagCheckboxes"
+            android:layout_below="@+id/directionsEdit">
+
+            <CheckBox android:id="@+id/checkbox_vegan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegan"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox android:id="@+id/checkbox_vegetarian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegetarian"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox android:id="@+id/checkbox_bfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breakfast"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox android:id="@+id/checkbox_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lunch"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox android:id="@+id/checkbox_dinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dinner"
+                android:onClick="onCheckboxClicked"/>
+        </LinearLayout> <!--  End of checkboxes linear layout  -->
+
+        <!--  Create post Button locks in info  -->
         <Button
             android:id="@+id/postButton"
             android:layout_width="wrap_content"
@@ -72,7 +111,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:text="Post Nom"
-            android:layout_below="@+id/directionsEdit"/>
+            android:layout_below="@+id/tagCheckboxes"/>
 
     </RelativeLayout>
 </ScrollView>

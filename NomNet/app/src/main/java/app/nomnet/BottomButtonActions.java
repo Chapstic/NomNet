@@ -1,5 +1,6 @@
 package app.nomnet;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -13,13 +14,15 @@ import static android.support.v4.app.ActivityCompat.startActivity;
 public class BottomButtonActions {
 
     private ImageButton[] buttons;
-    private Context context;
+    private Context context; //context from calling activity
     private int currentButton;
+    private String callingActivity; //name of calling activity
 
-    public BottomButtonActions(ImageButton[] b, Context c, int i){
+    public BottomButtonActions(ImageButton[] b, Context c, int i, String ca){
         buttons = b;
         context = c;
         currentButton = i;
+        callingActivity = ca;
         setListeners();
     }
 
@@ -40,14 +43,28 @@ public class BottomButtonActions {
                     public void onClick(View v) {
                         switch(j){
                             case 0: v.getContext().startActivity(new Intent(context, FoodFeedActivity.class));
+                                    ((Activity) context).overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
                                     break;
                             case 1: v.getContext().startActivity(new Intent(context, SearchActivity.class));
+                                    if(callingActivity.equals("foodfeed")){
+                                        ((Activity) context).overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+                                    }
+                                    else ((Activity) context).overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
                                     break;
                             case 2: v.getContext().startActivity(new Intent(context, Camera.class));
+                                    if(callingActivity.equals("foodfeed")||callingActivity.equals("search")){
+                                        ((Activity) context).overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+                                    }
+                                    else ((Activity) context).overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
                                     break;
                             case 3: v.getContext().startActivity(new Intent(context, Nomification.class));
+                                    if(callingActivity.equals("profile")){
+                                        ((Activity) context).overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+                                    }
+                                    else ((Activity) context).overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                                     break;
                             case 4: v.getContext().startActivity(new Intent(context, Profile.class));
+                                    ((Activity) context).overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                                     break;
                             default: break;
                         }

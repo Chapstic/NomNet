@@ -3,12 +3,17 @@ package app.nomnet;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class FoodFeedListAdapter extends BaseAdapter{
@@ -17,12 +22,28 @@ public class FoodFeedListAdapter extends BaseAdapter{
     private List<Nom> nomItems;
     private Intent intent;
     private boolean upvoted = false;
-    public int numItemsInFeed = 3;      // initial amount
+    public int numItemsInFeed = 5;      // initial amount
 
     public FoodFeedListAdapter(Activity activity, List<Nom> nomItems, Intent intent){
         this.activity = activity;
         this.nomItems = nomItems;
         this.intent = intent;
+
+        // Get the images that will be in the food feed
+        if(!((MyApplication)activity.getApplication()).getIsDoneConvertingImages()) {
+            int[] images = {R.drawable.food11, R.drawable.food12, R.drawable.food13, R.drawable.food14, R.drawable.food15,
+                    R.drawable.food16, R.drawable.food17, R.drawable.food18, R.drawable.food19, R.drawable.food20};
+            List<Integer> imageIDs = new ArrayList<>();
+            for (int i = 10; i < 20; i++) {
+                imageIDs.add(i);
+            }
+            for (int i = 0; i < 5; i++) {
+                OptimizeImageThread oit = new OptimizeImageThread(images[i], imageIDs.get(i));
+                oit.start();
+            }
+            // Set to true, will not have to convert images again
+            ((MyApplication)activity.getApplication()).setIsDoneConvertingImages(true);
+        }
     }
 
     public int getMaxItems(){
@@ -47,6 +68,8 @@ public class FoodFeedListAdapter extends BaseAdapter{
     // Set the contents for each food feed item
     @Override
     public View getView(int pos, View view, ViewGroup parent){
+        while(!((MyApplication)activity.getApplication()).getIsDoneConvertingImages()){
+        }
         if(inflater == null){
             inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
@@ -67,13 +90,16 @@ public class FoodFeedListAdapter extends BaseAdapter{
         // Set the contents of the UI elements
         name.setText(currentNom.getName());
         creator.setText(currentNom.getCreator());
+
         textViewUpvotes.setText(String.valueOf(currentNom.getUpvotes()));
 
-        // Optimizes feed images into bitmaps
-        // Also employs multithreading
-        image.setImageResource(R.drawable.logo);    // just use an small image placeholder
-        OptimizeImageThread oit = new OptimizeImageThread(currentNom.getImage(), image);
-        oit.start();
+        // Sets the image of each food feed item using the bitmaps
+        int imageID = currentNom.getImageID();
+        if(activity.getApplication() == null){
+            image.setImageBitmap(((MyApplication)activity.getApplication()).getImagewithID(0).getBitmap());
+        }else{
+            image.setImageBitmap(((MyApplication) activity.getApplication()).getImagewithID(imageID).getBitmap());
+        }
 
         // When an item picture is hit, move to appropriate activity
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {
@@ -108,21 +134,6 @@ public class FoodFeedListAdapter extends BaseAdapter{
         return view;
     }
 
-    // For each image in the feed, optimize to a bitmap image that scales to screen
-    class OptimizeImageThread extends Thread {
-        private ImageView imageView;
-        private int imageID;
-        public OptimizeImageThread(int imageID, ImageView imageView){
-            this.imageView = imageView;
-            this.imageID = imageID;
-        }
-
-        public void run(){
-            BitmapWorkerTask task = new BitmapWorkerTask(imageView, activity);
-            task.execute(imageID);    // convert image to a smaller bitmap
-        }
-    }
-
     // Use multithreading to send upvotes up
     class UpvoteThread extends Thread{
         public void run(){
@@ -134,6 +145,21 @@ public class FoodFeedListAdapter extends BaseAdapter{
     class DownvoteThread extends Thread{
         public void run(){
 
+        }
+    }
+
+    // For each image in the feed, optimize to a bitmap image that scales to screen
+    class OptimizeImageThread extends Thread {
+        private int image;
+        private int imageID;
+        public OptimizeImageThread(int image, int imageID){
+            this.image = image;
+            this.imageID = imageID;
+        }
+
+        public void run(){
+            BitmapWorkerTask task = new BitmapWorkerTask(activity, imageID);
+            task.execute(image);    // convert image to a smaller bitmap
         }
     }
 }

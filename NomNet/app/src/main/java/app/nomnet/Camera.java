@@ -13,37 +13,26 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import static android.view.View.*;
-
 
 public class Camera extends ActionBarActivity {
 
-
     // Activity request codes
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
-    private static final int CAMERA_CAPTURE_VIDEO_REQUEST_CODE = 200;
     public static final int MEDIA_TYPE_IMAGE = 1;
-    public static final int MEDIA_TYPE_VIDEO = 2;
 
     // directory name to store captured images and videos
     private static final String IMAGE_DIRECTORY_NAME = "NomNet Camera";
 
     private Uri fileUri; // file url to store image/video
-
-    private ImageView images;
-    private Button picturebutton;
 
     private Toolbar topbar;
 
@@ -60,8 +49,8 @@ public class Camera extends ActionBarActivity {
         topbar.setTitle("");
         setSupportActionBar(topbar);
 
-        bottombarButtons = new ImageButton[5];
         //initialize bottombar buttons
+        bottombarButtons = new ImageButton[5];
         bottombarButtons[0] = (ImageButton) findViewById(R.id.BottomBarHome);
         bottombarButtons[1] = (ImageButton) findViewById(R.id.BottomBarSearch);
         bottombarButtons[2] = (ImageButton) findViewById(R.id.BottomBarCamera);
@@ -70,25 +59,7 @@ public class Camera extends ActionBarActivity {
 
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
-        BottomButtonActions bba = new BottomButtonActions(bottombarButtons, Camera.this, 2);
-
-
-
-        images = (ImageView) findViewById(R.id.imgPreview);
-        picturebutton = (Button) findViewById(R.id.buttonPic);
-
-        /**
-        Image click
-         */
-        picturebutton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // capture picture
-                captureImage();
-            }
-        });
-
+        new BottomButtonActions(bottombarButtons, Camera.this, 2, "camera");
 
         // Checking camera availability
         if (!isDeviceSupportCamera()) {
@@ -118,6 +89,7 @@ public class Camera extends ActionBarActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
     }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -138,8 +110,8 @@ public class Camera extends ActionBarActivity {
         // if the result is capturing Image
         if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                // display image view
-                previewCapturedImage();
+                // image capture successful and acceptable
+                goToCreate();
             } else if (resultCode == RESULT_CANCELED) {
                 // user cancelled Image capture
                 Toast.makeText(getApplicationContext(),
@@ -154,21 +126,19 @@ public class Camera extends ActionBarActivity {
         }
     }
 
-    /*
-Display image
-     */
-    private void previewCapturedImage() {
+    // Image captured successfully, move on to CreateNom
+    private void goToCreate() {
         try {
-            images.setVisibility(View.VISIBLE);
             BitmapFactory.Options options = new BitmapFactory.Options();
 
             // downsizing image
             options.inSampleSize = 8;
+            final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(), options);
 
-            final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
-                    options);
+            Intent imagepass = new Intent(Camera.this,CreateNom.class);
+            imagepass.putExtra("imagepass", bitmap );
+            startActivity(imagepass);
 
-            images.setImageBitmap(bitmap);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -211,7 +181,7 @@ Display image
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_camera, menu);
+        getMenuInflater().inflate(R.menu.menu_master, menu);
 
         return super.onCreateOptionsMenu(menu);
     }

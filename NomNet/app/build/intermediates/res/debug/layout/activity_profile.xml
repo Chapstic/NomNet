@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/topbar"
-        layout= "@layout/topbar"
+        layout="@layout/topbar"
         android:textColor="#FFF"/>
 
     <ImageView

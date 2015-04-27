@@ -58,19 +58,20 @@
             android:gravity = "center_horizontal"
             android:textColor="#000000" />
 
-        //Ingredients Label
+        <!-- Ingredients label -->
         <TextView
             android:id="@+id/ingredientsLabel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dishNameText"
+            android:text="Ingredients"
             android:textStyle = "italic"
             android:gravity = "center_horizontal"
             android:layout_margin="5dp"
             android:textSize="20dp"
             android:textColor="#000000" />
 
-        //Ingredients content
+        <!-- Ingredients content -->
         <TextView
             android:id="@+id/ingredientsText"
             android:layout_width="wrap_content"
@@ -82,12 +83,14 @@
             android:id="@+id/directionsLabel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+
             android:layout_below="@+id/ingredientsText"
             android:textStyle = "italic"
             android:gravity = "center_horizontal"
             android:layout_margin="5dp"
             android:textColor="#000000"
             android:textSize="20dp" />
+
 
         //Directions content
         <TextView
@@ -142,6 +145,24 @@
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/directionsLabel"
             android:layout_alignEnd="@+id/directionsLabel" />
+
+        //Tags label
+        <TextView
+            android:id="@+id/tagsLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Tags"
+            android:textStyle = "bold"
+            android:layout_below="@+id/directionsText"
+            android:gravity = "center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tagsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tagsLabel"/>
+
+
 
 
     </RelativeLayout>

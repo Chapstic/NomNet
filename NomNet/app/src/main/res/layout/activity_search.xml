@@ -26,8 +26,4 @@
         android:id="@+id/bottombar"
         layout= "@layout/bottombar"
         android:textColor="#FFF"/>
-
-
-
-
 </RelativeLayout>
