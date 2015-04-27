@@ -33,8 +33,7 @@
             android:name=".ViewNom"
             android:label="@string/title_activity_view_nom"
             android:screenOrientation="portrait"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".FoodFeedActivity">
+            android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
         <activity
             android:name=".SearchActivity"
@@ -115,8 +114,7 @@
         <activity android:name=".SearchResults"
             android:label="SearchResults"
             android:screenOrientation="portrait"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".SearchActivity">
+            android:configChanges="keyboardHidden|orientation|screenSize">
 
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />

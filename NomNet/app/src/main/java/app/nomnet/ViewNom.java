@@ -113,7 +113,8 @@ public class ViewNom extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==android.R.id.home){
-            NavUtils.navigateUpFromSameTask(this);
+            //go back
+            onBackPressed();
             return true;
         }
         else{

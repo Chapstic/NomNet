@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AbsListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +21,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 
@@ -65,6 +68,7 @@ public class SearchResults extends ActionBarActivity {
 
         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);//transition
 
+
         nomResults = new ArrayList<>();//initialize results list
 
         intent = getIntent();
@@ -100,11 +104,25 @@ public class SearchResults extends ActionBarActivity {
     //search for and populate arraylist of resulting Noms
     public void search(String q){
 
+        Random rand = new Random();
+        int totalNoms = 15;
         String[] userNames = {"Sydney", "Izzy", "Rebecca", "Elliscope", "Albert"};
-        String[] names = {"food1", "food2", "food3", "food4", "food5"};
+        String[] names = {"Chicken Karaage", "Zeppoles", "Clam Chowder Bread Bowl",
+                "Ground Beef Stew", "Spicy Wontons", "Japanese Beef Bowl",
+                "Pork Katsu with Curry", "Brick Toast", "Breakfast Sandwich",
+                "Pullout Bread", "Chicken Cordon Bleu", "Croissant Sandwich",
+                "Strawberry Brick Toast", "Brownies", "Beef Potstickers",
+                "Shumai", "Strawberry Green Tea Brick Toast",
+                "Jambalaya", "Shawarma on Hummus", "Italian Pork Sausage"};
 
-        int[] imageIDs = {0,1,2,3,4};
-        int[] upvotes = {20, 24, 36, 70, 14};
+        List<Integer> imageIDs = new ArrayList<>();
+        for(int i = 0; i < 20; i++){
+            imageIDs.add(i);
+        }
+        List<Integer> upvotes = new ArrayList<>();
+        for(int i = 0; i < 20; i++){
+            upvotes.add(rand.nextInt(50));
+        }
 
         //***********HARD-CODED data for testing purposes only. REMOVE WHEN DONE.****************
         //Probably want to create functions to parse ingredients and directions based on user input
@@ -118,12 +136,33 @@ public class SearchResults extends ActionBarActivity {
         tags.add("lunch");
         tags.add("dinner");
 
-        for (int i = 0; i < names.length; i++) {
+        for (int i = 0; i < totalNoms; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
-            Nom newNom = new Nom(userNames[i], upvotes[i], imageIDs[i], recipe, tags);
+            Nom newNom = new Nom(userNames[rand.nextInt(5)], upvotes.get(i), imageIDs.get(i), recipe, tags);
             nomResults.add(newNom);
         }
     }
+
+    // For never-ending feed
+    public void onScroll(AbsListView alv, int first, int numVisible, int total) {
+
+        // Can add a padding
+        boolean loadMore = first + numVisible >= total;
+
+        // Load more items if there are more to load
+        if(loadMore && searchResultsAdapter.getCount() < searchResultsAdapter.getMaxItems()-1)
+        {
+            searchResultsAdapter.numItemsInFeed += numVisible; // or any other amount
+
+            if(searchResultsAdapter.getCount() >= searchResultsAdapter.getMaxItems()){
+                searchResultsAdapter.numItemsInFeed = searchResultsAdapter.getMaxItems(); // keep in bounds
+            }
+
+            searchResultsAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void onScrollStateChanged(AbsListView alv, int i) { }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -179,8 +218,8 @@ public class SearchResults extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==android.R.id.home){
-            System.out.println("In parent stuff");
-            NavUtils.navigateUpFromSameTask(this);
+            //go back 
+            onBackPressed();
             return true;
         }
         else{

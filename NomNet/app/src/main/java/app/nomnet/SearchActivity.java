@@ -179,9 +179,6 @@ public class SearchActivity extends ActionBarActivity {
         searchIcon.setImageResource(R.drawable.search_bar_icon);//search icon
         searchIcon.getLayoutParams().height = 80;
 
-       // l1.setBackgroundColor(Color.GRAY); //FOR SEEING SPACING
-
-
         l3.setBackgroundResource(R.drawable.abc_textfield_search_default_mtrl_alpha);//searchplate underline color
 
         l4.setBackgroundResource(R.drawable.abc_textfield_search_default_mtrl_alpha);//voiceicon underline

@@ -19,6 +19,7 @@ public class SearchResultsAdapter extends BaseAdapter{
     private List<Nom> nomItems;
     private Intent intent;
     private boolean upvoted = false;
+    public int numItemsInFeed = 5;      // initial amount
 
     public SearchResultsAdapter(Activity activity, List<Nom> nomItems, Intent intent){
         this.activity = activity;
@@ -92,4 +93,7 @@ public class SearchResultsAdapter extends BaseAdapter{
         return view;
     }
 
+    public int getMaxItems(){
+        return nomItems.size();
+    }
 }
