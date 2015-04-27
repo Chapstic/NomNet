@@ -1,5 +1,6 @@
 package app.nomnet;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -18,8 +19,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class FoodFeedActivity extends ActionBarActivity implements AbsListView.OnScrollListener {
+    private Activity activity = this;
     private Nom testNom;                    // Probably replace w/ set or linked list of Noms?
 
     private Toolbar topbar;                 // This is the topbar that says NomNet
@@ -75,7 +78,6 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
         textViewCreateAcct = (TextView) findViewById(R.id.create_account);
         bottomBarLayout = (LinearLayout) findViewById(R.id.bottombar);
 
-        // Planning
         // If logged in, show bottom toolbar
         if (((MyApplication) this.getApplication()).getIsLoggedIn()) {
             textViewCreateAcct.setVisibility(View.GONE); // hide the text view
@@ -92,17 +94,28 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
                 }
             });
         }
-        // Toast.makeText(getApplicationContext(), String.valueOf(((MyApplication)this.getApplication()).getIsLoggedIn()),
-        //             Toast.LENGTH_LONG).show();
-
     } // End of onCreate
 
     private void getNoms() {
+        Random rand = new Random();
+        int totalNoms = 18;
         String[] userNames = {"Sydney", "Izzy", "Rebecca", "Elliscope", "Albert"};
-        String[] names = {"food1", "food2", "food3", "food4", "food5"};
+        String[] names = {"Beef Potstickers", "Shumai", "Clam Chowder Bread Bowl",
+                        "Jambalaya", "Spicy Wontons", "Japanese Beef Bowl",
+                        "Pork Katsu with Curry", "Brick Toast", "Breakfast Sandwich",
+                        "Pullout Bread", "Chicken Cordon Bleu", "Croissant Sandwich",
+                        "Strawberry Brick Toast", "Brownies", "Chicken Karaage",
+                        "Zeppoles", "Strawberry Green Tea Brick Toast",
+                        "Ground Beef Stew", "Shawarma on Hummus", "Italian Pork Sausage"};
 
-        int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5};
-        int[] upvotes = {20, 24, 36, 70, 14};
+        List<Integer> imageIDs = new ArrayList<>();
+        for(int i = 0; i < 20; i++){
+            imageIDs.add(i);
+        }
+        List<Integer> upvotes = new ArrayList<>();
+        for(int i = 0; i < 20; i++){
+            upvotes.add(rand.nextInt(50));
+        }
 
         //***********HARD-CODED data for testing purposes only. REMOVE WHEN DONE.****************
         //Probably want to create functions to parse ingredients and directions based on user input
@@ -119,9 +132,9 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
         tags.put("lunch", true);
         tags.put("dinner", true);
 
-        for (int i = 0; i < names.length; i++) {
+        for (int i = 0; i < totalNoms; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
-            Nom newNom = new Nom(userNames[i], upvotes[i], images[i], recipe, tags);
+            Nom newNom = new Nom(userNames[rand.nextInt(5)], upvotes.get(i), imageIDs.get(i), recipe, tags);
             nomList.add(newNom);
         }
     }
@@ -184,7 +197,6 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
             ((ViewGroup) view).removeAllViews();
         }
     }
-
 }
 
 

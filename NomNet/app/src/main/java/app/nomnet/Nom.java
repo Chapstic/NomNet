@@ -17,12 +17,12 @@ public class Nom implements Serializable {
     private Recipe recipe; //Might be better to change recipe information to String[] so we can use scroll text fields later
     Map<String, Boolean> tags;
 
-    Nom(String creator, int upvotes, int image, Recipe recipe, Map<String, Boolean> tags){
+    Nom(String creator, int upvotes, int imageID, Recipe recipe, Map<String, Boolean> tags){
         this.tags = new HashMap<String, Boolean>();
 
         this.creator = creator;
         this.upvotes = upvotes;
-        this.imageID = image;
+        this.imageID = imageID;
         this.recipe = recipe;
         this.tags = tags;
     }

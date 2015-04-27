@@ -6,6 +6,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class SplashActivity extends Activity {
     private Activity activity = this;
 
@@ -19,13 +27,17 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
 
         // Get the images that will be in the food feed
-        int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5};
-        int[] imageIDs = {0,1,2,3,4};
+        int[] images = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5,
+                     R.drawable.food6, R.drawable.food7, R.drawable.food8, R.drawable.food9, R.drawable.food10};
+        List<Integer> imageIDs = new ArrayList<>();
+        for(int i = 0; i < 10; i++){
+            imageIDs.add(i);
+        }
 
         // Optimizes feed images into bitmaps
         // Also employs multithreading
-        for(int i = 0; i < images.length; i++){
-            OptimizeImageThread oit = new OptimizeImageThread(images[i], imageIDs[i]);
+        for (int i = 0; i < images.length; i++) {
+            OptimizeImageThread oit = new OptimizeImageThread(images[i], imageIDs.get(i));
             oit.start();
         }
 
@@ -34,7 +46,7 @@ public class SplashActivity extends Activity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
+                // Create an Intent that will start the Menu-Activity.
                 Intent mainIntent = new Intent(SplashActivity.this,FoodFeedActivity.class);
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.finish();
