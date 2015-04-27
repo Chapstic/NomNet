@@ -1,202 +1,186 @@
 -- Merging decision tree log ---
 manifest
-ADDED from AndroidManifest.xml:2:1
+ADDED from AndroidManifest.xml:12:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:12:11
 	package
-		ADDED from AndroidManifest.xml:3:5
+		ADDED from AndroidManifest.xml:13:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 	android:versionName
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
 	android:versionCode
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 uses-permission#android.permission.CAMERA
-ADDED from AndroidManifest.xml:7:5
+ADDED from AndroidManifest.xml:17:5
 	android:name
-		ADDED from AndroidManifest.xml:7:22
+		ADDED from AndroidManifest.xml:17:22
 uses-feature#android.hardware.camera
-ADDED from AndroidManifest.xml:9:5
+ADDED from AndroidManifest.xml:19:5
 	android:name
-		ADDED from AndroidManifest.xml:9:19
+		ADDED from AndroidManifest.xml:19:19
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from AndroidManifest.xml:10:5
+ADDED from AndroidManifest.xml:20:5
 	android:name
-		ADDED from AndroidManifest.xml:10:22
+		ADDED from AndroidManifest.xml:20:22
 application
-ADDED from AndroidManifest.xml:13:5
+ADDED from AndroidManifest.xml:23:5
 MERGED from com.android.support:appcompat-v7:22.0.0:22:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 MERGED from com.android.support:cardview-v7:21.0.0:16:5
 MERGED from com.android.support:recyclerview-v7:21.0.0:17:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 	android:label
-		ADDED from AndroidManifest.xml:17:9
+		ADDED from AndroidManifest.xml:27:9
 	android:allowBackup
-		ADDED from AndroidManifest.xml:15:9
+		ADDED from AndroidManifest.xml:25:9
 	android:icon
-		ADDED from AndroidManifest.xml:16:9
+		ADDED from AndroidManifest.xml:26:9
 	android:theme
-		ADDED from AndroidManifest.xml:18:9
+		ADDED from AndroidManifest.xml:28:9
 	android:name
-		ADDED from AndroidManifest.xml:14:9
+		ADDED from AndroidManifest.xml:24:9
 provider#app.nomnet.SearchSuggestions
-ADDED from AndroidManifest.xml:19:9
+ADDED from AndroidManifest.xml:29:9
 	android:authorities
-		ADDED from AndroidManifest.xml:20:13
+		ADDED from AndroidManifest.xml:30:13
 	android:name
-		ADDED from AndroidManifest.xml:19:19
+		ADDED from AndroidManifest.xml:29:19
 activity#app.nomnet.SplashActivity
-ADDED from AndroidManifest.xml:21:9
+ADDED from AndroidManifest.xml:31:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:24:13
-	android:label
-		ADDED from AndroidManifest.xml:23:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:25:13
-	android:name
-		ADDED from AndroidManifest.xml:22:13
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:26:13
-action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:27:17
-	android:name
-		ADDED from AndroidManifest.xml:27:25
-category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:29:17
-	android:name
-		ADDED from AndroidManifest.xml:29:27
-activity#app.nomnet.ViewNom
-ADDED from AndroidManifest.xml:32:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:35:13
-	android:label
 		ADDED from AndroidManifest.xml:34:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:36:13
-	android:name
+	android:label
 		ADDED from AndroidManifest.xml:33:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:35:13
+	android:name
+		ADDED from AndroidManifest.xml:32:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:36:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:37:17
+	android:name
+		ADDED from AndroidManifest.xml:37:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:39:17
+	android:name
+		ADDED from AndroidManifest.xml:39:27
+activity#app.nomnet.ViewNom
+ADDED from AndroidManifest.xml:42:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:45:13
+	android:label
+		ADDED from AndroidManifest.xml:44:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:46:13
+	android:name
+		ADDED from AndroidManifest.xml:43:13
 activity#app.nomnet.SearchActivity
-ADDED from AndroidManifest.xml:38:9
+ADDED from AndroidManifest.xml:48:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:41:13
+		ADDED from AndroidManifest.xml:51:13
 	android:label
-		ADDED from AndroidManifest.xml:40:13
+		ADDED from AndroidManifest.xml:50:13
 	android:configChanges
-		ADDED from AndroidManifest.xml:42:13
+		ADDED from AndroidManifest.xml:52:13
 	android:name
-		ADDED from AndroidManifest.xml:39:13
+		ADDED from AndroidManifest.xml:49:13
 intent-filter#android.intent.action.SEARCH
-ADDED from AndroidManifest.xml:44:13
+ADDED from AndroidManifest.xml:54:13
 action#android.intent.action.SEARCH
-ADDED from AndroidManifest.xml:45:17
+ADDED from AndroidManifest.xml:55:17
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:46:21
+		ADDED from AndroidManifest.xml:56:21
 	android:configChanges
-		ADDED from AndroidManifest.xml:47:21
+		ADDED from AndroidManifest.xml:57:21
 	android:name
-		ADDED from AndroidManifest.xml:45:25
+		ADDED from AndroidManifest.xml:55:25
 meta-data#android.app.searchable
-ADDED from AndroidManifest.xml:49:13
+ADDED from AndroidManifest.xml:59:13
 	android:resource
-		ADDED from AndroidManifest.xml:51:17
+		ADDED from AndroidManifest.xml:61:17
 	android:name
-		ADDED from AndroidManifest.xml:50:17
+		ADDED from AndroidManifest.xml:60:17
 meta-data#android.app.default_searchable
-ADDED from AndroidManifest.xml:52:13
+ADDED from AndroidManifest.xml:62:13
+	android:name
+		ADDED from AndroidManifest.xml:63:17
 	android:value
-		ADDED from AndroidManifest.xml:54:17
-	android:name
-		ADDED from AndroidManifest.xml:53:17
+		ADDED from AndroidManifest.xml:64:17
 activity#app.nomnet.SignIn
-ADDED from AndroidManifest.xml:57:9
+ADDED from AndroidManifest.xml:67:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:60:13
-	android:label
-		ADDED from AndroidManifest.xml:59:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:61:13
-	android:name
-		ADDED from AndroidManifest.xml:58:13
-activity#app.nomnet.Register
-ADDED from AndroidManifest.xml:63:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:66:13
-	android:label
-		ADDED from AndroidManifest.xml:65:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:67:13
-	android:name
-		ADDED from AndroidManifest.xml:64:13
-activity#app.nomnet.FoodFeedActivity
-ADDED from AndroidManifest.xml:69:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:72:13
-	android:label
-		ADDED from AndroidManifest.xml:71:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:73:13
-	android:name
 		ADDED from AndroidManifest.xml:70:13
-intent-filter#android.intent.action.STARTINGPOINT+android.intent.category.DEFAULT
-ADDED from AndroidManifest.xml:74:13
-action#android.intent.action.STARTINGPOINT
-ADDED from AndroidManifest.xml:75:17
-	android:name
-		ADDED from AndroidManifest.xml:75:25
-category#android.intent.category.DEFAULT
-ADDED from AndroidManifest.xml:77:17
-	android:name
-		ADDED from AndroidManifest.xml:77:27
-activity#app.nomnet.Profile
-ADDED from AndroidManifest.xml:80:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:83:13
 	android:label
+		ADDED from AndroidManifest.xml:69:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:71:13
+	android:name
+		ADDED from AndroidManifest.xml:68:13
+activity#app.nomnet.Register
+ADDED from AndroidManifest.xml:73:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:76:13
+	android:label
+		ADDED from AndroidManifest.xml:75:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:77:13
+	android:name
+		ADDED from AndroidManifest.xml:74:13
+activity#app.nomnet.FoodFeedActivity
+ADDED from AndroidManifest.xml:79:9
+	android:screenOrientation
 		ADDED from AndroidManifest.xml:82:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:84:13
-	android:name
+	android:label
 		ADDED from AndroidManifest.xml:81:13
-activity#app.nomnet.Settings
-ADDED from AndroidManifest.xml:86:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:89:13
-	android:label
-		ADDED from AndroidManifest.xml:88:13
 	android:configChanges
-		ADDED from AndroidManifest.xml:90:13
+		ADDED from AndroidManifest.xml:83:13
 	android:name
-		ADDED from AndroidManifest.xml:87:13
-activity#app.nomnet.CreateNom
-ADDED from AndroidManifest.xml:92:9
+		ADDED from AndroidManifest.xml:80:13
+intent-filter#android.intent.action.STARTINGPOINT+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:84:13
+action#android.intent.action.STARTINGPOINT
+ADDED from AndroidManifest.xml:85:17
+	android:name
+		ADDED from AndroidManifest.xml:85:25
+category#android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:87:17
+	android:name
+		ADDED from AndroidManifest.xml:87:27
+activity#app.nomnet.Profile
+ADDED from AndroidManifest.xml:90:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:95:13
-	android:label
-		ADDED from AndroidManifest.xml:94:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:96:13
-	android:name
 		ADDED from AndroidManifest.xml:93:13
-activity#app.nomnet.Nomification
-ADDED from AndroidManifest.xml:98:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:101:13
 	android:label
-		ADDED from AndroidManifest.xml:100:13
+		ADDED from AndroidManifest.xml:92:13
 	android:configChanges
-		ADDED from AndroidManifest.xml:102:13
+		ADDED from AndroidManifest.xml:94:13
 	android:name
+		ADDED from AndroidManifest.xml:91:13
+activity#app.nomnet.Settings
+ADDED from AndroidManifest.xml:96:9
+	android:screenOrientation
 		ADDED from AndroidManifest.xml:99:13
-activity#app.nomnet.CustomList
-ADDED from AndroidManifest.xml:104:9
 	android:label
+		ADDED from AndroidManifest.xml:98:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:100:13
+	android:name
+		ADDED from AndroidManifest.xml:97:13
+activity#app.nomnet.CreateNom
+ADDED from AndroidManifest.xml:102:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:105:13
+	android:label
+		ADDED from AndroidManifest.xml:104:13
+	android:configChanges
 		ADDED from AndroidManifest.xml:106:13
 	android:name
-		ADDED from AndroidManifest.xml:105:13
-activity#app.nomnet.Camera
+		ADDED from AndroidManifest.xml:103:13
+activity#app.nomnet.Nomification
 ADDED from AndroidManifest.xml:108:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:111:13
@@ -206,16 +190,32 @@ ADDED from AndroidManifest.xml:108:9
 		ADDED from AndroidManifest.xml:112:13
 	android:name
 		ADDED from AndroidManifest.xml:109:13
-activity#app.nomnet.SearchResults
+activity#app.nomnet.CustomList
 ADDED from AndroidManifest.xml:114:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:116:13
 	android:label
-		ADDED from AndroidManifest.xml:115:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:117:13
+		ADDED from AndroidManifest.xml:116:13
 	android:name
-		ADDED from AndroidManifest.xml:114:19
+		ADDED from AndroidManifest.xml:115:13
+activity#app.nomnet.Camera
+ADDED from AndroidManifest.xml:118:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:121:13
+	android:label
+		ADDED from AndroidManifest.xml:120:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:122:13
+	android:name
+		ADDED from AndroidManifest.xml:119:13
+activity#app.nomnet.SearchResults
+ADDED from AndroidManifest.xml:124:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:126:13
+	android:label
+		ADDED from AndroidManifest.xml:125:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:127:13
+	android:name
+		ADDED from AndroidManifest.xml:124:19
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:22.0.0:20:5

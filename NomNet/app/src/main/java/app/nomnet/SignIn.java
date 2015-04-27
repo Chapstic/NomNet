@@ -8,19 +8,26 @@ import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.content.Intent;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class SignIn extends ActionBarActivity {
+
+    EditText userEdit, regUserEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
         Button button = (Button)findViewById(R.id.btnLogin);
+        userEdit = (EditText) findViewById(R.id.usernameEdit);
+        regUserEdit = (EditText) findViewById(R.id.regUserEdit);
+
         button.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                loginSuccess();
+                String username = String.valueOf(userEdit.getText() );
+                loginSuccess(username);
                 Intent i = new Intent(SignIn.this, FoodFeedActivity.class);
                  startActivity(i);
             }
@@ -32,6 +39,9 @@ public class SignIn extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SignIn.this, Register.class);
+
+                String username = String.valueOf(regUserEdit.getText() );
+                loginSuccess(username);
                 startActivity(i);
             }
         });
@@ -39,9 +49,11 @@ public class SignIn extends ActionBarActivity {
         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
     }
 
-   public void loginSuccess() {
+   public void loginSuccess(String username) {
+       ((MyApplication) this.getApplication()).setCurrentUser(username);
        ((MyApplication) this.getApplication()).setIsLoggedIn(true);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

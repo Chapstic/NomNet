@@ -1,3 +1,12 @@
+/*
+ * TEAM NOMNET
+ * -----------
+ * Izzy Benavente
+ * Mingzhe (Elliscope) Fang
+ * Sydney Liu
+ * Rebecca Wu
+ * Albert Yue
+ */
 package app.nomnet;
 
 import android.app.NotificationManager;
@@ -28,9 +37,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-
-
 //implements AbsListView.OnScrollListener
 
 public class ViewNom extends ActionBarActivity {

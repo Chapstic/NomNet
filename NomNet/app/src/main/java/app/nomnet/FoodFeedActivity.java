@@ -1,3 +1,12 @@
+/*
+ * TEAM NOMNET
+ * -----------
+ * Izzy Benavente
+ * Mingzhe (Elliscope) Fang
+ * Sydney Liu
+ * Rebecca Wu
+ * Albert Yue
+ */
 package app.nomnet;
 
 import android.app.Activity;
@@ -124,16 +133,61 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
             upvotes.add(rand.nextInt(50));
         }
 
-        String ingredients = "Water - 4 cups" + '\n' +
-                "Salt - 3 tablespoons";
-        String directions = "1. Mix mix, swirl mix" + '\n' +
-                "2. Drink" + '\n';
+        String cIngredients = "1 lb boneless chicken thighs\n " +
+                "1/2 tablespoon freshly grated ginger\n" +
+                "1-2 clove, of freshly grated galic\n" +
+                "3 tablespoons soy sauce\n" +
+                "1 tablespoon sake (Japanese rice wine)\n" +
+                "ground black pepper, for additional spiciness\n" +
+                "1 cup potato starch, to dust\n" +
+                "vegetable oil (for frying)";
+        String cDirections = "Cut chicken in bite size pieces. In a plastic container or large " +
+                "ziploc bag, combine grated ginger, garlic, soy sauce and Sake." +
+                "Put the chicken in the marinade and mix chicken well. Put the chicken " +
+                "in the fridge for 15 to 20 minutes." +
+                "In a deep frying pan or a wok, heat vegetable oil to 180 degree " +
+                "Celsius or 350°F" +
+                "Dust the chicken with potato starch and fry in the oil until golden. " +
+                "To make them really crispy, lift chicken from the oil with chopsticks or" +
+                " tongs from time to time so that the chicken will be aired out (so to speak).";
+
+        String ingredients = "1 vanilla bean\n" +
+                "1/2 cup sugar, plus 3 tablespoons\n" +
+                "2 tablespoons ground cinnamon\n" +
+                "1 stick butter\n" +
+                "1/4 teaspoon salt\n" +
+                "1 cup water\n" +
+                "1 cup all-purpose flour\n" +
+                "4 eggs\n" +
+                "Olive oil, for frying\n";
+
+        String directions = "Cut open the vanilla bean lengthwise. Using the back of a knife, " +
+                "scrape along the inside of the vanilla bean to collect the seeds. Scrape vanilla" +
+                " bean seeds into a small bowl. Add the 1/2 cup sugar and cinnamon and stir to combine. Set aside.\n" +
+                "\n" +
+                "In a medium saucepan combine the butter, salt, 3 tablespoons of sugar," +
+                " and water over medium heat. Bring to a boil. Take pan off the heat and stir in the flour. " +
+                "Return pan to the heat and stir continuously until mixture forms a ball, about 3 to 5 minutes. " +
+                "Transfer the flour mixture to a medium bowl. Using an electric hand mixer on low speed, add eggs, " +
+                "1 at a time, incorporating each egg completely before adding the next. Beat until smooth. " +
+                "If not frying immediately, cover with plastic wrap and reserve in the refrigerator.\n" +
+                "\n" +
+                "Meanwhile, pour enough oil into a large frying pan to reach a depth of 2 inches. " +
+                "Heat the oil over medium heat until a deep-fry thermometer registers 375 degrees F.\n" +
+                "\n" +
+                "Using a small ice-cream scooper or 2 small spoons, carefully drop about a tablespoon of " +
+                "the dough into the hot olive oil, frying in batches. Turn the zeppole once or twice, cooking " +
+                "until golden and puffed up, about 5 minutes. Drain on paper towels. Toss with cinnamon-sugar. " +
+                "Arrange on a platter and serve immediately.\n";
 
         Set<String> tags = new HashSet<String>();
 
 
         for (int i = 0; i < totalNoms; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
+            if(i==0){
+                recipe = new Recipe(names[i], cIngredients, cDirections);
+            }
             Nom newNom = new Nom(userNames[rand.nextInt(5)], upvotes.get(i), imageIDs.get(i), recipe, tags);
             nomList.add(newNom);
         }

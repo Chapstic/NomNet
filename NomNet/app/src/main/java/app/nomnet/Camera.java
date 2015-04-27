@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.net.Uri;
+import android.graphics.Matrix;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
@@ -14,10 +16,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -135,14 +137,41 @@ public class Camera extends ActionBarActivity {
             options.inSampleSize = 8;
             final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(), options);
 
-            Intent imagepass = new Intent(Camera.this,CreateNom.class);
-            imagepass.putExtra("imagepass", bitmap );
-            startActivity(imagepass);
+            ExifInterface ei = null;
+            try {
+                ei = new ExifInterface(fileUri.getPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+
+            switch(orientation) {
+                case ExifInterface.ORIENTATION_NORMAL:
+                    Intent imagepass = new Intent(Camera.this,CreateNom.class);
+                    imagepass.putExtra("imagepass", bitmap );
+                    startActivity(imagepass);
+
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    Bitmap adjustedBitmap = rotateImage(bitmap, 90);
+                    imagepass = new Intent(Camera.this,CreateNom.class);
+                    imagepass.putExtra("imagepass", adjustedBitmap );
+
+                    startActivity(imagepass);
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    adjustedBitmap = rotateImage(bitmap, 180);
+                    imagepass = new Intent(Camera.this,CreateNom.class);
+                    imagepass.putExtra("imagepass", adjustedBitmap );
+
+                    startActivity(imagepass);
+                    break;
+            }
 
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
     }
+
     public Uri getOutputMediaFileUri(int type) {
         return Uri.fromFile(getOutputMediaFile(type));
     }
@@ -176,6 +205,15 @@ public class Camera extends ActionBarActivity {
         }
 
         return mediaFile;
+    }
+
+    Bitmap rotateImage(Bitmap bitmap, int degrees){
+        Matrix matrix = new Matrix();
+
+        matrix.postRotate(degrees);
+        Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap , 0, 0, bitmap .getWidth(), bitmap .getHeight(), matrix, true);
+
+        return rotatedBitmap;
     }
 
     @Override

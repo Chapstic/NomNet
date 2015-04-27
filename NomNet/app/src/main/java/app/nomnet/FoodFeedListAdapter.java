@@ -1,3 +1,12 @@
+/*
+ * TEAM NOMNET
+ * -----------
+ * Izzy Benavente
+ * Mingzhe (Elliscope) Fang
+ * Sydney Liu
+ * Rebecca Wu
+ * Albert Yue
+ */
 package app.nomnet;
 
 import android.app.Activity;
@@ -75,6 +84,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
         }
         if(view == null){
             view = inflater.inflate(R.layout.food_feed_item, null);
+            view = inflater.inflate(R.layout.food_feed_item, null);
         }
 
         // Grab the current nom from the list
@@ -83,7 +93,7 @@ public class FoodFeedListAdapter extends BaseAdapter{
         // Find the UI elements that will be used to display each item
         TextView name = (TextView)view.findViewById(R.id.nom_name);
         TextView creator = (TextView)view.findViewById(R.id.nom_creator);
-        TextView textViewUpvotes = (TextView)view.findViewById(R.id.upvotesText);
+        final TextView textViewUpvotes = (TextView)view.findViewById(R.id.upvotesText);
         ImageView image = (ImageView)view.findViewById(R.id.nom_pic);
         ImageView comments = (ImageView)view.findViewById(R.id.nom_comment);
 
@@ -117,35 +127,18 @@ public class FoodFeedListAdapter extends BaseAdapter{
                 ImageView imgBtnLike = (ImageView) v.findViewById(R.id.likeBtn);
                 if (!upvoted){
                     imgBtnLike.setImageResource(R.drawable.triangle_red);
-                    currentNom.addUpvote(); //increment, temporary until backend up
-                    UpvoteThread ut = new UpvoteThread();
-                    ut.start();
+                    currentNom.addUpvote();
                     upvoted = true;
                 }else{
                     imgBtnLike.setImageResource(R.drawable.triangle);
-                    currentNom.subtractUpvote(); //decrement, temporary until backend up
-                    DownvoteThread dt = new DownvoteThread();
-                    dt.start();
+                    currentNom.subtractUpvote();
                     upvoted = false;
                 }
+                textViewUpvotes.setText(String.valueOf(currentNom.getUpvotes()));
             }
         });
 
         return view;
-    }
-
-    // Use multithreading to send upvotes up
-    class UpvoteThread extends Thread{
-        public void run(){
-
-        }
-    }
-
-    // Use multithreading to send downvote (when you undo your upvote)
-    class DownvoteThread extends Thread{
-        public void run(){
-
-        }
     }
 
     // For each image in the feed, optimize to a bitmap image that scales to screen
