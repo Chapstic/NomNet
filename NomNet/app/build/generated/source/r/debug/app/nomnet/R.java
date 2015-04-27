@@ -1668,11 +1668,12 @@ containing a value of this type.
         public static final int topbar=0x7f040028;
     }
     public static final class menu {
-        public static final int menu_master=0x7f0f0000;
-        public static final int menu_master_no_settings=0x7f0f0001;
-        public static final int menu_register=0x7f0f0002;
-        public static final int menu_search=0x7f0f0003;
-        public static final int menu_sign_in=0x7f0f0004;
+        public static final int menu_client=0x7f0f0000;
+        public static final int menu_master=0x7f0f0001;
+        public static final int menu_master_no_settings=0x7f0f0002;
+        public static final int menu_register=0x7f0f0003;
+        public static final int menu_search=0x7f0f0004;
+        public static final int menu_sign_in=0x7f0f0005;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;

@@ -147,50 +147,46 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"/>
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:imeOptions="actionSend"
-                android:ems="10"
-                android:id="@+id/com_input"
-                android:layout_marginTop="45dp"
-                android:layout_below="@+id/com_label"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/white"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:imeOptions="actionSend"
+            android:ems="10"
+            android:id="@+id/com_input"
+            android:layout_marginTop="45dp"
+            android:layout_below="@+id/com_label"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/noti_button"
+            android:layout_alignEnd="@+id/noti_button" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Notification Click"
-                android:id="@+id/noti_button"
-                android:onClick="notiButtonOnClicked"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:id="@+id/noti_button"
+            android:onClick="notiButtonOnClicked"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/directionsLabel"
+            android:layout_alignEnd="@+id/directionsLabel" />
 
-            //Tags label
-            <TextView
-                android:id="@+id/tagsLabel"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Tags"
-                android:textStyle = "bold"
-                android:layout_below="@+id/directionsText"
-                android:gravity = "center_horizontal"
-                android:textColor="@color/white"/>
+        //Tags label
+        <TextView
+            android:id="@+id/tagsLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Tags"
+            android:textStyle = "bold"
+            android:layout_below="@+id/directionsText"
+            android:gravity = "center_horizontal"/>
 
-            <TextView
-                android:id="@+id/tagsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tagsLabel"
-                android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/tagsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tagsLabel"/>
 
     </LinearLayout>
-
-
     </RelativeLayout>
 </ScrollView>

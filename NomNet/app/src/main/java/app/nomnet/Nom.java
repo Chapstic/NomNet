@@ -11,6 +11,8 @@ package app.nomnet;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -20,11 +22,13 @@ import java.util.List;
  * Created by Albert on 4/11/2015.
  */
 
+
 public class Nom implements Parcelable {
     private String creator; // Replace w/ user class later
     private int upvotes, imageID;
     private Recipe recipe; // Might be better to change recipe information to String[] so we can use scroll text fields later
     private Set<String> tags;
+    private Comments comments;
 
     //Comments under the Nom
     public List<String> Comments_list;
@@ -36,9 +40,14 @@ public class Nom implements Parcelable {
         this.imageID = imageID;
         this.recipe = recipe;
         this.tags = tags;
+        comments = new Comments();
 
-        Comments_list = new ArrayList<String>();
-        Comments_user_profile = new ArrayList<Integer>();
+
+        comments.addComments(R.drawable.sydney,"Oh this food is amazing!!");
+        comments.addComments(R.drawable.albert, "So good!!");
+        comments.addComments(R.drawable.rebecca, "Let's go together!");
+        //System.out.println(Comments_list.size());
+
     }
 
     // Constructor used when re-constructing object from parcel
@@ -48,6 +57,7 @@ public class Nom implements Parcelable {
         imageID = in.readInt();
         recipe = (Recipe) in.readValue(Recipe.class.getClassLoader());
         tags = (Set) in.readValue(Set.class.getClassLoader());
+        comments = (Comments) in.readValue(Comments.class.getClassLoader());
     }
 
     public String getCreator(){
@@ -69,7 +79,7 @@ public class Nom implements Parcelable {
     public void addUpvote(){ upvotes++; }
 
     public void subtractUpvote(){ upvotes--; }
-
+    public Comments getCommentsObject(){return comments;}
     public Set<String> getTags(){ return tags; }
 
     // Checks to see if Nom has target tag (passed in)
@@ -95,6 +105,7 @@ public class Nom implements Parcelable {
         parcel.writeInt(imageID);
         parcel.writeValue(recipe);
         parcel.writeValue(tags);
+        parcel.writeValue(comments);
     }
 
     @SuppressWarnings("unused")
@@ -111,4 +122,5 @@ public class Nom implements Parcelable {
     };
 
 }
+
 

@@ -48,6 +48,10 @@ public class ViewNom extends ActionBarActivity {
     ListView list_com;
     CustomList adapter;
 
+    String inputText;
+    EditText editText;
+
+
     //Nomification Part
     NotificationCompat.Builder notification;
     private static final int uniqueID = 45612;
@@ -93,6 +97,26 @@ public class ViewNom extends ActionBarActivity {
 
         directionsText = (TextView) findViewById(R.id.directionsText);
         directionsText.setText(currentNom.getDirections());
+
+
+
+        //Dynamic Comments under Nom
+        adapter = new
+                CustomList(ViewNom.this, currentNom.getCommentsObject().getComments(), currentNom.getCommentsObject().getC_userProfile());
+        list_com=(ListView)findViewById(R.id.Comments_listView);
+        list_com.setAdapter(adapter);
+
+        list_com.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Toast.makeText(ViewNom.this, currentNom.getCommentsObject().getComments()[+position], Toast.LENGTH_SHORT).show();
+            }
+        });
+        Utility.setListViewHeightBasedOnChildren(list_com);
+
+        editText = (EditText) findViewById(R.id.com_input);
+
 
         //Pop Up Nomification Implementaion
         notification = new NotificationCompat.Builder(this);
@@ -143,6 +167,25 @@ public class ViewNom extends ActionBarActivity {
 
     //wait for user info from database to be past in->change parameters and make it dynamic
     public void notiButtonOnClicked(View view) {
+
+        inputText = editText.getText().toString();
+        //input user image id ->connect with database
+        currentNom.getCommentsObject().addComments(R.drawable.sydney,inputText);
+
+        //reinitialize the adapter
+        CustomList adapter1 = new
+                CustomList(ViewNom.this, currentNom.getCommentsObject().getComments(), currentNom.getCommentsObject().getC_userProfile());
+        list_com=(ListView)findViewById(R.id.Comments_listView);
+        adapter1.notifyDataSetChanged();
+        list_com.setAdapter(adapter1);
+
+        Utility.setListViewHeightBasedOnChildren(list_com);
+
+        InputMethodManager imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+
+        editText.setText("", TextView.BufferType.EDITABLE);
 
         //suposed to be dynamically passed in as user profile image
 

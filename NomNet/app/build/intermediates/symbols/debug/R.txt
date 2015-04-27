@@ -598,11 +598,12 @@ int layout list_single 0x7f040025
 int layout stylelistitems 0x7f040026
 int layout support_simple_spinner_dropdown_item 0x7f040027
 int layout topbar 0x7f040028
-int menu menu_master 0x7f0f0000
-int menu menu_master_no_settings 0x7f0f0001
-int menu menu_register 0x7f0f0002
-int menu menu_search 0x7f0f0003
-int menu menu_sign_in 0x7f0f0004
+int menu menu_client 0x7f0f0000
+int menu menu_master 0x7f0f0001
+int menu menu_master_no_settings 0x7f0f0002
+int menu menu_register 0x7f0f0003
+int menu menu_search 0x7f0f0004
+int menu menu_sign_in 0x7f0f0005
 int mipmap ic_launcher 0x7f030000
 int string abc_action_bar_home_description 0x7f0d0000
 int string abc_action_bar_home_description_format 0x7f0d0001
