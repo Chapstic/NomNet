@@ -54,7 +54,6 @@ public class SearchActivity extends ActionBarActivity {
         //Create click actions from bottom toolbar
         //Third parameter references the current activity: 0 - FoodFeed, 1 - Search, etc
         new BottomButtonActions(bottombarButtons, SearchActivity.this, 1, "search");
-
         overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
 
 
@@ -77,9 +76,6 @@ public class SearchActivity extends ActionBarActivity {
         if(Intent.ACTION_SEARCH.equals(i.getAction())){
             query = i.getStringExtra(SearchManager.QUERY);
             SearchRecentSuggestions srs = new SearchRecentSuggestions(this, SearchSuggestions.AUTHORITY, SearchSuggestions.MODE);
-            //FOR TESTING PURPOSES ONLY!!!!!!!!!!!!!
-            //ADD CLEAR HISTORY CODE TO SETTINGS PAGE
-            //(or maybe keep? Clear History option doesn't always stay at top of list...)
             if(query.equalsIgnoreCase("Clear History")){
                 srs.clearHistory();
             }

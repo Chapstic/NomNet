@@ -67,7 +67,7 @@ public class Nom implements Parcelable {
     public Boolean hasTag(String targetTag){
 
         for(String s : tags) {
-            if(targetTag.equals(s) ){
+            if(targetTag.equalsIgnoreCase(s) ){
                 return true;
             }
         }

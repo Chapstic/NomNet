@@ -67,7 +67,6 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
 
         new BottomButtonActions(bottombarButtons, FoodFeedActivity.this, 0, "foodfeed");
 
-        overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
 
         // Create and populate list of noms
         nomList = new ArrayList<>();
@@ -125,17 +124,13 @@ public class FoodFeedActivity extends ActionBarActivity implements AbsListView.O
             upvotes.add(rand.nextInt(50));
         }
 
-        //***********HARD-CODED data for testing purposes only. REMOVE WHEN DONE.****************
-        //Probably want to create functions to parse ingredients and directions based on user input
         String ingredients = "Water - 4 cups" + '\n' +
                 "Salt - 3 tablespoons";
         String directions = "1. Mix mix, swirl mix" + '\n' +
                 "2. Drink" + '\n';
 
         Set<String> tags = new HashSet<String>();
-        tags.add("breakfast");
-        tags.add("lunch");
-        tags.add("dinner");
+
 
         for (int i = 0; i < totalNoms; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);

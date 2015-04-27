@@ -28,7 +28,7 @@ import java.util.Set;
 
 public class SearchResults extends ActionBarActivity {
 
-    private ArrayList<Nom> nomResults; //arraylist holding resulting noms from search
+    private ArrayList<Nom> allNoms, queryResults; //arraylist holding resulting noms from search
     private Toolbar topbar;
     private ImageButton[] bottombarButtons;
     private ListView nomListView;
@@ -69,19 +69,23 @@ public class SearchResults extends ActionBarActivity {
         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);//transition
 
 
-        nomResults = new ArrayList<>();//initialize results list
+        allNoms = new ArrayList<>();
+        queryResults = new ArrayList<>();//initialize results list
+        getNoms();
 
         intent = getIntent();
         SearchRecentSuggestions srs = new SearchRecentSuggestions(this, SearchSuggestions.AUTHORITY, SearchSuggestions.MODE);
 
+        if(query!=null && query.equalsIgnoreCase("Clear History")){
+            srs.clearHistory();
+        }
+
         //category clicked
         catQuery = intent.getExtras().getString("catQuery");
-        if(catQuery!=null)search(catQuery);
+        if(catQuery!=null)search();
 
         //saves search queries to content provider for recent search suggestions
-        //FOR TESTING PURPOSES ONLY!!!!!!!!!!!!!
-        //ADD CLEAR HISTORY CODE TO SETTINGS PAGE
-        //(or maybe keep? Clear History option doesn't always stay at top of list...)
+        query = intent.getExtras().getString("query");
         if(query!=null && query.equalsIgnoreCase("Clear History")){
             srs.clearHistory();
         }
@@ -89,7 +93,7 @@ public class SearchResults extends ActionBarActivity {
             srs.saveRecentQuery(query, null);
             srs.saveRecentQuery("Clear History", null);//adds clear history option to suggestions
 
-            search(query);
+            search();
         }
 
         // Initialize nomListView, feed into adapter, set adapter
@@ -97,12 +101,34 @@ public class SearchResults extends ActionBarActivity {
 
         //if click nom on food feed, go to ViewNom
         intent = new Intent(this, ViewNom.class);
-        searchResultsAdapter = new SearchResultsAdapter(this, nomResults, intent);
+        searchResultsAdapter = new SearchResultsAdapter(this, queryResults, intent);
         nomListView.setAdapter(searchResultsAdapter);
     }
 
-    //search for and populate arraylist of resulting Noms
-    public void search(String q){
+    //search for query
+    public void search(){
+        for(int i=0; i<allNoms.size(); i++){
+            if(catQuery!=null && allNoms.get(i).hasTag(catQuery)){
+                queryResults.add(allNoms.get(i));
+            }
+            else if(query!=null && allNoms.get(i).getName().equalsIgnoreCase(query)){
+                queryResults.add(allNoms.get(i));
+            }
+            else if(query!=null && allNoms.get(i).getCreator().equalsIgnoreCase(query)){
+                queryResults.add(allNoms.get(i));
+            }
+            else if(query!=null && allNoms.get(i).getDirections().equalsIgnoreCase(query)){
+                queryResults.add(allNoms.get(i));
+            }
+            else if(query!=null && allNoms.get(i).getIngredients().equalsIgnoreCase(query)){
+                queryResults.add(allNoms.get(i));
+            }
+        }
+        catQuery = null;
+    }
+
+    //populate arraylist of resulting Noms
+    public void getNoms(){
 
         Random rand = new Random();
         int totalNoms = 15;
@@ -124,22 +150,20 @@ public class SearchResults extends ActionBarActivity {
             upvotes.add(rand.nextInt(50));
         }
 
-        //***********HARD-CODED data for testing purposes only. REMOVE WHEN DONE.****************
-        //Probably want to create functions to parse ingredients and directions based on user input
         String ingredients = "Water - 4 cups" + '\n' +
                 "Salt - 3 tablespoons";
         String directions = "1. Mix mix, swirl mix" + '\n' +
                 "2. Drink" + '\n';
 
-        Set<String> tags = new HashSet<String>();
-        tags.add("breakfast");
-        tags.add("lunch");
-        tags.add("dinner");
+
 
         for (int i = 0; i < totalNoms; i++) {
             Recipe recipe = new Recipe(names[i], ingredients, directions);
+            Set<String> tags = new HashSet<String>();
+            if(i==8 || i==11) tags.add("breakfast");
+            else if(i==0 ||i==2||i==3||i==4||i==5||i==6||i==9||i==10) tags.add("dinner");
             Nom newNom = new Nom(userNames[rand.nextInt(5)], upvotes.get(i), imageIDs.get(i), recipe, tags);
-            nomResults.add(newNom);
+            allNoms.add(newNom);
         }
     }
 
@@ -218,8 +242,9 @@ public class SearchResults extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==android.R.id.home){
-            //go back 
+            //go back
             onBackPressed();
+            overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
             return true;
         }
         else{
