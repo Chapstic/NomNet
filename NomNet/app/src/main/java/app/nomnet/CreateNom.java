@@ -185,7 +185,26 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
     public void createImage(){
         imageID = ((MyApplication) this.getApplication()).getImgListSize();
         image = new Image(imageID, dishname);
-        image.setBitmap(bitmap);
+        //Bitmap scaledBitmap = scaleDown(bitmap, 800, true);
+
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, 800, 800, true);
+        image.setBitmap(scaledBitmap);
         ((MyApplication) this.getApplication()).addImage(image);
+    }
+
+
+//scale down method
+
+    public static Bitmap scaleDown(Bitmap realImage, float maxImageSize,
+                                   boolean filter) {
+        float ratio = Math.min(
+                (float) maxImageSize / realImage.getWidth(),
+                (float) maxImageSize / realImage.getHeight());
+        int width = Math.round((float) ratio * realImage.getWidth());
+        int height = Math.round((float) ratio * realImage.getHeight());
+
+        Bitmap newBitmap = Bitmap.createScaledBitmap(realImage, width,
+                height, filter);
+        return newBitmap;
     }
 }
