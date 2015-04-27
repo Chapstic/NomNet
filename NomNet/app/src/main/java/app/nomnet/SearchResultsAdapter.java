@@ -63,7 +63,6 @@ public class SearchResultsAdapter extends BaseAdapter{
         creator.setText(currentNom.getCreator());
 
         int imageID = currentNom.getImageID();
-        System.out.println(imageID);
         image.setImageBitmap(((MyApplication) activity.getApplication()).getImagewithID(imageID).getBitmap() );
 
         view.findViewById(R.id.nom_pic).setOnClickListener(new View.OnClickListener() {

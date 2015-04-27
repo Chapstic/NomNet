@@ -41,8 +41,6 @@ public class Nomification extends ActionBarActivity {
         addNomi(R.drawable.albert, "Albert");
         addNomi(R.drawable.rebecca, "Rebecca");
 
-        System.out.println(Nomi_list.size());
-
     }
 
     @Override

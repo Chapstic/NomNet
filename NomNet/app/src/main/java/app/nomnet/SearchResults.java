@@ -45,7 +45,7 @@ public class SearchResults extends ActionBarActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayUseLogoEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.back);
 
@@ -178,8 +178,14 @@ public class SearchResults extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        TopBarActions tba = new TopBarActions(item, this);
-        return tba.handledSelection();
+        if(item.getItemId()==android.R.id.home){
+            System.out.println("In parent stuff");
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+        else{
+            TopBarActions tba = new TopBarActions(item, this);
+            return tba.handledSelection();
+        }
     }
 }

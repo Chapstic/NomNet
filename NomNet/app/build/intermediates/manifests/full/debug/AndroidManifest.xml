@@ -41,6 +41,7 @@
             android:name="app.nomnet.ViewNom"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_view_nom"
+            android:parentActivityName="app.nomnet.FoodFeedActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -123,6 +124,7 @@
             android:name="app.nomnet.SearchResults"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="SearchResults"
+            android:parentActivityName="app.nomnet.SearchActivity"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />

@@ -112,8 +112,14 @@ public class ViewNom extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+        else{
             TopBarActions tba = new TopBarActions(item, this);
             return tba.handledSelection();
+        }
     }
 
 
