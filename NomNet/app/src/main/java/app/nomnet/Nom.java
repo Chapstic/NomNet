@@ -1,14 +1,11 @@
 package app.nomnet;
 
-import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Set;
+
+import java.util.List;
 
 /**
  * Created by Albert on 4/11/2015.
@@ -20,14 +17,22 @@ public class Nom implements Parcelable {
     private Recipe recipe; // Might be better to change recipe information to String[] so we can use scroll text fields later
     private Set<String> tags;
 
+    //Comments under the Nom
+    public List<String> Comments_list;
+    public List<Integer> Comments_user_profile;
+
 
     // Standard basic constructor for non-parcel object
     Nom(String creator, int upvotes, int imageID, Recipe recipe, Set<String> tags){
+
         this.creator = creator;
         this.upvotes = upvotes;
         this.imageID = imageID;
         this.recipe = recipe;
         this.tags = tags;
+
+        Comments_list = new ArrayList<String>();
+        Comments_user_profile = new ArrayList<Integer>();
     }
 
     // Constructor used when re-constructing object from parcel
@@ -98,8 +103,6 @@ public class Nom implements Parcelable {
             return new Nom[size];
         }
     };
+
 }
-
-
-
 

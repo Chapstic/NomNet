@@ -10,13 +10,30 @@ public class CustomList extends ArrayAdapter<String>{
     private final Activity context;
     private final String[] web;
     private final Integer[] imageId;
+    public int numComments;      // initial amount
+
+
+
     public CustomList(Activity context,
                       String[] web, Integer[] imageId) {
         super(context, R.layout.list_single, web);
         this.context = context;
         this.web = web;
         this.imageId = imageId;
+        this.numComments = web.length;
     }
+
+
+    public int getMaxItems(){
+        return web.length;
+    }
+
+    @Override
+    public int getCount() {
+        return numComments;
+    }
+
+
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
@@ -27,4 +44,6 @@ public class CustomList extends ArrayAdapter<String>{
         imageView.setImageResource(imageId[position]);
         return rowView;
     }
+
+
 }

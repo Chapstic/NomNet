@@ -35,6 +35,7 @@ public class Camera extends ActionBarActivity {
     private Uri fileUri; // file url to store image/video
 
     private Toolbar topbar;
+
     private ImageButton[] bottombarButtons; //bottombar buttons
 
 

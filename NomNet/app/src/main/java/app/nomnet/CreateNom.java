@@ -68,6 +68,8 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
 
         bitmap = getIntent().getExtras().getParcelable("imagepass");
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //Initialize and access the Image based on data from camera
         nomPhoto = (ImageView) findViewById(R.id.foodImage);
         nomPhoto.setImageBitmap(bitmap);
