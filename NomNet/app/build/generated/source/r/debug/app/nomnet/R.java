@@ -1632,18 +1632,19 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int menu_camera=0x7f0f0000;
-        public static final int menu_create_nom=0x7f0f0001;
-        public static final int menu_custom_list=0x7f0f0002;
-        public static final int menu_food_feed=0x7f0f0003;
-        public static final int menu_main=0x7f0f0004;
-        public static final int menu_nomification=0x7f0f0005;
-        public static final int menu_profile=0x7f0f0006;
-        public static final int menu_register=0x7f0f0007;
-        public static final int menu_search=0x7f0f0008;
-        public static final int menu_settings=0x7f0f0009;
-        public static final int menu_sign_in=0x7f0f000a;
-        public static final int menu_splash=0x7f0f000b;
-        public static final int menu_view_nom=0x7f0f000c;
+        public static final int menu_client=0x7f0f0001;
+        public static final int menu_create_nom=0x7f0f0002;
+        public static final int menu_custom_list=0x7f0f0003;
+        public static final int menu_food_feed=0x7f0f0004;
+        public static final int menu_main=0x7f0f0005;
+        public static final int menu_nomification=0x7f0f0006;
+        public static final int menu_profile=0x7f0f0007;
+        public static final int menu_register=0x7f0f0008;
+        public static final int menu_search=0x7f0f0009;
+        public static final int menu_settings=0x7f0f000a;
+        public static final int menu_sign_in=0x7f0f000b;
+        public static final int menu_splash=0x7f0f000c;
+        public static final int menu_view_nom=0x7f0f000d;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
