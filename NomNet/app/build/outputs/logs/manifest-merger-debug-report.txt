@@ -1,6 +1,8 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
 	package
 		ADDED from AndroidManifest.xml:3:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -8,8 +10,6 @@ ADDED from AndroidManifest.xml:2:1
 	android:versionName
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
 	android:versionCode
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
@@ -74,10 +74,10 @@ ADDED from AndroidManifest.xml:32:9
 		ADDED from AndroidManifest.xml:35:13
 	android:label
 		ADDED from AndroidManifest.xml:34:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:37:13
 	android:configChanges
 		ADDED from AndroidManifest.xml:36:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:37:13
 	android:name
 		ADDED from AndroidManifest.xml:33:13
 activity#app.nomnet.SearchActivity
@@ -108,10 +108,10 @@ ADDED from AndroidManifest.xml:50:13
 		ADDED from AndroidManifest.xml:51:17
 meta-data#android.app.default_searchable
 ADDED from AndroidManifest.xml:53:13
-	android:value
-		ADDED from AndroidManifest.xml:55:17
 	android:name
 		ADDED from AndroidManifest.xml:54:17
+	android:value
+		ADDED from AndroidManifest.xml:55:17
 activity#app.nomnet.SignIn
 ADDED from AndroidManifest.xml:58:9
 	android:screenOrientation
@@ -214,10 +214,10 @@ ADDED from AndroidManifest.xml:115:9
 		ADDED from AndroidManifest.xml:117:13
 	android:label
 		ADDED from AndroidManifest.xml:116:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:119:13
 	android:configChanges
 		ADDED from AndroidManifest.xml:118:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:119:13
 	android:name
 		ADDED from AndroidManifest.xml:115:19
 uses-sdk
