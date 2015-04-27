@@ -1,3 +1,12 @@
+/*
+ * TEAM NOMNET
+ * -----------
+ * Izzy Benavente
+ * Mingzhe (Elliscope) Fang
+ * Sydney Liu
+ * Rebecca Wu
+ * Albert Yue
+ */
 package app.nomnet;
 
 import android.app.SearchManager;

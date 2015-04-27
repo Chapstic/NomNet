@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    TEAM NOMNET
+
+    Izzy Benavente
+    Mingzhe (Elliscope) Fang
+    Sydney Liu
+    Rebecca Wu
+    Albert Yue
+-->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.nomnet"
     >
