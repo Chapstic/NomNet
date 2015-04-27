@@ -81,7 +81,8 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
 
         //Initialize and access the Image based on data from camera
         nomPhoto = (ImageView) findViewById(R.id.foodImage);
-        nomPhoto.setImageBitmap(bitmap);
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, 800, 800, true);
+        nomPhoto.setImageBitmap(scaledBitmap);
 
         //Access the dishEdit field in create_nom.xml
         dishEdit = (EditText) findViewById(R.id.dishEdit);
@@ -118,6 +119,7 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         // Also add that value to the list shown in the ListView
+        String username = ((MyApplication) this.getApplication()).getCurrentUser();
         dishname = String.valueOf(dishEdit.getText() );
         ingredients = String.valueOf(ingredientsEdit.getText() );
         directions = String.valueOf(directionsEdit.getText() );
@@ -125,7 +127,7 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
         createImage();
 
         newRecipe = new Recipe(dishname, ingredients, directions);
-        newNom = new Nom("Placeholder Username", 0, imageID, newRecipe, refinedTags);
+        newNom = new Nom(username, 0, imageID, newRecipe, refinedTags);
 
         intent.putExtra("Nom", newNom); //Passes Nom object in Map<Key,Value> format to next activity (view_nom)
         v.getContext().startActivity(intent); //Creates Nom and immediately goes to ViewNom
@@ -194,7 +196,10 @@ public class CreateNom extends ActionBarActivity implements View.OnClickListener
     public void createImage(){
         imageID = ((MyApplication) this.getApplication()).getImgListSize();
         image = new Image(imageID, dishname);
-        image.setBitmap(bitmap);
+        //Bitmap scaledBitmap = scaleDown(bitmap, 800, true);
+
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, 800, 800, true);
+        image.setBitmap(scaledBitmap);
         ((MyApplication) this.getApplication()).addImage(image);
     }
 }

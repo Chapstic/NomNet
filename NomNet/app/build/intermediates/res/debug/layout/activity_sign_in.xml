@@ -20,7 +20,9 @@ android:background="#D32F2F">
     android:textColor="#ffffff"
     android:layout_marginLeft="20dip"
     android:text="Username"/>
+
 <EditText android:layout_width="fill_parent"
+    android:id="@+id/usernameEdit"
     android:layout_height="32dp"
     android:layout_marginTop="5dip"
     android:layout_marginBottom="20dip"
@@ -29,6 +31,7 @@ android:background="#D32F2F">
     android:singleLine="true"
     android:textColor="#000"
     android:background="@drawable/edittextbox"/>
+
 <!--  Password Label -->
 <TextView android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -36,6 +39,7 @@ android:background="#D32F2F">
     android:layout_marginLeft="20dip"
     android:layout_marginRight="20dip"
     android:text="Password"/>
+
 <EditText android:layout_width="fill_parent"
     android:layout_height="32dp"
     android:layout_marginTop="5dip"
@@ -65,4 +69,4 @@ android:background="#D32F2F">
     android:textColor="#B0D6FD"/>
 
 </LinearLayout>
-    <!-- Login Form Ends --><!-- From: file:/C:/Users/Izzy/Documents/NomNet/NomNet/app/src/main/res/layout/activity_sign_in.xml -->
+    <!-- Login Form Ends --><!-- From: file:/C:/Users/Albert/Documents/NomNet/NomNet/app/src/main/res/layout/activity_sign_in.xml -->
