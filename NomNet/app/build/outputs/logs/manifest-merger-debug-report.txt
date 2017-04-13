@@ -1,237 +1,235 @@
 -- Merging decision tree log ---
 manifest
-ADDED from AndroidManifest.xml:12:1
-	xmlns:android
-		ADDED from AndroidManifest.xml:12:11
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:12:1-142:12
 	package
-		ADDED from AndroidManifest.xml:13:5
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:13:5-25
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:12:11-69
 	android:versionCode
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.CAMERA
-ADDED from AndroidManifest.xml:17:5
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:17:5-65
 	android:name
-		ADDED from AndroidManifest.xml:17:22
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:17:22-62
 uses-feature#android.hardware.camera
-ADDED from AndroidManifest.xml:19:5
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:19:5-60
 	android:name
-		ADDED from AndroidManifest.xml:19:19
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:19:19-57
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from AndroidManifest.xml:20:5
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:20:5-81
 	android:name
-		ADDED from AndroidManifest.xml:20:22
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:20:22-78
 application
-ADDED from AndroidManifest.xml:23:5
-MERGED from com.android.support:appcompat-v7:22.0.0:22:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.android.support:cardview-v7:21.0.0:16:5
-MERGED from com.android.support:recyclerview-v7:21.0.0:17:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:23:5-140:19
+MERGED from [com.android.support:appcompat-v7:22.0.0] C:\Users\Albert\.android\build-cache\9cf6f624dbfd1cf99a0bf5a12ba62922ea9a32d1\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:21.0.0] C:\Users\Albert\.android\build-cache\892420d322623b7728b291caaab5a01c653a4e76\output\AndroidManifest.xml:16:5-19
+MERGED from [com.android.support:recyclerview-v7:21.0.0] C:\Users\Albert\.android\build-cache\e526fb3f026e43a3e183e653767d2b6790905b66\output\AndroidManifest.xml:17:5-19:19
+MERGED from [com.android.support:support-v4:22.0.0] C:\Users\Albert\.android\build-cache\8032f6cb3a5c4f70eb737099a1179ad6375844cc\output\AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from AndroidManifest.xml:27:9
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:27:9-31
 	android:allowBackup
-		ADDED from AndroidManifest.xml:25:9
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:25:9-35
 	android:icon
-		ADDED from AndroidManifest.xml:26:9
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:26:9-43
 	android:theme
-		ADDED from AndroidManifest.xml:28:9
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:28:9-40
 	android:name
-		ADDED from AndroidManifest.xml:24:9
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:24:9-38
 provider#app.nomnet.SearchSuggestions
-ADDED from AndroidManifest.xml:29:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:29:9-30:66
 	android:authorities
-		ADDED from AndroidManifest.xml:30:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:30:13-63
 	android:name
-		ADDED from AndroidManifest.xml:29:19
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:29:19-52
 activity#app.nomnet.SplashActivity
-ADDED from AndroidManifest.xml:31:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:31:9-41:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:34:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:34:13-49
 	android:label
-		ADDED from AndroidManifest.xml:33:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:33:13-58
 	android:configChanges
-		ADDED from AndroidManifest.xml:35:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:35:13-74
 	android:name
-		ADDED from AndroidManifest.xml:32:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:32:13-43
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:36:13
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:36:13-40:29
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:37:17
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:37:17-69
 	android:name
-		ADDED from AndroidManifest.xml:37:25
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:37:25-66
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:39:17
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:39:17-77
 	android:name
-		ADDED from AndroidManifest.xml:39:27
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:39:27-74
 activity#app.nomnet.ViewNom
-ADDED from AndroidManifest.xml:42:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:42:9-47:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:45:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:45:13-49
 	android:label
-		ADDED from AndroidManifest.xml:44:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:44:13-60
 	android:configChanges
-		ADDED from AndroidManifest.xml:46:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:46:13-74
 	android:name
-		ADDED from AndroidManifest.xml:43:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:43:13-36
 activity#app.nomnet.SearchActivity
-ADDED from AndroidManifest.xml:48:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:48:9-66:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:51:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:51:13-49
 	android:label
-		ADDED from AndroidManifest.xml:50:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:50:13-35
 	android:configChanges
-		ADDED from AndroidManifest.xml:52:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:52:13-74
 	android:name
-		ADDED from AndroidManifest.xml:49:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:49:13-43
 intent-filter#android.intent.action.SEARCH
-ADDED from AndroidManifest.xml:54:13
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:54:13-58:29
 action#android.intent.action.SEARCH
-ADDED from AndroidManifest.xml:55:17
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:55:17-57:84
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:56:21
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:56:21-57
 	android:configChanges
-		ADDED from AndroidManifest.xml:57:21
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:57:21-82
 	android:name
-		ADDED from AndroidManifest.xml:55:25
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:55:25-68
 meta-data#android.app.searchable
-ADDED from AndroidManifest.xml:59:13
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:59:13-61:54
 	android:resource
-		ADDED from AndroidManifest.xml:61:17
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:61:17-51
 	android:name
-		ADDED from AndroidManifest.xml:60:17
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:60:17-54
 meta-data#android.app.default_searchable
-ADDED from AndroidManifest.xml:62:13
-	android:name
-		ADDED from AndroidManifest.xml:63:17
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:62:13-64:51
 	android:value
-		ADDED from AndroidManifest.xml:64:17
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:64:17-48
+	android:name
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:63:17-62
 activity#app.nomnet.SignIn
-ADDED from AndroidManifest.xml:67:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:67:9-72:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:70:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:70:13-49
 	android:label
-		ADDED from AndroidManifest.xml:69:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:69:13-59
 	android:configChanges
-		ADDED from AndroidManifest.xml:71:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:71:13-74
 	android:name
-		ADDED from AndroidManifest.xml:68:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:68:13-35
 activity#app.nomnet.Register
-ADDED from AndroidManifest.xml:73:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:73:9-78:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:76:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:76:13-49
 	android:label
-		ADDED from AndroidManifest.xml:75:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:75:13-60
 	android:configChanges
-		ADDED from AndroidManifest.xml:77:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:77:13-74
 	android:name
-		ADDED from AndroidManifest.xml:74:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:74:13-37
 activity#app.nomnet.FoodFeedActivity
-ADDED from AndroidManifest.xml:79:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:79:9-89:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:82:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:82:13-49
 	android:label
-		ADDED from AndroidManifest.xml:81:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:81:13-45
 	android:configChanges
-		ADDED from AndroidManifest.xml:83:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:83:13-74
 	android:name
-		ADDED from AndroidManifest.xml:80:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:80:13-45
 intent-filter#android.intent.action.STARTINGPOINT+android.intent.category.DEFAULT
-ADDED from AndroidManifest.xml:84:13
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:84:13-88:29
 action#android.intent.action.STARTINGPOINT
-ADDED from AndroidManifest.xml:85:17
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:85:17-78
 	android:name
-		ADDED from AndroidManifest.xml:85:25
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:85:25-75
 category#android.intent.category.DEFAULT
-ADDED from AndroidManifest.xml:87:17
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:87:17-76
 	android:name
-		ADDED from AndroidManifest.xml:87:27
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:87:27-73
 activity#app.nomnet.Profile
-ADDED from AndroidManifest.xml:90:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:90:9-95:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:93:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:93:13-49
 	android:label
-		ADDED from AndroidManifest.xml:92:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:92:13-59
 	android:configChanges
-		ADDED from AndroidManifest.xml:94:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:94:13-74
 	android:name
-		ADDED from AndroidManifest.xml:91:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:91:13-36
 activity#app.nomnet.Settings
-ADDED from AndroidManifest.xml:96:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:96:9-101:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:99:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:99:13-49
 	android:label
-		ADDED from AndroidManifest.xml:98:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:98:13-60
 	android:configChanges
-		ADDED from AndroidManifest.xml:100:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:100:13-74
 	android:name
-		ADDED from AndroidManifest.xml:97:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:97:13-37
 activity#app.nomnet.CreateNom
-ADDED from AndroidManifest.xml:102:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:102:9-107:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:105:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:105:13-49
 	android:label
-		ADDED from AndroidManifest.xml:104:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:104:13-62
 	android:configChanges
-		ADDED from AndroidManifest.xml:106:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:106:13-74
 	android:name
-		ADDED from AndroidManifest.xml:103:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:103:13-38
 activity#app.nomnet.Nomification
-ADDED from AndroidManifest.xml:108:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:108:9-113:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:111:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:111:13-49
 	android:label
-		ADDED from AndroidManifest.xml:110:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:110:13-64
 	android:configChanges
-		ADDED from AndroidManifest.xml:112:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:112:13-74
 	android:name
-		ADDED from AndroidManifest.xml:109:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:109:13-41
 activity#app.nomnet.CustomList
-ADDED from AndroidManifest.xml:114:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:114:9-117:20
 	android:label
-		ADDED from AndroidManifest.xml:116:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:116:13-63
 	android:name
-		ADDED from AndroidManifest.xml:115:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:115:13-39
 activity#app.nomnet.Camera
-ADDED from AndroidManifest.xml:118:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:118:9-123:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:121:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:121:13-49
 	android:label
-		ADDED from AndroidManifest.xml:120:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:120:13-58
 	android:configChanges
-		ADDED from AndroidManifest.xml:122:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:122:13-74
 	android:name
-		ADDED from AndroidManifest.xml:119:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:119:13-35
 activity#app.nomnet.SearchResults
-ADDED from AndroidManifest.xml:124:9
+ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:124:9-139:20
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:126:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:126:13-49
 	android:label
-		ADDED from AndroidManifest.xml:125:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:125:13-42
 	android:configChanges
-		ADDED from AndroidManifest.xml:127:13
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:127:13-74
 	android:name
-		ADDED from AndroidManifest.xml:124:19
+		ADDED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml:124:19-48
 uses-sdk
-INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
-MERGED from com.android.support:appcompat-v7:22.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.android.support:cardview-v7:21.0.0:15:5
-MERGED from com.android.support:recyclerview-v7:21.0.0:15:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
+INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:22.0.0] C:\Users\Albert\.android\build-cache\9cf6f624dbfd1cf99a0bf5a12ba62922ea9a32d1\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:21.0.0] C:\Users\Albert\.android\build-cache\892420d322623b7728b291caaab5a01c653a4e76\output\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support:recyclerview-v7:21.0.0] C:\Users\Albert\.android\build-cache\e526fb3f026e43a3e183e653767d2b6790905b66\output\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support:support-v4:22.0.0] C:\Users\Albert\.android\build-cache\8032f6cb3a5c4f70eb737099a1179ad6375844cc\output\AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Albert\Documents\NomNet\NomNet\app\src\main\AndroidManifest.xml
 activity#android.support.v7.widget.TestActivity
-ADDED from com.android.support:recyclerview-v7:21.0.0:18:9
+ADDED from [com.android.support:recyclerview-v7:21.0.0] C:\Users\Albert\.android\build-cache\e526fb3f026e43a3e183e653767d2b6790905b66\output\AndroidManifest.xml:18:9-115
 	android:label
-		ADDED from com.android.support:recyclerview-v7:21.0.0:18:19
+		ADDED from [com.android.support:recyclerview-v7:21.0.0] C:\Users\Albert\.android\build-cache\e526fb3f026e43a3e183e653767d2b6790905b66\output\AndroidManifest.xml:18:19-59
 	android:name
-		ADDED from com.android.support:recyclerview-v7:21.0.0:18:60
+		ADDED from [com.android.support:recyclerview-v7:21.0.0] C:\Users\Albert\.android\build-cache\e526fb3f026e43a3e183e653767d2b6790905b66\output\AndroidManifest.xml:18:60-113
